@@ -4,7 +4,7 @@
 --slate:#33526B;--border:#D8CCB2;--border-strong:#A08D6B}
 *{box-sizing:border-box}
 body{margin:0;background:var(--parchment);color:var(--ink);
-font-family:"Segoe UI",Inter,-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6}
+font-family:"Segoe UI","Source Sans 3",-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6}
 a{color:var(--slate)}
 .wrap{max-width:1080px;margin:0 auto;padding:0 20px 64px}
 header.masthead{border-bottom:4px double var(--border-strong);padding:28px 20px 18px;text-align:center}
@@ -34,7 +34,7 @@ background:var(--parchment-elevated);color:var(--ink)}
 .pills{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
 .pill{font-size:11px;font-weight:600;letter-spacing:.03em;border:1px solid var(--border-strong);border-radius:999px;padding:2px 9px;color:var(--ink-secondary)}
 .pill.full{border-color:var(--oxblood);color:var(--oxblood)}
-.hash{font-family:"JetBrains Mono",Consolas,monospace;font-size:11px;color:var(--ink-muted);word-break:break-all}
+.hash{font-family:Consolas,"JetBrains Mono",monospace;font-size:11px;color:var(--ink-muted);word-break:break-all}
 article.page{background:var(--parchment-elevated);border:1px solid var(--border);padding:26px 30px;margin-top:22px}
 article.page h1{font-size:26px;margin:6px 0}
 article.page .src{font-size:14px;color:var(--ink-secondary);border-bottom:1px solid var(--border);padding-bottom:12px}
@@ -49,6 +49,11 @@ figure.plate{margin:18px 0;text-align:center}
 figure.plate img{max-width:100%;border:1px solid var(--border-strong)}
 figure.plate figcaption{font-size:13px;color:var(--ink-secondary);margin-top:6px}
 footer{border-top:4px double var(--border-strong);margin-top:40px;padding:16px 20px;text-align:center;font-size:13px;color:var(--ink-secondary)}
+.pager{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:center;margin:20px 0}
+.pager a,.pager span.cur{font-size:13px;font-weight:600;padding:5px 12px;border:1px solid var(--border-strong);border-radius:999px;text-decoration:none;color:var(--ink);background:var(--parchment-elevated)}
+.pager span.cur{background:var(--oxblood);color:#fff;border-color:var(--oxblood)}
+.pager .range{width:100%;text-align:center;font-weight:400;border:none;background:none;font-size:13px;color:var(--ink-secondary)}
+.morebtn{display:block;margin:6px auto 20px;font:inherit;font-size:14px;font-weight:600;padding:8px 22px;border:1px solid var(--border-strong);background:var(--parchment-elevated);color:var(--ink);border-radius:999px;cursor:pointer}
 body[data-lang="en"] .l-es{display:none}
 body[data-lang="es"] .l-en{display:none}
 .hidden{display:none}
