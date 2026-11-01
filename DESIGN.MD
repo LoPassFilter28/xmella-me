@@ -43,14 +43,28 @@ variant (open item 2); if adopted, its tokens derive from the table above
 inverted, not from their hex values.
 
 ## Typography
-- System family: **Segoe UI** (assignment basis), fallbacks Inter,
-  -apple-system, sans-serif. Body 15-16px / 1.65 for article prose and
-  summaries; UI controls 13-14px, weight 600 for pills/tabs.
+- System family: **Segoe UI** (assignment basis) where the device has it
+  (Windows). Segoe UI does not exist on macOS/iOS/Android and cannot be
+  embedded as a webfont (Microsoft proprietary), so the embedded baseline
+  is **Source Sans 3** (open humanist sans, same design family spirit),
+  loaded as a webfont on every page; stack: "Segoe UI", "Source Sans 3",
+  -apple-system, sans-serif. AMENDED 2026-11-01 after PiK0 caught that
+  the pilot rendered in fallback fonts on his phone: a named font that
+  never renders is not a type system. Body 15-16px / 1.65 for article
+  prose and summaries; UI controls 13-14px, weight 600 for pills/tabs.
 - Monospace for provenance: "JetBrains Mono", Consolas, monospace -
   record ids, SHA-256 digests, verbatim transcript wells.
 - DECIDED (PiK0, 2026-11-01): Segoe UI throughout. The bundle's Playfair
   Display display serif is NOT adopted; weight, size, and the double-rule
   masthead carry the broadsheet character.
+
+## Browsing rule (PiK0 order, 2026-11-01)
+No page ever renders the whole collection. The timeline index is a
+directory + search (results capped at 50 rendered at a time, data loaded
+lazily as a compact JSON index); browsing runs through era pages of at
+most 100 records with pagers. The first pilot shipped all 1,418 cards in
+one 3.4 MB page; PiK0's verdict ("mentally insane") is the standing
+precedent: a data dump is not a finding aid.
 
 ## Information architecture (provisional until the full-bundle audit)
 The bundle's seven views are the starting IA: Curated Timeline (1,418),
