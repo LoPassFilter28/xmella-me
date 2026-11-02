@@ -9,6 +9,37 @@ Status: PLANNING DRAFT, 2026-11-01. Written before any page exists, per the
 bundle design system is source material, reconciled below. Open items are
 listed at the end and need PiK0's ruling before build.
 
+## V4 GOVERNING AMENDMENT (PiK0, 2026-11-01 night) — supersedes the palette table and open items below
+- **Design philosophy:** design for human beings, tailored to the project's
+  purpose. NO technical apparatus on public pages: no digests, hashes, OCR
+  or pipeline jargon anywhere a reader can see. Sources are cited the way a
+  human publication cites them. All checking machinery stays in the
+  workshop (build scripts, review files), never on the page.
+- **Palette CHANGED:** Walnut **#4A2E20** leads (masthead frame, footer
+  frame, dark room) + Terracotta **#B8602F** accent (links, active states,
+  buttons). Parchment remains the light reading paper. Mustard #C99B40 and
+  Sage #7C8C5C are rare accents (evidence labels take Sage/Terracotta).
+  Parchment & Ink (below) is retired as the working scheme.
+- **Dark mode REQUIRED and built:** light/dark toggle on every page;
+  dark theme is the walnut room (deep walnut surfaces, warm parchment
+  text, brightened terracotta). Choice persists; first visit follows the
+  device setting.
+- **Language: Spanish is the default** on first load. The language
+  buttons carry flag graphics: Spanish flag for ES, British Union Jack
+  for EN (PiK0's explicit choice). Choice persists.
+- **Design cues borrowed from 407 FYI** (procedures/workflows migrate,
+  per PROJECT-RULES): Book Cover masthead (closed double-rule frame,
+  rounded 20px/14px), beveled-plate cards, plate format for images
+  (caption + credit inside the mat), section rhythm.
+- **Mella Maritime is OUT of this branch:** Grandpa Tito gets his own
+  standalone page, linked from the xmella.me launch screen.
+- **Send Observation box on every article page:** a small plate inviting
+  observations/corrections, button opens the reader's mail addressed to
+  admin@xmella.me with the article prefilled.
+- Copy follows the 407 "don't sound like AI" concepts: plain, warm,
+  specific; labels say what a thing is for the reader, never how it was
+  built.
+
 ## Governing decisions (PiK0, 2026-11-01)
 - Color scheme: **Parchment & Ink** (picked over the bundle's palette).
 - Format basis: the GEN1011 assignment submitted to Professor Schneider -
