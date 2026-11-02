@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://xmella.me/us-dr-newspaper-timeline/sitemap.xml
