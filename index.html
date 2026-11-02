@@ -1,19 +1,46 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8">
+<html lang="es"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>xMella</title>
-<link rel="stylesheet" href="us-dr-newspaper-timeline/assets/style.css"></head>
-<body>
-<header class="masthead"><div class="kicker">xmella.me</div>
-<h1>xMella</h1>
-<div class="sub">Home of the US/DR Newspaper Timeline. More to come.</div></header>
-<div class="wrap"><div class="card" style="margin-top:22px">
-<h3><a href="us-dr-newspaper-timeline/index.html">US/DR Newspaper Timeline</a></h3>
-<p>The Dominican Republic in the American Press: a bilingual research edition of
-United States newspaper coverage, 1820-1963, from the Library of Congress
-Chronicling America archive. Pilot edition: 1,418 curated records, era chapters,
-and the Mella maritime clippings.</p>
-<p><a href="us-dr-newspaper-timeline/index.html">Enter the timeline &rarr;</a></p>
-</div></div>
-<footer>US/DR Newspaper Timeline &middot; xmella.me</footer>
+<meta name="description" content="La casa de PiK0: ediciones de historia e investigación construidas desde los archivos. RD en la Prensa Norteamericana, la Historia de la isla de Santo Domingo de Barskett (1818) y el Informe de la Comisión de Santo Domingo (1871).">
+<title>xmella.me</title>
+<link rel="preload" href="assets/fonts/urbanist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/style.css"></head>
+<body data-lang="es" data-theme="light">
+<script>(function(){var l=localStorage.getItem('xm-lang');if(l){document.body.dataset.lang=l;document.documentElement.lang=l;}
+var t=localStorage.getItem('xm-theme');if(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';
+if(t)document.body.dataset.theme=t;})();</script>
+<header class="masthead"><div class="frame"><div class="kicker">xmella.me</div>
+<h1>xmella.me</h1>
+<div class="sub"><span class="l-en">The house of PiK0: history editions and research built from the archives, in English and Spanish.</span><span class="l-es">La casa de PiK0: ediciones de historia e investigación construidas desde los archivos, en inglés y en español.</span></div></div></header>
+<div class="utilbar">
+<button id="btn-es" aria-pressed="true" onclick="setLang('es')"><svg viewBox="0 0 22 15" aria-hidden="true"><rect width="22" height="15" fill="#F1BF00"/><rect width="22" height="3.75" fill="#AA151B"/><rect y="11.25" width="22" height="3.75" fill="#AA151B"/></svg> Español</button>
+<button id="btn-en" aria-pressed="false" onclick="setLang('en')"><svg viewBox="0 0 22 15" aria-hidden="true"><rect width="22" height="15" fill="#012169"/><path d="M0 0L22 15M22 0L0 15" stroke="#fff" stroke-width="3"/><path d="M0 0L22 15M22 0L0 15" stroke="#C8102E" stroke-width="1.2"/><path d="M11 0V15M0 7.5H22" stroke="#fff" stroke-width="5"/><path d="M11 0V15M0 7.5H22" stroke="#C8102E" stroke-width="2.8"/></svg> English</button>
+<span class="sep"></span>
+<button id="btn-theme" aria-pressed="false" onclick="toggleTheme()"><span class="l-en">Dark</span><span class="l-es">Oscuro</span> / <span class="l-en">Light</span><span class="l-es">Claro</span></button></div>
+<script>function swapAttrs(l){document.querySelectorAll('[data-attr]').forEach(function(el){var a=el.getAttribute('data-attr'),v=el.getAttribute('data-'+l);if(v===null)return;if(a==='text'){el.textContent=v;}else{el.setAttribute(a,v);}});}
+function setLang(l){document.body.dataset.lang=l;document.documentElement.lang=l;document.getElementById('btn-en').setAttribute('aria-pressed',l=='en');document.getElementById('btn-es').setAttribute('aria-pressed',l=='es');swapAttrs(l);localStorage.setItem('xm-lang',l);if(window.__onLang)window.__onLang(l);}
+function toggleTheme(){var d=document.body.dataset.theme=='dark'?'light':'dark';document.body.dataset.theme=d;document.getElementById('btn-theme').setAttribute('aria-pressed',d=='dark');localStorage.setItem('xm-theme',d);}
+(function(){document.addEventListener('DOMContentLoaded',function(){setLang(document.body.dataset.lang);
+document.getElementById('btn-theme').setAttribute('aria-pressed',document.body.dataset.theme=='dark');});})();</script>
+<div class="wrap">
+<div class="doors">
+<div class="card"><h3><a href="us-dr-newspaper-timeline/index.html"><span class="l-en">DR in the American Press</span><span class="l-es">RD en la Prensa Norteamericana</span></a></h3>
+<p><span class="l-en">United States newspaper coverage of the Dominican Republic, 1820&ndash;1984, gathered from the Library of Congress&rsquo;s Chronicling America archive: 1,757 articles from 427 newspapers, in the order they appeared.</span><span class="l-es">La cobertura de la República Dominicana en los periódicos de Estados Unidos, de 1820 a 1984, reunida desde el archivo Chronicling America de la Biblioteca del Congreso: 1.757 artículos de 427 periódicos, en el orden en que aparecieron.</span></p></div>
+<div class="card"><h3><a href="barskett/index.html"><span class="l-en">History of the Island of St. Domingo (1818)</span><span class="l-es">Historia de la isla de Santo Domingo (1818)</span></a></h3>
+<p><span class="l-en">James Barskett&rsquo;s 1818 history of the island, in a complete Spanish web edition: the chapters, the appendices, and the key figures, with the whole book downloadable as a PDF.</span><span class="l-es">La historia de la isla que escribió James Barskett en 1818, en una edición web completa en español: los capítulos, los apéndices y las figuras clave, con el libro entero descargable en PDF.</span></p></div>
+<div class="card"><h3><a href="santo-domingo-commission/index.html"><span class="l-en">Report of the Santo Domingo Commission (1871)</span><span class="l-es">Informe de la Comisión de Santo Domingo (1871)</span></a></h3>
+<p><span class="l-en">The report of the 1871 United States commission of inquiry into the proposed annexation of Santo Domingo: the commissioners&rsquo; report, their diary, the Saman&aacute; studies, and the testimony, in a Spanish web edition.</span><span class="l-es">El informe de la comisión de investigación que Estados Unidos envió en 1871 ante la propuesta anexión de Santo Domingo: el informe de los comisionados, su diario, los estudios de Samaná y los testimonios, en una edición web en español.</span></p>
+<p class="alt"><a href="santo-domingo-commission/una-pagina/index.html"><span class="l-en">The same edition on a single page &rarr;</span><span class="l-es">La misma edición en una sola página &rarr;</span></a></p></div>
+<div class="card"><h3><a href="https://bosquejo.grok.me/">Bosquejo</a></h3>
+<p><span class="l-en">A separate room, kept elsewhere: bosquejo.grok.me.</span><span class="l-es">Una sala aparte, guardada en otro lugar: bosquejo.grok.me.</span></p></div>
+</div>
+<!-- OWNER'S OWN WORDS: PiK0's bio / maker statement belongs in this block, in
+     his own text. Until he supplies it, the byline below is the only visible
+     copy. Do not invent biography here. -->
+<div class="ctx"><h4><span class="l-en">About the maker</span><span class="l-es">Sobre el autor</span></h4>
+<p><span class="l-en">Everything in this house is built and kept by PiK0.</span><span class="l-es">Todo lo que hay en esta casa lo construye y lo mantiene PiK0.</span></p></div>
+</div>
+<footer><div class="frame">xmella.me &middot; PiK0<br>
+<span class="l-en">Corrections and observations are welcome:</span><span class="l-es">Correcciones y observaciones son bienvenidas:</span> <a href="mailto:admin@xmella.me">admin@xmella.me</a></div></footer>
 </body></html>
