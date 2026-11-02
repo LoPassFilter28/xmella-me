@@ -1,5 +1,5 @@
 
-/* US/DR Newspaper Timeline - design system v6, cast from the 407 FYI mold.
+/* DR in the American Press - design system v6, cast from the 407 FYI mold.
    Mold tokens (--bg/--surface/--ink/--muted/--line/--accent/--accent-ink/
    --headline/--soft/--badge/--focus/--on-accent + motion tokens) carry the
    family roles; the skin is Walnut/Terracotta on parchment, dark is the
@@ -157,3 +157,55 @@ transition:border-color var(--dur-ui) var(--ease-ui)}
 body[data-lang="en"] .l-es{display:none}
 body[data-lang="es"] .l-en{display:none}
 .hidden{display:none}
+
+/* v7: cards lead with the newspaper name set like a headline */
+.paper-name{font-family:var(--font-d);font-weight:800;letter-spacing:-.015em;
+font-size:17px;line-height:1.2;color:var(--accent-ink)}
+.paper-name.big{font-size:20px;margin-top:4px}
+.card .meta{margin-top:3px}
+/* v7: the era pill on article pages */
+.article-nav{display:flex;flex-direction:column;gap:8px}
+.pill.era-pill{background:var(--accent);color:var(--on-accent);border-color:var(--accent);
+align-self:flex-start;font-size:12px;padding:5px 12px}
+.pill.era-pill:hover{color:var(--on-accent)}
+/* v7: chaptered narrative on the timeline page */
+.progress-thread{position:fixed;left:0;top:0;width:4px;height:100vh;z-index:40;pointer-events:none}
+.progress-thread i{display:block;width:100%;height:100%;background:var(--accent);
+transform:scaleY(0);transform-origin:top}
+.chapter-marker{position:sticky;top:8px;z-index:30;display:inline-block;margin:16px 0 4px;
+background:var(--surface);border:1px solid var(--border-strong);border-radius:999px;
+padding:7px 16px;font-size:13px;font-weight:700;box-shadow:var(--shadow);color:var(--headline)}
+.chapter-marker .mk{display:none}
+.chapter-marker .mk.cur{display:inline}
+.chapter{margin:38px 0}
+.chapter-head .kicker-line{font-size:.72rem;font-weight:800;letter-spacing:.1em;
+text-transform:uppercase;color:var(--accent-ink)}
+.chapter-head h2{font-family:var(--font-d);font-size:clamp(24px,3.4vw,32px);font-weight:800;
+letter-spacing:-.02em;line-height:1.15;color:var(--headline);margin:4px 0 8px}
+.chapter-head p{max-width:75ch}
+.two-readings{border-left:3px solid var(--accent)}
+details.evidence{border:1px solid var(--line);border-radius:10px;background:var(--soft);
+padding:6px 14px 12px;margin:14px 0}
+details.evidence summary{cursor:pointer;font-weight:700;min-height:44px;display:flex;
+align-items:center;color:var(--headline)}
+details.searchfold{border:1px solid var(--line);border-radius:10px;background:var(--surface);
+padding:6px 16px 14px;margin:18px 0}
+details.searchfold summary{cursor:pointer;font-weight:700;min-height:44px;display:flex;
+align-items:center;color:var(--muted)}
+.featured{margin:14px 0}
+.featured .card{border-color:var(--accent)}
+/* v7: reveal once on entry + reprint trail draw (transform/opacity only) */
+html.js .reveal{opacity:0;transform:translateY(12px)}
+html.js .reveal.in{opacity:1;transform:none;
+transition:opacity 500ms var(--ease-ui),transform 500ms var(--ease-ui)}
+.trail{position:relative;overflow:hidden}
+.trail::before{content:"";position:absolute;left:0;top:0;height:3px;width:100%;
+background:var(--accent);transform:scaleX(0);transform-origin:left;
+transition:transform 600ms var(--ease-ui)}
+.trail.in::before{transform:scaleX(1)}
+/* v7: state-grouped newspaper directory */
+.state-h{font-family:var(--font-d);font-size:25px;font-weight:800;letter-spacing:-.02em;
+color:var(--headline);margin:32px 0 4px;border-bottom:2px solid var(--accent);padding-bottom:4px}
+.city-h{font-size:16px;font-weight:700;color:var(--accent-ink);margin:16px 0 6px}
+@media (prefers-reduced-motion:reduce){html.js .reveal{opacity:1;transform:none}
+.progress-thread{display:none}.trail::before{transform:scaleX(1)}}
