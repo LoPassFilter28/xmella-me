@@ -42,6 +42,18 @@ slate). Their "Microfilm Vault" dark mode is carried as an UNDECIDED
 variant (open item 2); if adopted, its tokens derive from the table above
 inverted, not from their hex values.
 
+## Design source of record (Figma)
+- File: "US/DR Newspaper Timeline — Design System",
+  https://www.figma.com/design/djZyIPRxWH9dWUmb1UMKdE (created
+  2026-11-01 on PiK0's order, after the pilot shipped without any
+  Figma work). Contents: Tokens & Type page (the Parchment & Ink
+  variable collection + text styles), Components page (Masthead,
+  Record Card, Pills, Evidence Labels, Pager, Well/Provenance,
+  Plate), Pages page (index, article, era-browse compositions from
+  component instances). New design work starts in this file;
+  DESIGN.MD remains the token truth if the two ever disagree, and
+  the disagreement gets fixed in the file, not the doc.
+
 ## Typography
 - System family: **Segoe UI** (assignment basis) where the device has it
   (Windows). Segoe UI does not exist on macOS/iOS/Android and cannot be
