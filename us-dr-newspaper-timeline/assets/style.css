@@ -1,6 +1,6 @@
 
 :root{--parchment:#F7F2E7;--parchment-elevated:#FCF9F1;--parchment-muted:#EDE4D0;
---ink:#1C1A17;--ink-secondary:#4C463C;--ink-muted:#7A7263;--oxblood:#7A2E2E;
+--ink:#1C1A17;--ink-secondary:#4C463C;--ink-muted:#665E4E;--oxblood:#7A2E2E;
 --slate:#33526B;--border:#D8CCB2;--border-strong:#A08D6B}
 *{box-sizing:border-box}
 body{margin:0;background:var(--parchment);color:var(--ink);
@@ -9,14 +9,14 @@ a{color:var(--slate)}
 .wrap{max-width:1080px;margin:0 auto;padding:0 20px 64px}
 header.masthead{border-bottom:4px double var(--border-strong);padding:28px 20px 18px;text-align:center}
 header.masthead .kicker{letter-spacing:.18em;font-size:12px;color:var(--ink-secondary);text-transform:uppercase}
-header.masthead h1{margin:6px 0 4px;font-size:clamp(26px,4.5vw,42px);font-weight:700}
+header.masthead h1,header.masthead .sitename{margin:6px 0 4px;font-size:clamp(26px,4.5vw,42px);font-weight:700}
 header.masthead .sub{color:var(--ink-secondary);font-size:15px}
 .utilbar{display:flex;gap:10px;justify-content:center;align-items:center;padding:10px;border-bottom:1px solid var(--border);flex-wrap:wrap}
-.utilbar button,.utilbar a.btn{font:inherit;font-size:13px;font-weight:600;padding:5px 14px;border:1px solid var(--border-strong);
+.utilbar button,.utilbar a.btn{font:inherit;font-size:13px;font-weight:600;padding:10px 16px;min-height:44px;border:1px solid var(--border-strong);
 background:var(--parchment-elevated);color:var(--ink);border-radius:999px;cursor:pointer;text-decoration:none}
 .utilbar button[aria-pressed="true"]{background:var(--oxblood);color:#fff;border-color:var(--oxblood)}
 nav.main{display:flex;gap:18px;justify-content:center;padding:10px;font-size:14px;font-weight:600;flex-wrap:wrap}
-nav.main a{color:var(--ink);text-decoration:none}
+nav.main a{color:var(--ink);text-decoration:none;padding:6px 2px}
 nav.main a:hover{color:var(--oxblood)}
 .stats{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin:22px 0}
 .stat{background:var(--parchment-elevated);border:1px solid var(--border);padding:10px 18px;text-align:center;min-width:130px}
@@ -44,16 +44,20 @@ article.page .body p{margin:0 0 14px;font-size:16px}
 .label{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.05em;padding:2px 8px;border-radius:3px;text-transform:uppercase}
 .label.doc{background:var(--slate);color:#fff}
 .label.oral{background:var(--oxblood);color:#fff}
+.sumlabel{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--oxblood);margin:0 0 4px}
 .prevnext{display:flex;justify-content:space-between;gap:12px;margin-top:22px;font-size:14px}
 figure.plate{margin:18px 0;text-align:center}
 figure.plate img{max-width:100%;border:1px solid var(--border-strong)}
 figure.plate figcaption{font-size:13px;color:var(--ink-secondary);margin-top:6px}
 footer{border-top:4px double var(--border-strong);margin-top:40px;padding:16px 20px;text-align:center;font-size:13px;color:var(--ink-secondary)}
 .pager{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:center;margin:20px 0}
-.pager a,.pager span.cur{font-size:13px;font-weight:600;padding:5px 12px;border:1px solid var(--border-strong);border-radius:999px;text-decoration:none;color:var(--ink);background:var(--parchment-elevated)}
+.pager a,.pager span.cur{font-size:13px;font-weight:600;padding:10px 14px;min-height:44px;border:1px solid var(--border-strong);border-radius:999px;text-decoration:none;color:var(--ink);background:var(--parchment-elevated)}
 .pager span.cur{background:var(--oxblood);color:#fff;border-color:var(--oxblood)}
 .pager .range{width:100%;text-align:center;font-weight:400;border:none;background:none;font-size:13px;color:var(--ink-secondary)}
-.morebtn{display:block;margin:6px auto 20px;font:inherit;font-size:14px;font-weight:600;padding:8px 22px;border:1px solid var(--border-strong);background:var(--parchment-elevated);color:var(--ink);border-radius:999px;cursor:pointer}
+.morebtn{display:block;margin:6px auto 20px;font:inherit;font-size:14px;font-weight:600;padding:10px 22px;min-height:44px;border:1px solid var(--border-strong);background:var(--parchment-elevated);color:var(--ink);border-radius:999px;cursor:pointer}
+.dirlist{columns:2;column-gap:28px;font-size:14px}
+.dirlist div{break-inside:avoid;margin:0 0 6px}
+@media (max-width:640px){.dirlist{columns:1}article.page{padding:18px 16px}}
 body[data-lang="en"] .l-es{display:none}
 body[data-lang="es"] .l-en{display:none}
 .hidden{display:none}
