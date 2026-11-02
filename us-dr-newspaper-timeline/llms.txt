@@ -1,9 +1,9 @@
-# US/DR Newspaper Timeline (xmella.me/us-dr-newspaper-timeline)
+# DR in the American Press (xmella.me/us-dr-newspaper-timeline)
 
 A bilingual (English/Spanish) collection of United States newspaper coverage of the Dominican Republic, 1820 to 1984: 1757 articles from 427 newspapers, presented in the order they were published. Most articles come from the Library of Congress's Chronicling America archive; a small number come from newspapers.com and say so on their pages. Some articles are reproduced in full; the rest carry a labeled summary and the passage it was written from. A Miscellaneous section holds documents, sailing directories, and mail tables printed alongside the news.
 
 ## How to cite an article
 Name the newspaper and its date, link to the article's page on this site, and link to the original newspaper page at the Library of Congress (each article page carries that link). Example: The New York Herald, April 28, 1844, as presented at xmella.me/us-dr-newspaper-timeline, original at the Library of Congress, Chronicling America.
 
-## En español
+## En español: RD en la Prensa Norteamericana
 Una colección bilingüe (inglés/español) de la cobertura de la República Dominicana en los periódicos de Estados Unidos, de 1820 a 1984: 1757 artículos de 427 periódicos, presentados en el orden en que se publicaron. La mayoría viene del archivo Chronicling America de la Biblioteca del Congreso; unos pocos vienen de newspapers.com y lo dicen en sus páginas. Para citar un artículo: nombre el periódico y su fecha, enlace a la página del artículo en este sitio y a la página original en la Biblioteca del Congreso.
