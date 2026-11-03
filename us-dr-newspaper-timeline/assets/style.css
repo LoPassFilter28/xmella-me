@@ -54,6 +54,15 @@ font-size:clamp(28px,4.6vw,44px);font-weight:800;letter-spacing:-.03em;line-heig
 header.masthead .sub{color:var(--muted);font-size:15px;max-width:660px;margin:0 auto}
 header.masthead .frame::after{content:"";display:block;width:7px;height:7px;
 background:var(--accent);transform:rotate(45deg);margin:14px auto 2px}
+.banner{margin:18px 0 6px;background:#170C04;border:1px solid #7A5B40;border-radius:13px;
+padding:26px 28px;display:grid;grid-template-columns:1.12fr .88fr;gap:26px;align-items:center}
+.banner h2{margin:0 0 8px;font-family:var(--font-d);color:#F6EDD6;
+font-size:clamp(1.5rem,3.2vw,2.1rem);line-height:1.15}
+.banner p{margin:0;color:#E9DCC2;font-size:15.5px;max-width:56ch}
+.banner picture{display:block}
+.banner-img{display:block;width:100%;height:auto;max-height:290px;object-fit:contain}
+@media (max-width:760px){.banner{grid-template-columns:1fr;padding:20px}
+.banner-img{max-height:210px}}
 .utilbar{display:flex;gap:10px;justify-content:center;align-items:center;padding:12px 10px 4px;flex-wrap:wrap}
 .utilbar button{font:inherit;font-size:13px;font-weight:700;padding:8px 14px;min-height:44px;
 border:1px solid var(--border-strong);background:var(--surface);color:var(--ink);
