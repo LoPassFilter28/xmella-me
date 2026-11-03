@@ -179,19 +179,39 @@
     addMsg('user', q);
     history.push({ role: 'user', text: q });
     const thinking = addMsg('bot thinking', S().thinking);
-    try {
+    // One POST attempt, with its own 30 s timeout. Any failure to
+    // obtain a usable answer (network error, abort/timeout, bad
+    // status or body) throws to the caller.
+    async function postChat() {
       const ctrl = new AbortController();
       const timer = setTimeout(() => ctrl.abort(), 30000);
-      const r = await fetch(FN, {
-        method: 'POST',
-        headers: { 'Authorization': 'Bearer ' + KEY, 'apikey': KEY, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question: q, history: history.slice(0, -1).slice(-6), visitor }),
-        signal: ctrl.signal,
-      });
-      clearTimeout(timer);
-      const data = await r.json();
+      try {
+        const r = await fetch(FN, {
+          method: 'POST',
+          headers: { 'Authorization': 'Bearer ' + KEY, 'apikey': KEY, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ question: q, history: history.slice(0, -1).slice(-6), visitor }),
+          signal: ctrl.signal,
+        });
+        const data = await r.json();
+        if (!r.ok || !data.answer) throw new Error('bad response');
+        return data;
+      } finally {
+        clearTimeout(timer);
+      }
+    }
+    try {
+      let data;
+      try {
+        data = await postChat();
+      } catch (firstErr) {
+        // Exactly one retry after a short delay: the edge function's
+        // cold start made first attempts fail in live testing
+        // (2026-11-03) while an immediate re-ask succeeded. A second
+        // failure falls through to the error message below.
+        await new Promise((res) => setTimeout(res, 1200));
+        data = await postChat();
+      }
       thinking.remove();
-      if (!r.ok || !data.answer) throw new Error('bad response');
       if (data.notice && !noticeShown) {
         noticeShown = true;
         const n = document.createElement('div');
