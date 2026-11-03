@@ -17,7 +17,7 @@
   // Ship-day values, replaced at deploy time (same placeholder pattern
   // as ChatFYI's __CHAT_KEY__).
   const FN = 'https://xxdgxigwpnezsdvbiawi.supabase.co/functions/v1/chatrd';   // e.g. https://<project>.supabase.co/functions/v1/chatrd
-  const KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh4ZGd4aWd3cG5lenNkdmJpYXdpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTMwNjU5NjgsImV4cCI6MjA2ODY0MTk2OH0.SqT2WwU3yNPHqNnrlmRZXGpX0m1hK3V9E5yT9z4d5Tj6k';
+  const KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh4ZGd4aWd3cG5lenNkdmJpYXdpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE2OTM0MDYsImV4cCI6MjEwNzI2OTQwNn0.3fuj9vjXspT31fQhgcejf4Thmk9yHPc7RSBZ0v97Gw4';
 
   // Branch root: this script is served from <root>assets/chatrd.js, so
   // article paths ("articles/<id>.html") resolve from the script URL,
