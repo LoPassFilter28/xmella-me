@@ -10,7 +10,7 @@
 @font-face{font-family:"Urbanist";font-style:normal;font-weight:500 800;font-display:swap;src:url("fonts/urbanist-latin-ext.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF;size-adjust:103.71%;ascent-override:90.53%;descent-override:21.19%;line-gap-override:3.27%}
 :root{
 --bg:#F7F1E3;--surface:#FDF9EF;--ink:#2A1C11;--muted:#5C4632;
---line:#D9C9A8;--accent:#B8602F;--accent-ink:#9A4E22;--headline:#38220F;
+--line:#D9C9A8;--accent:#AD5A2C;--accent-ink:#9A4E22;--headline:#38220F;
 --soft:#EFE5CF;--badge:#EFE5CF;--focus:#B8602F;--on-accent:#FFF7EA;
 --max:1080px;--pad:clamp(18px,4vw,34px);
 --dur-ui:180ms;--dur-sheet:220ms;--ease-ui:cubic-bezier(.2,.72,.25,1);
@@ -18,14 +18,14 @@
 --font-b:"Manrope",-apple-system,"Segoe UI",Roboto,sans-serif;
 --paper:var(--bg);--paper-elevated:var(--surface);--paper-muted:var(--soft);
 --ink-secondary:var(--muted);--ink-muted:#7A6350;
---walnut:#4A2E20;--walnut-deep:#38220F;--terracotta:#B8602F;--terracotta-bright:#C96F3B;
---mustard:#C99B40;--sage:#7C8C5C;
+--walnut:#4A2E20;--walnut-deep:#38220F;--terracotta:#B8602F;--terracotta-bright:#97532C;
+--mustard:#C99B40;--sage:#6C7A50;
 --border:var(--line);--border-strong:#B39B74;
 --plate-hi:#FFFDF6;--plate-lo:#E4D5B8;
 --shadow:0 1px 2px rgba(74,46,32,.18),0 4px 14px rgba(74,46,32,.10)}
 body[data-theme="dark"]{
 --bg:#170C04;--surface:#2A180B;--ink:#F3E7D3;--muted:#CBB28A;
---line:#54402A;--accent:#C9713F;--accent-ink:#E59A63;--headline:#F6EDD6;
+--line:#54402A;--accent:#A65E34;--accent-ink:#E59A63;--headline:#F6EDD6;
 --soft:#33200F;--badge:#3A2412;--focus:#E59A63;
 --paper:var(--bg);--paper-elevated:var(--surface);--paper-muted:var(--soft);
 --ink-secondary:var(--muted);--ink-muted:#A8875F;
@@ -120,7 +120,7 @@ box-shadow:inset 0 1px 0 rgba(255,255,255,.45),var(--shadow)}
 .ctx .era-line{font-size:14px}
 .label{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.05em;padding:2px 8px;border-radius:3px;text-transform:uppercase}
 .label.doc{background:var(--sage);color:#fff}
-.label.oral{background:var(--terracotta);color:#fff}
+.label.oral{background:#B35E2E;color:#fff}
 .label.kind{background:var(--walnut);color:var(--on-accent)}
 .sumlabel{font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);margin:0 0 4px}
 figure.plate{margin:18px 0;text-align:center;background:var(--surface);
@@ -135,7 +135,7 @@ border:1px solid var(--walnut);border-radius:12px;padding:6px;box-shadow:var(--s
 .observe a.btn{display:inline-block;font-weight:700;font-size:14px;padding:10px 22px;min-height:44px;
 background:var(--accent);color:var(--on-accent);border-radius:999px;text-decoration:none;
 transition:background var(--dur-ui) var(--ease-ui)}
-.observe a.btn:hover{background:var(--terracotta-bright);color:var(--on-accent)}
+.observe a.btn:hover{background:#9A4E22;color:var(--on-accent)}
 footer{margin:40px auto 18px;max-width:var(--max);background:var(--surface);
 border:2px solid var(--walnut);border-radius:20px;padding:8px;box-shadow:var(--shadow)}
 footer .frame{border:1px solid var(--border-strong);border-radius:13px;padding:14px 20px;
@@ -209,3 +209,12 @@ color:var(--headline);margin:32px 0 4px;border-bottom:2px solid var(--accent);pa
 .city-h{font-size:16px;font-weight:700;color:var(--accent-ink);margin:16px 0 6px}
 @media (prefers-reduced-motion:reduce){html.js .reveal{opacity:1;transform:none}
 .progress-thread{display:none}.trail::before{transform:scaleX(1)}}
+/* v7.1: text-scaling hardening (pass-2 overflow attribution) and the
+   article page's newspaper-name link. The source line prints the full
+   Library URL as its link text - one unbreakable string that pushed
+   article pages sideways at 125%/200% font scaling; the masthead title
+   could likewise refuse to break. Both may now wrap anywhere. */
+.src a{overflow-wrap:anywhere;word-break:break-word}
+header.masthead h1,header.masthead .sitename{overflow-wrap:anywhere}
+.paper-name a{color:inherit;text-decoration:none}
+.paper-name a:hover{text-decoration:underline}
