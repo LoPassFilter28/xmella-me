@@ -35,9 +35,16 @@ document.getElementById('btn-theme').setAttribute('aria-pressed',document.body.d
 <a href="../method.html"><span class="l-en">About</span><span class="l-es">Acerca de</span></a></nav><div class="wrap"><article class="page">
 <style>
 .plt-bodylabel{font-size:.95rem;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin:0 0 1rem;font-weight:700}
-.plt-ficha{font-size:.82rem;line-height:1.5;border-top:1px solid var(--line);margin-top:1rem;padding-top:1rem;color:var(--muted)}
+.plt-ficha{font-size:.82rem;line-height:1.5;margin-top:.75rem;color:var(--muted)}
 .plt-ficha p{margin:.25rem 0}
 .plt-footlink{color:inherit;text-underline-offset:2px}
+.wrap{padding-bottom:0}
+.page{margin-top:24px}
+footer{margin-top:24px}
+footer .frame{padding:18px 24px}
+footer .plt-footbtn{margin-top:.75rem}
+footer a.btn{display:inline-block;font-weight:700;font-size:14px;padding:10px 22px;min-height:44px;background:var(--accent);color:var(--on-accent);border-radius:999px;text-decoration:none}
+footer a.btn:hover{background:#9A4E22}
 .plt-plate{margin:0 0 1.5rem;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:.75rem}
 .plt-plate img.plt-crop{width:100%;height:auto;display:block;border-radius:4px}
 .plt-headrow{display:flex;align-items:baseline;gap:1.5rem;flex-wrap:wrap}
@@ -45,8 +52,6 @@ document.getElementById('btn-theme').setAttribute('aria-pressed',document.body.d
 .plt-chapter{margin-left:auto;text-align:right;color:var(--muted);font-size:.95rem;text-decoration:none;max-width:22rem}
 .plt-chapter:hover{text-decoration:underline;text-underline-offset:3px}
 .plt-actions{display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;margin-top:2rem}
-.plt-actions a.btn{display:inline-block;font-weight:700;font-size:14px;padding:10px 22px;min-height:44px;background:var(--accent);color:var(--on-accent);border-radius:999px;text-decoration:none}
-.plt-actions a.btn:hover{background:#9A4E22}
 .plt-fullpage{display:flex;gap:.5rem;align-items:center;text-decoration:none;color:var(--accent);font-weight:600}
 .plt-fullpage img{width:44px;height:auto;border:1px solid var(--line);border-radius:3px}
 .plt-dateline{color:var(--muted);font-size:1rem;margin:.5rem 0 1.5rem}
@@ -59,7 +64,7 @@ document.getElementById('btn-theme').setAttribute('aria-pressed',document.body.d
 .plt-body p{font-size:1.09rem;line-height:1.72;margin:0 0 1em}
 .plt-record{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:1.5rem;margin-top:1.5rem}
 .plt-record p{margin:.25rem 0}
-.plt-cite{font-size:.92rem;color:var(--muted);border-top:1px solid var(--line);margin-top:1rem;padding-top:1rem}
+.plt-cite{font-size:.92rem;color:var(--muted);margin:0 0 .5rem}
 @media (max-width:620px){.plt-deck ul{columns:1}.plt-h1{font-size:1.7rem}}
 </style>
 <figure class="plt-plate">
@@ -108,12 +113,10 @@ document.getElementById('btn-theme').setAttribute('aria-pressed',document.body.d
 </div>
 <div class="plt-actions">
   <a class="plt-fullpage" href="../assets-pages/cr11803-2.jpg"><img src="../assets-pages/cr11803-2-thumb.jpg" alt=""><span><span class="l-en">See the full page</span><span class="l-es">Ver la página completa</span></span></a>
-  <a class="btn" href="mailto:admin@xmella.me?subject=TICKET%3A%20cr11803-2&amp;body=TICKET%3A%20cr11803-2"><span class="l-en">Send observation</span><span class="l-es">Enviar observación</span></a>
 </div>
 <section class="plt-record">
-  <p><i>The New York Herald</i> &middot; New York [N.Y.] &middot; <span class="l-en">March 30, 1861</span><span class="l-es">30 de marzo de 1861</span></p>
-  <p><a href="https://www.loc.gov/resource/sn83030313/1861-03-30/ed-1/?sp=1" target="_blank" rel="noopener"><span class="l-en">See the original at the Library of Congress</span><span class="l-es">Ver el original en la Biblioteca del Congreso</span></a></p>
   <p class="plt-cite">The New York Herald. (1861). New York [N.Y.], March 30, 1861.</p>
+  <p><a href="https://www.loc.gov/resource/sn83030313/1861-03-30/ed-1/?sp=1" target="_blank" rel="noopener"><span class="l-en">See the original at the Library of Congress</span><span class="l-es">Ver el original en la Biblioteca del Congreso</span></a></p>
   <div class="plt-ficha">
     <p><span class="l-en">Also published as the New York Daily Herald</span><span class="l-es">También publicado como New York Daily Herald</span></p>
     <p><span class="l-en">Published by: James Gordon Bennett</span><span class="l-es">Publicado por: James Gordon Bennett</span></p>
@@ -131,7 +134,7 @@ document.getElementById('btn-theme').setAttribute('aria-pressed',document.body.d
 </article>
 </div>
 <footer><div class="frame"><a class="plt-footlink" href="../"><span class="l-en">DR in the American Press</span><span class="l-es">RD en la Prensa Norteamericana</span></a> &middot; <a class="plt-footlink" href="https://xmella.me">xmella.me</a><br>
-<a href="mailto:admin@xmella.me">admin@xmella.me</a></div></footer>
+<a href="mailto:admin@xmella.me">admin@xmella.me</a><div class="plt-footbtn"><a class="btn" href="mailto:admin@xmella.me?subject=TICKET%3A%20cr11803-2&amp;body=TICKET%3A%20cr11803-2"><span class="l-en">Send observation</span><span class="l-es">Enviar observación</span></a></div></div></footer>
 <script>(function(){var els=document.querySelectorAll('.trail');if(!els.length)return;
 if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){els.forEach(function(e){e.classList.add('in');});return;}
 var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.1});
