@@ -34,6 +34,11 @@
       send: 'Enviar',
       thinking: 'Buscando en el archivo...',
       error: 'Algo falló de mi lado. La cronología de esta página puede ayudarte, o inténtalo de nuevo en un momento.',
+      ratelimit_retry_min: 'ChatRD llegó a su límite de uso. La espera indicada es de unos {N} minutos; vuelve a intentarlo pasado ese tiempo.',
+      ratelimit_retry_hr: 'ChatRD llegó a su límite de uso. La espera indicada es de unas {H} horas; vuelve a intentarlo pasado ese tiempo.',
+      ratelimit_day: 'ChatRD llegó a su límite diario de uso. El límite se renueva en unas {H} horas.',
+      ratelimit_minute: 'ChatRD llegó a su límite de uso por minuto. La espera es de unos 2 minutos.',
+      ratelimit_fallback: 'ChatRD llegó a su límite de uso y no puede responder ahora. Vuelve a intentarlo en unos 15 minutos.',
       close: 'Cerrar el chat',
       open: 'Abrir ChatRD',
     },
@@ -45,6 +50,11 @@
       send: 'Send',
       thinking: 'Searching the archive...',
       error: 'Something went wrong on my end. The timeline on this page can still help, or try me again in a moment.',
+      ratelimit_retry_min: 'ChatRD has reached its usage limit. The indicated wait is about {N} minutes; please try again after that.',
+      ratelimit_retry_hr: 'ChatRD has reached its usage limit. The indicated wait is about {H} hours; please try again after that.',
+      ratelimit_day: 'ChatRD has reached its daily usage limit. The limit resets in about {H} hours.',
+      ratelimit_minute: 'ChatRD has reached its per-minute usage limit. The wait is about 2 minutes.',
+      ratelimit_fallback: 'ChatRD has reached its usage limit and can\'t respond right now. Please try again in about 15 minutes.',
       close: 'Close chat',
       open: 'Open ChatRD',
     },
@@ -193,6 +203,23 @@
           signal: ctrl.signal,
         });
         const data = await r.json();
+        // The function's structured rate limit (HTTP 429, error code
+        // rate_limited) is a result, not a failure: it returns as a
+        // sentinel so the caller renders the prepared note and does
+        // NOT spend the one retry on it — retrying is the reader's
+        // own next move, never an automatic loop. The sentinel carries
+        // the variant and the concrete wait the function computed from
+        // the provider's own error (Revision 2, 2026-11-03); a 429
+        // without those fields (an older function build) renders the
+        // fallback note.
+        if (r.status === 429 || (data && data.error === 'rate_limited')) {
+          return {
+            rate_limited: true,
+            variant: (data && data.variant) || 'fallback',
+            display_value: data && data.display_value,
+            display_unit: data && data.display_unit,
+          };
+        }
         if (!r.ok || !data.answer) throw new Error('bad response');
         return data;
       } finally {
@@ -212,17 +239,47 @@
         data = await postChat();
       }
       thinking.remove();
-      if (data.notice && !noticeShown) {
-        noticeShown = true;
+      if (data.rate_limited) {
+        // Calm system note in the page's current language — not a
+        // fake assistant answer, not a raw error. It carries the
+        // concrete wait the function computed from the provider's own
+        // error response (Revision 2): the provider's indicated delay,
+        // the hours to the daily reset, or the approved fixed waits
+        // for the per-minute and unparseable cases. Nothing is added
+        // to the conversation history, and the input stays enabled so
+        // the reader can ask again when they choose.
+        const s = S();
+        let noteText;
+        if (data.variant === 'retry' && data.display_unit === 'hours') {
+          noteText = s.ratelimit_retry_hr.replace('{H}', data.display_value);
+        } else if (data.variant === 'retry') {
+          noteText = s.ratelimit_retry_min.replace('{N}', data.display_value);
+        } else if (data.variant === 'day') {
+          noteText = s.ratelimit_day.replace('{H}', data.display_value);
+        } else if (data.variant === 'minute') {
+          noteText = s.ratelimit_minute;
+        } else {
+          noteText = s.ratelimit_fallback;
+        }
         const n = document.createElement('div');
         n.className = 'crd-chat-note';
-        n.textContent = data.notice;
+        n.textContent = noteText;
         msgs.appendChild(n);
+        msgs.scrollTop = msgs.scrollHeight;
+        track('chatrd_rate_limited');
+      } else {
+        if (data.notice && !noticeShown) {
+          noticeShown = true;
+          const n = document.createElement('div');
+          n.className = 'crd-chat-note';
+          n.textContent = data.notice;
+          msgs.appendChild(n);
+        }
+        addMsg('bot', data.answer);
+        addChips(data.articles);
+        history.push({ role: 'assistant', text: data.answer });
+        track('chatrd_question');
       }
-      addMsg('bot', data.answer);
-      addChips(data.articles);
-      history.push({ role: 'assistant', text: data.answer });
-      track('chatrd_question');
     } catch (err) {
       thinking.remove();
       addMsg('bot', S().error);
