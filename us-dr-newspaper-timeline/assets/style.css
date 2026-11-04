@@ -22,7 +22,7 @@
 --ink-secondary:var(--muted);--ink-muted:#7A6350;
 --walnut:#4A2E20;--walnut-deep:#38220F;--terracotta:#B8602F;--terracotta-bright:#97532C;
 --mustard:#C99B40;--sage:#6C7A50;
---border:var(--line);--border-strong:#B39B74;
+--border:var(--line);--border-strong:#B39B74;--control-border:#8F6E44;
 --plate-hi:#FFFDF6;--plate-lo:#E4D5B8;
 --shadow:0 1px 2px rgba(74,46,32,.18),0 4px 14px rgba(74,46,32,.10)}
 body[data-theme="dark"]{
@@ -32,7 +32,7 @@ body[data-theme="dark"]{
 --paper:var(--bg);--paper-elevated:var(--surface);--paper-muted:var(--soft);
 --ink-secondary:var(--muted);--ink-muted:#A8875F;
 --walnut:#0E0602;--walnut-deep:#0A0401;--terracotta:#C9713F;--terracotta-bright:#DE8A52;
---border:var(--line);--border-strong:#7A5B40;
+--border:var(--line);--border-strong:#7A5B40;--control-border:#9A7A58;
 --plate-hi:#3D2716;--plate-lo:#1D1106;
 --shadow:0 1px 2px rgba(0,0,0,.5),0 4px 14px rgba(0,0,0,.4)}
 *{box-sizing:border-box}
@@ -120,7 +120,7 @@ background:var(--soft);border-radius:8px;padding:12px 16px;margin:14px 0;font-si
 margin:22px auto 2px;text-align:center}
 .utilbar{display:flex;gap:10px;justify-content:center;align-items:center;padding:12px 10px 4px;flex-wrap:wrap}
 .utilbar button{font:inherit;font-size:13px;font-weight:700;padding:8px 14px;min-height:44px;
-border:1px solid var(--border-strong);background:var(--surface);color:var(--ink);
+border:1px solid var(--control-border);background:var(--surface);color:var(--ink);
 border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;
 transition:background var(--dur-ui) var(--ease-ui),border-color var(--dur-ui) var(--ease-ui)}
 .utilbar button:hover{border-color:var(--accent)}
@@ -132,7 +132,7 @@ nav.main a{color:var(--ink);text-decoration:none;padding:6px 2px}
 nav.main a:hover{color:var(--accent-ink);text-decoration:underline;text-underline-offset:4px}
 .controls{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
 .controls input[type="search"],.controls select{font:inherit;font-size:14px;padding:8px 10px;min-height:44px;
-border:1px solid var(--border-strong);background:var(--surface);color:var(--ink);border-radius:8px}
+border:1px solid var(--control-border);background:var(--surface);color:var(--ink);border-radius:8px}
 .controls input[type="search"]{flex:2 1 260px;min-width:200px}
 .controls select{flex:1 1 150px;min-width:0;max-width:100%}
 .card{background:linear-gradient(180deg,var(--plate-hi),var(--surface) 55%);
@@ -151,14 +151,14 @@ a.pill{transition:border-color var(--dur-ui) var(--ease-ui),color var(--dur-ui) 
 a.pill:hover{color:var(--accent-ink);border-color:var(--accent)}
 .pill.full{border-color:var(--accent);color:var(--accent-ink)}
 .chips{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 4px}
-.chip{font:inherit;font-size:12px;font-weight:700;padding:6px 14px;min-height:44px;border:1px solid var(--border-strong);
+.chip{font:inherit;font-size:12px;font-weight:700;padding:6px 14px;min-height:44px;border:1px solid var(--control-border);
 border-radius:999px;background:var(--surface);color:var(--muted);cursor:pointer;
 transition:background var(--dur-ui) var(--ease-ui),color var(--dur-ui) var(--ease-ui),border-color var(--dur-ui) var(--ease-ui)}
 .chip:hover{border-color:var(--accent);color:var(--ink)}
 .chip[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
 .doors{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
 .doors .card{margin:0;position:relative;padding-right:44px}
-.doors .card::after{content:"92";position:absolute;top:14px;right:16px;
+.doors .card::after{content:"\2192";position:absolute;top:14px;right:16px;
 font-weight:800;color:var(--accent-ink)}
 article.page{background:var(--surface);border:1px solid var(--line);border-radius:12px;
 padding:26px 30px;margin-top:22px;box-shadow:var(--shadow)}
@@ -198,12 +198,12 @@ border:2px solid var(--walnut);border-radius:20px;padding:8px;box-shadow:var(--s
 footer .frame{border:1px solid var(--border-strong);border-radius:13px;padding:14px 20px;
 text-align:center;font-size:13px;color:var(--muted)}
 .pager{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:center;margin:20px 0}
-.pager a,.pager span.cur{font-size:13px;font-weight:700;padding:10px 14px;min-height:44px;border:1px solid var(--border-strong);border-radius:999px;text-decoration:none;color:var(--ink);background:var(--surface);
+.pager a,.pager span.cur{font-size:13px;font-weight:700;padding:10px 14px;min-height:44px;border:1px solid var(--control-border);border-radius:999px;text-decoration:none;color:var(--ink);background:var(--surface);
 transition:border-color var(--dur-ui) var(--ease-ui)}
 .pager a:hover{border-color:var(--accent)}
 .pager span.cur{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
 .pager .range{width:100%;text-align:center;font-weight:400;border:none;background:none;font-size:13px;color:var(--muted)}
-.morebtn{display:block;margin:6px auto 20px;font:inherit;font-size:14px;font-weight:700;padding:10px 22px;min-height:44px;border:1px solid var(--border-strong);background:var(--surface);color:var(--ink);border-radius:999px;cursor:pointer;
+.morebtn{display:block;margin:6px auto 20px;font:inherit;font-size:14px;font-weight:700;padding:10px 22px;min-height:44px;border:1px solid var(--control-border);background:var(--surface);color:var(--ink);border-radius:999px;cursor:pointer;
 transition:border-color var(--dur-ui) var(--ease-ui)}
 .morebtn:hover{border-color:var(--accent)}
 .dirlist{columns:2;column-gap:28px;font-size:14px}
@@ -255,6 +255,12 @@ align-items:center;color:var(--muted)}
 html.js .reveal{opacity:0;transform:translateY(12px)}
 html.js .reveal.in{opacity:1;transform:none;
 transition:opacity 500ms var(--ease-ui),transform 500ms var(--ease-ui)}
+/* Reveal failsafe: if the motion script never runs (blocked or
+   errored), this animation still brings the sections in after a
+   pause. The script disarms the net the moment it starts (it adds
+   .rvlive to <html>), so the normal reveal is unchanged. */
+@keyframes rvfail{to{opacity:1;transform:none}}
+html.js:not(.rvlive) .reveal{animation:rvfail .4s ease 3s forwards}
 .trail{position:relative;overflow:hidden}
 .trail::before{content:"";position:absolute;left:0;top:0;height:3px;width:100%;
 background:var(--accent);transform:scaleX(0);transform-origin:left;
