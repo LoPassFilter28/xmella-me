@@ -1,0 +1,46 @@
+/* Article template CSS - shared by every rebuilt article page.
+   Rules are the two approved pilots' page-local styles, unified
+   (cr00396-5 upgrade state wins where the pilots diverged). */
+.plt-ficha{font-size:.82rem;line-height:1.5;margin-top:.75rem;color:var(--muted)}
+.plt-ficha p{margin:.25rem 0}
+.plt-footlink{color:inherit;text-underline-offset:2px}
+.masthead .compact-frame{justify-content:center}
+.masthead .sitename{text-align:center}
+.wrap{padding-bottom:0}
+.page{margin-top:24px}
+footer{margin-top:24px}
+footer .frame{padding:18px 24px}
+footer .plt-footbtn{margin-top:.75rem}
+footer a.btn{display:inline-block;font-weight:700;font-size:14px;padding:10px 22px;min-height:44px;background:var(--accent);color:var(--on-accent);border-radius:999px;text-decoration:none}
+footer a.btn:hover{background:#9A4E22}
+.plt-plate{margin:0 0 1.5rem;background:var(--surface);border:1px solid var(--accent);border-radius:10px;padding:.75rem}
+.plt-plate img.plt-crop{width:100%;height:auto;display:block;border-radius:4px;-webkit-mask-image:linear-gradient(to bottom,#000 92%,transparent);mask-image:linear-gradient(to bottom,#000 92%,transparent)}
+.plt-h1{font-size:2.15rem;line-height:1.12;margin:0 0 2rem;font-weight:800;letter-spacing:-.01em}
+.plt-series{display:block;font-size:13px;font-weight:800;color:var(--headline);letter-spacing:.01em;line-height:1.3;text-decoration:none;margin:0 0 1rem}
+.plt-series:hover{text-decoration:underline;text-underline-offset:4px}
+.plt-capline{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding-top:.5rem}
+.plt-paper{font-size:.95rem;color:var(--muted);letter-spacing:.01em}
+.plt-fullpage{display:flex;gap:.5rem;align-items:center;text-decoration:none;color:var(--accent);font-weight:600;font-size:.92rem;min-height:44px}
+.plt-fullpage:hover{color:var(--accent-ink)}
+.plt-fullpage:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.plt-fullpage img{width:38px;height:auto;border:1px solid var(--line);border-radius:3px;box-shadow:0 1px 3px rgba(42,28,17,.25)}
+.plt-dateline{color:var(--muted);font-size:1rem;margin:0 0 1.5rem}
+.plt-dateline b{color:var(--ink)}
+.plt-deck{border-top:2px solid var(--accent);border-bottom:1px solid var(--line);padding:1rem 0;margin-bottom:1.5rem}
+.plt-deck ul{margin:0;padding-left:1.25rem;columns:2;column-gap:2rem}
+.plt-deck li{margin:.25rem 0;font-style:italic;break-inside:avoid}
+.plt-summary{background:var(--surface);border-left:4px solid var(--accent);border-radius:6px;padding:1.5rem;margin-bottom:2rem}
+.plt-summary p{margin:0}
+.plt-bodylabel{font-size:.95rem;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin:0 0 1rem;font-weight:700}
+.plt-body{margin-bottom:1.5rem}
+.plt-body p{font-size:1.09rem;line-height:1.72;margin:0 0 1em}
+.plt-body .plt-chamber{font-size:.82rem;text-transform:uppercase;letter-spacing:.13em;color:var(--accent-ink);font-weight:800;margin:2rem 0 .75rem}
+.plt-body .plt-chamber:first-child{margin-top:0}
+.plt-body .plt-subhead{font-family:var(--font-head);font-size:1.35rem;font-weight:800;color:var(--headline);line-height:1.25;margin:0 0 1rem}
+.plt-body .plt-quotehead{font-style:italic;color:var(--muted);border-left:3px solid var(--line);padding-left:1rem;line-height:1.55}
+.plt-body .plt-verse{text-align:center;font-style:italic;line-height:1.6}
+.plt-note{font-size:.92rem;color:var(--muted);font-style:italic;margin:0 0 2rem}
+.plt-record{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:1.5rem;margin-top:0}
+.plt-record p{margin:.25rem 0}
+.plt-cite{font-size:.92rem;color:var(--muted);margin:0 0 .5rem;font-style:italic}
+@media (max-width:620px){.plt-h1{font-size:1.7rem}.plt-capline{flex-direction:column;align-items:flex-start;gap:10px}.plt-deck ul{columns:1}}
