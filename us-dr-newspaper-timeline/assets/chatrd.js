@@ -199,7 +199,7 @@
         const r = await fetch(FN, {
           method: 'POST',
           headers: { 'Authorization': 'Bearer ' + KEY, 'apikey': KEY, 'Content-Type': 'application/json' },
-          body: JSON.stringify({ question: q, history: history.slice(0, -1).slice(-6), visitor }),
+          body: JSON.stringify({ question: q, history: history.slice(0, -1).slice(-6), visitor, page: location.pathname }),
           signal: ctrl.signal,
         });
         const data = await r.json();
