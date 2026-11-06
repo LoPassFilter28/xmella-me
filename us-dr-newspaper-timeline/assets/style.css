@@ -88,7 +88,8 @@ filter:drop-shadow(0 10px 22px rgba(0,0,0,.35)) drop-shadow(0 0 14px rgba(247,24
 /* Inner pages: the same plate language as a compact nameplate —
    walnut bar, wordmark, name, one-line description. */
 header.masthead .compact-frame{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;
-padding:18px 24px;text-align:left}
+justify-content:center;padding:18px 24px;text-align:center}
+header.masthead .tick{display:none}
 header.masthead .compact-frame::before{inset:10px}
 .mast-logo.sm{font-size:15px}
 header.masthead .compact-frame .sitename{font-family:"Source Sans 3",sans-serif;
