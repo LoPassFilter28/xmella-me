@@ -37,7 +37,7 @@
 .crd-chat-chip small{color:var(--muted,#5C4632);font-weight:500}
 .crd-chat-form{display:flex;gap:8px;padding:10px;border-top:1px solid var(--line,#D9C9A8)}
 .crd-chat-input{flex:1;padding:10px 12px;border-radius:10px;border:1px solid var(--line,#D9C9A8);
-  background:var(--bg,#F7F1E3);color:var(--ink,#2A1C11);font:inherit;font-size:14px}
+  background:var(--bg,#F7F1E3);color:var(--ink,#2A1C11);font:inherit;font-size:16px}
 .crd-chat-input:focus{outline:2px solid var(--focus,#B8602F);outline-offset:0}
 .crd-chat-send{padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font:inherit;font-weight:800;
   background:var(--accent,#B8602F);color:var(--on-accent,#FFF7EA)}
