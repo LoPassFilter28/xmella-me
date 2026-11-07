@@ -40,6 +40,10 @@ footer a.btn:hover{background:#9A4E22}
 .plt-body .plt-quotehead{font-style:italic;color:var(--muted);border-left:3px solid var(--line);padding-left:1rem;line-height:1.55}
 .plt-body .plt-verse{text-align:center;font-style:italic;line-height:1.6}
 .plt-note{font-size:.92rem;color:var(--muted);font-style:italic;margin:0 0 2rem}
+.plt-trail{border-top:1px solid var(--line);padding-top:1rem;margin:0 0 2rem}
+.plt-trail h4{font-size:.95rem;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin:0 0 .5rem;font-weight:700}
+.plt-trail p{margin:.25rem 0;font-size:.95rem}
+.plt-trail .plt-carriage{color:var(--accent-ink);font-weight:600;margin:0 0 .5rem}
 .plt-record{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:1.5rem;margin-top:0}
 .plt-record p{margin:.25rem 0}
 .plt-cite{font-size:.92rem;color:var(--muted);margin:0 0 .5rem;font-style:italic}

@@ -12,7 +12,7 @@ const DESCRIPTIONS=[ /* GRAFT P6: wording conformed to timeline-design.md sectio
  ['Cuatro registros de un reportaje de viajes de The Houston Chronicle.','Four records from a Houston Chronicle travel feature.']
 ];
 const storage={get:k=>{try{return localStorage.getItem(k)}catch{return null}},set:(k,v)=>{try{localStorage.setItem(k,v)}catch{}}};
-let lang=storage.get('rd-timeline-lang')==='en'?'en':'es',theme=storage.get('rd-timeline-theme')==='dark'?'dark':'light';
+let lang=document.body.dataset.lang==='en'?'en':'es',theme=document.body.dataset.theme==='dark'?'dark':'light';
 let year=Math.max(1820,Math.min(1984,Number(new URL(location.href).searchParams.get('year'))||1871));
 let data,records=[],scene,quiet=storage.get('rd-timeline-quiet')==='true',recordLimit=6,searchLimit=15,scrollFrame,searchTimer,opener,scenePromise,indexLoaded=false,indexFailed=false;
 const reduce=matchMedia('(prefers-reduced-motion: reduce)');
@@ -26,15 +26,15 @@ const recURL=r=>`articles/${encodeURIComponent(r.i)}.html`; /* GRAFT P1: relativ
 function applyLanguage(){
  document.documentElement.lang=lang;document.body.dataset.lang=lang;/* GRAFT P2: document.title left to the host page */
  $$('[data-i18n]').forEach(el=>el.innerHTML=t(el.dataset.i18n));$$('[data-placeholder]').forEach(el=>el.placeholder=t(el.dataset.placeholder));
- $('#lang-es').classList.toggle('active',lang==='es');$('#lang-en').classList.toggle('active',lang==='en');$('#lang-es').setAttribute('aria-pressed',String(lang==='es'));$('#lang-en').setAttribute('aria-pressed',String(lang==='en'));
+ 
  [['#search','searchInAll'],['#previous-year','previous'],['#next-year','next'],['#close-search','closeSearch'],['#close-reader','closeReader'],['#year-rail','rail']].forEach(([sel,key])=>$(sel).setAttribute('aria-label',t(key)));
  $$('img[data-en-alt]').forEach(el=>el.alt=el.dataset[lang+'Alt']);
- updateThemeButton();updateMotionButton();
+ updateMotionButton();
  if(data){const tr=$('#total-records');if(tr)tr.textContent=fmt(data.recordCount);/* GRAFT P7: no stats block in the graft (host intro carries the counts) */buildChapters();buildTopics();renderYear();renderSearch();if($('#reader').open&&$('#reader').dataset.record)renderReader(records.find(r=>r.i===$('#reader').dataset.record));}
 }
-function updateThemeButton(){const name=t(theme==='dark'?'light':'dark');$('#theme').setAttribute('aria-label',name);$('#theme').title=name;}
+
 function updateMotionButton(){$('#view-mode').textContent=t(reduce.matches?'quietView':quiet?'motionView':'quietView');$('#view-mode').setAttribute('aria-pressed',String(quiet||reduce.matches));$('#view-mode').disabled=reduce.matches;}
-function applyTheme(){document.body.dataset.theme=theme;updateThemeButton();scene?.setTheme(theme);}
+function applyTheme(){document.body.dataset.theme=theme;scene?.setTheme(theme);}
 function buildChapters(){
  $('#chapter-list').innerHTML=data.chapters.map((c,i)=>`<button class="chapter-button" data-chapter="${i}" aria-label="${esc(c[lang])}, ${c.from}–${c.to}, ${countText(c.count)}"><span>${c.from===c.to?c.from:c.from+' — '+c.to}</span><span class="chapter-number">0${i+1}</span><strong>${esc(c[lang])}</strong><small>${countText(c.count)} <span aria-hidden="true">↗</span></small></button>`).join('');
 }
@@ -66,7 +66,7 @@ function closeReader(){$('#reader').close();}
 function renderSearch(){if(!data)return;if(!indexLoaded){$('#search-count').textContent='';$('#search-results').innerHTML=`<p class="empty-message">${indexFailed?t('loadError'):t('loading')}</p>`;$('#search-more').hidden=true;return;}const q=normalize($('#search').value.trim()),topic='',full=false;/* GRAFT P4: query-only search (Phase 1 simplification) */const terms=q.split(/\s+/).filter(Boolean);const found=records.filter(r=>(!topic||r.t.includes(topic))&&(!full||r.f)&&terms.every(s=>r.searchable.includes(s)));$('#search-count').textContent=countText(found.length);$('#search-results').innerHTML=found.length?found.slice(0,searchLimit).map(r=>`<button class="search-result" data-record="${esc(r.i)}"><small>${esc(r.n)} · ${esc(date(r.d))}</small><strong lang="en">${esc(r.h)}</strong><small>${t('originalTitle')} · ${t(r.f?'fullAvailable':'summaryAvailable')}</small></button>`).join(''):`<p class="empty-message">${t('noResults')}</p>`;$('#search-more').hidden=found.length<=searchLimit;}
 function stopScene(){scene?.dispose();scene=null;$('#scene-stage').classList.remove('three-active');}
 async function startScene(){if(!data||scene||scenePromise||quiet||reduce.matches||document.visibilityState==='hidden')return;scenePromise=(async()=>{try{const {createTimelineScene}=await import('./scene.js');const created=await createTimelineScene({canvas:$('#scene'),years:data.years,year,theme,onFallback:()=>{$('#scene-stage').classList.remove('three-active');scene=null;quiet=true;updateMotionButton()}});if(created&&$('#scene').dataset.mode==='three'){scene=created;$('#scene-stage').classList.add('three-active')}}catch{quiet=true;updateMotionButton()}finally{scenePromise=null}})();await scenePromise;}
-$('#lang-es').addEventListener('click',()=>{lang='es';storage.set('rd-timeline-lang',lang);applyLanguage()});$('#lang-en').addEventListener('click',()=>{lang='en';storage.set('rd-timeline-lang',lang);applyLanguage()});$('#theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';storage.set('rd-timeline-theme',theme);applyTheme()});
+/* ONE BUILDER PASS (2026-11-07): the section's own preference buttons are gone; the masthead toggle is the site's one toggle design. The timeline follows the shared body state the masthead flips (and that applyLanguage/applyTheme write back with the same values, so this observer never loops). */new MutationObserver(()=>{const L=document.body.dataset.lang,T=document.body.dataset.theme;if((L==='es'||L==='en')&&L!==lang){lang=L;applyLanguage()}if((T==='light'||T==='dark')&&T!==theme){theme=T;applyTheme()}}).observe(document.body,{attributes:true,attributeFilter:['data-lang','data-theme']});
 $('#previous-year').addEventListener('click',()=>setYear(year-1));$('#next-year').addEventListener('click',()=>setYear(year+1));$('#year-range').addEventListener('input',e=>setYear(Number(e.target.value),{rail:false}));$('#year-range').addEventListener('change',()=>setYear(year));
 $('#year-rail').addEventListener('scroll',()=>{cancelAnimationFrame(scrollFrame);scrollFrame=requestAnimationFrame(()=>setYear(1820+$('#year-rail').scrollLeft/52,{rail:false}))},{passive:true});$('#year-rail').addEventListener('keydown',e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();setYear(year+(e.key==='ArrowRight'?1:-1))}if(e.key==='Home'||e.key==='End'){e.preventDefault();setYear(e.key==='Home'?1820:1984)}});
 $('#rail-inner').addEventListener('click',e=>{const b=e.target.closest('[data-year]');if(b)setYear(Number(b.dataset.year))});$('#chapter-list').addEventListener('click',e=>{const b=e.target.closest('[data-chapter]');if(b){setYear(data.chapters[Number(b.dataset.chapter)].from);$('#scene-stage').scrollIntoView({block:'start',behavior:quiet||reduce.matches?'instant':'smooth'})}});$('#gap-jump').addEventListener('click',()=>{setYear(1965);$('#scene-stage').scrollIntoView({block:'start',behavior:quiet||reduce.matches?'instant':'smooth'})});
