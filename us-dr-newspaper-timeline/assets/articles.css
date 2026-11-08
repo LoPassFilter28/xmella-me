@@ -12,7 +12,7 @@ footer{margin-top:24px}
 footer .frame{padding:18px 24px}
 footer .plt-footbtn{margin-top:.75rem}
 footer a.btn{display:inline-block;font-weight:700;font-size:14px;padding:10px 22px;min-height:44px;background:var(--accent);color:var(--on-accent);border-radius:999px;text-decoration:none}
-footer a.btn:hover{background:#9A4E22}
+footer a.btn:hover{background:var(--accent-ink)}
 .plt-plate{margin:0 0 1.5rem;background:var(--surface);border:1px solid var(--accent);border-radius:10px;padding:.75rem}
 .plt-plate img.plt-crop{width:100%;height:auto;display:block;border-radius:4px;-webkit-mask-image:linear-gradient(to bottom,#000 92%,transparent);mask-image:linear-gradient(to bottom,#000 92%,transparent)}
 .plt-h1{font-size:2.15rem;line-height:1.12;margin:0 0 2rem;font-weight:800;letter-spacing:-.01em}
@@ -47,4 +47,9 @@ footer a.btn:hover{background:#9A4E22}
 .plt-record{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:1.5rem;margin-top:0}
 .plt-record p{margin:.25rem 0}
 .plt-cite{font-size:.92rem;color:var(--muted);margin:0 0 .5rem;font-style:italic}
-@media (max-width:620px){.plt-h1{font-size:1.7rem}.plt-capline{flex-direction:column;align-items:flex-start;gap:10px}.plt-deck ul{columns:1}}
+@media (max-width:620px){.plt-h1{font-size:25px}.plt-capline{flex-direction:column;align-items:flex-start;gap:10px}.plt-deck ul{columns:1}.plt-record{padding:12px}.plt-plate{margin-left:calc(-1 * var(--pad));margin-right:calc(-1 * var(--pad));border-left:0;border-right:0;border-radius:0}}
+
+/* polish 2026-11-07: plate press physics + reduced motion */
+.plt-plate{transition:transform var(--dur-ui) var(--ease-ui)}
+.plt-plate:active{transform:scale(.995)}
+@media (prefers-reduced-motion: reduce){.plt-plate{transition:none}}

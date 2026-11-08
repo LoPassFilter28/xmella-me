@@ -43,3 +43,9 @@
   background:var(--accent,#B8602F);color:var(--on-accent,#FFF7EA)}
 .crd-chat-send:disabled{opacity:.55;cursor:wait}
 @media (max-width:480px){.crd-chat-panel{right:8px;bottom:64px}.crd-chat-btn{right:12px;bottom:12px}}
+
+/* SITE POLISH BUILD (2026-11-07): reduced-motion guard (the chat
+   styles carried transitions with no guard). */
+@media (prefers-reduced-motion: reduce){
+  .chatrd-panel,.chatrd-panel *{transition:none !important;animation:none !important}
+}
