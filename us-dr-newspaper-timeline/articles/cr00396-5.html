@@ -9,7 +9,8 @@
 <link rel="stylesheet" href="../assets/style.css">
 <link rel="stylesheet" href="../assets/chatrd.css">
 <script src="../assets/chatrd.js" defer></script>
-<script src="https://js.sentry-cdn.com/a8eb490d1fc60d4eee8cfcbf28237461.min.js" crossorigin="anonymous"></script></head>
+<script src="https://js.sentry-cdn.com/a8eb490d1fc60d4eee8cfcbf28237461.min.js" crossorigin="anonymous"></script>  <link rel="stylesheet" href="../assets/articles.css">
+</head>
 <body data-lang="es" data-theme="light">
 <script>(function(){var l=localStorage.getItem('xm-lang');if(l){document.body.dataset.lang=l;document.documentElement.lang=l;}
 var t=localStorage.getItem('xm-theme');if(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';
@@ -26,59 +27,15 @@ function toggleTheme(){var d=document.body.dataset.theme=='dark'?'light':'dark';
 document.getElementById('btn-theme').setAttribute('aria-pressed',document.body.dataset.theme=='dark');});})();</script>
 <a class="skip-link" href="#main"><span class="l-en">Skip to content</span><span class="l-es">Saltar al contenido</span></a>
 <nav class="main"><a href="../index.html"><span class="l-en">Home</span><span class="l-es">Inicio</span></a>
-<a href="../index.html"><span class="l-en">Timeline</span><span class="l-es">Cronología</span></a>
 <a href="../eras.html"><span class="l-en">Eras</span><span class="l-es">Eras</span></a>
 <a href="../papers.html"><span class="l-en">Newspapers</span><span class="l-es">Periódicos</span></a>
 <a href="../topics.html"><span class="l-en">Topics</span><span class="l-es">Temas</span></a>
 <a href="../misc.html"><span class="l-en">Miscellaneous</span><span class="l-es">Miscelánea</span></a>
 <a href="../method.html"><span class="l-en">About</span><span class="l-es">Acerca de</span></a>
 <a href="../index.html?buscar=1#timeline"><span class="l-en">Search</span><span class="l-es">Buscar</span></a></nav><main id="main" class="wrap"><article class="page">
-<style>
-.plt-ficha{font-size:.82rem;line-height:1.5;margin-top:.75rem;color:var(--muted)}
-.plt-ficha p{margin:.25rem 0}
-.plt-footlink{color:inherit;text-underline-offset:2px}
-.masthead .compact-frame{justify-content:center}
-.masthead .sitename{text-align:center}
-.wrap{padding-bottom:0}
-.page{margin-top:24px}
-footer{margin-top:24px}
-footer .frame{padding:18px 24px}
-footer .plt-footbtn{margin-top:.75rem}
-footer a.btn{display:inline-block;font-weight:700;font-size:14px;padding:10px 22px;min-height:44px;background:var(--accent);color:var(--on-accent);border-radius:999px;text-decoration:none}
-footer a.btn:hover{background:#9A4E22}
-.plt-plate{margin:0 0 1.5rem;background:var(--surface);border:1px solid var(--accent);border-radius:10px;padding:.75rem}
-.plt-plate img.plt-crop{width:100%;height:auto;display:block;border-radius:4px;-webkit-mask-image:linear-gradient(to bottom,#000 92%,transparent);mask-image:linear-gradient(to bottom,#000 92%,transparent)}
-.plt-h1{font-size:2.15rem;line-height:1.12;margin:0 0 2rem;font-weight:800;letter-spacing:-.01em}
-.plt-series{display:block;font-size:13px;font-weight:800;color:var(--headline);letter-spacing:.01em;line-height:1.3;text-decoration:none;margin:0 0 1rem}
-.plt-series:hover{text-decoration:underline;text-underline-offset:4px}
-.plt-capline{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding-top:.5rem}
-.plt-paper{font-size:.95rem;color:var(--muted);letter-spacing:.01em}
-.plt-fullpage{display:flex;gap:.5rem;align-items:center;text-decoration:none;color:var(--accent);font-weight:600;font-size:.92rem;min-height:44px}
-.plt-fullpage:hover{color:var(--accent-ink)}
-.plt-fullpage:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
-.plt-fullpage img{width:38px;height:auto;border:1px solid var(--line);border-radius:3px;box-shadow:0 1px 3px rgba(42,28,17,.25)}
-.plt-deck{border-top:2px solid var(--accent);border-bottom:1px solid var(--line);padding:1rem 0;margin-bottom:1.5rem}
-.plt-deck ul{margin:0;padding-left:1.25rem;columns:2;column-gap:2rem}
-.plt-deck li{margin:.25rem 0;font-style:italic;break-inside:avoid}
-.plt-summary{background:var(--surface);border-left:4px solid var(--accent);border-radius:6px;padding:1.5rem;margin-bottom:2rem}
-.plt-summary p{margin:0}
-.plt-bodylabel{font-size:.95rem;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin:0 0 1rem;font-weight:700}
-.plt-body{margin-bottom:1.5rem}
-.plt-body p{font-size:1.09rem;line-height:1.72;margin:0 0 1em}
-.plt-body .plt-chamber{font-size:.82rem;text-transform:uppercase;letter-spacing:.13em;color:var(--accent-ink);font-weight:800;margin:2rem 0 .75rem}
-.plt-body .plt-chamber:first-child{margin-top:0}
-.plt-body .plt-subhead{font-family:var(--font-head);font-size:1.35rem;font-weight:800;color:var(--headline);line-height:1.25;margin:0 0 1rem}
-.plt-body .plt-quotehead{font-style:italic;color:var(--muted);border-left:3px solid var(--line);padding-left:1rem;line-height:1.55}
-.plt-body .plt-verse{text-align:center;font-style:italic;line-height:1.6}
-.plt-note{font-size:.92rem;color:var(--muted);font-style:italic;margin:0 0 2rem}
-.plt-record{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:1.5rem;margin-top:0}
-.plt-record p{margin:.25rem 0}
-.plt-cite{font-size:.92rem;color:var(--muted);margin:0 0 .5rem;font-style:italic}
-@media (max-width:620px){.plt-h1{font-size:1.7rem}.plt-capline{flex-direction:column;align-items:flex-start;gap:10px}.plt-deck ul{columns:1}}
-</style>
 <a class="plt-series" href="../chapter/the-american-annexation-fight-1.html"><span class="l-en">From: The American Annexation Fight</span><span class="l-es">De: La lucha por la anexión estadounidense</span> &middot; 1865–1874</a>
 <figure class="plt-plate">
-  <img class="plt-crop" src="../assets-pages/cr00396-5-crop.jpg" alt="Texto impreso: la apertura del informe, con el encabezado 'The Dominican Resolution', The New York Herald, 11 de enero de 1871" data-es-alt="Texto impreso: la apertura del informe, con el encabezado 'The Dominican Resolution', The New York Herald, 11 de enero de 1871" data-en-alt="Printed text: the opening of the report, headed 'The Dominican Resolution', The New York Herald, January 11, 1871">
+  <img class="plt-crop" src="../assets-pages/cr00396-5-crop.jpg" alt="Texto impreso: la apertura del informe, con el encabezado &#x27;The Dominican Resolution&#x27;, The New York Herald, 11 de enero de 1871" data-es-alt="Texto impreso: la apertura del informe, con el encabezado &#x27;The Dominican Resolution&#x27;, The New York Herald, 11 de enero de 1871" data-en-alt="Printed text: the opening of the report, headed &#x27;The Dominican Resolution&#x27;, The New York Herald, January 11, 1871">
   <figcaption class="plt-capline">
     <span class="plt-paper"><i>The New York Herald</i></span>
     <a class="plt-fullpage" href="../assets-pages/cr00396-5.jpg"><img src="../assets-pages/cr00396-5-thumb.jpg" alt=""><span><span class="l-en">See the full page</span><span class="l-es">Ver la página completa</span></span></a>
@@ -93,7 +50,7 @@ footer a.btn:hover{background:#9A4E22}
   </ul>
 </section>
 <section class="plt-summary">
-  <p><span class="l-en">The report covers a Senate debate on the annexation of St. Domingo, in which one speaker denounced the scheme as a private, corrupt job, saying the annexation would be only of husks because the kernels had already gone to private parties. Other senators spoke on both sides: Mr. Hoar of Massachusetts refused to support the measure out of respect for the President, Mr. Stevenson of Ohio favored acquiring Dominica for its minerals, harbors and fertile soil, and a dispatch was read announcing that the Indiana Senate had instructed its senators to vote against annexation.</span><span class="l-es">El informe cubre un debate en el Senado sobre la anexión de Santo Domingo, en el que un orador denunció el plan como un negocio privado y corrupto, diciendo que la anexión sería solo de cáscaras porque el grano ya había ido a parar a manos privadas. Otros senadores hablaron en ambos sentidos: el Sr. Hoar, de Massachusetts, se negó a apoyar la medida por respeto al Presidente, el Sr. Stevenson, de Ohio, favoreció adquirir Dominica por sus minerales, puertos y suelo fértil, y se leyó un despacho que anunciaba que el Senado de Indiana había instruido a sus senadores a votar contra la anexión.</span></p>
+  <p><span class="l-en">The report covers the debate in both chambers on the joint resolution to appoint commissioners to Dominica. In the Senate, Senator Sumner protested against the whole measure as involving a bloody lawsuit, presented General Cabral&#x27;s proclamation as evidence of civil war in the country, and proposed that the commissioners be required to inquire into that war and into the relations between Dominica and Hayti. In the House, Mr. Cox of New York denounced the scheme as a private, corrupt job, saying the annexation would be that of husks, because the kernels had already gone to private parties. Mr. Hoar of Massachusetts said he did not concur in the idea that respect for the President required them to support the measure, while Mr. Stevenson of Ohio favored acquiring Dominica for its minerals, harbors and fertile soil. A dispatch was read announcing that the Indiana Senate had instructed its senators, and requested its representatives, to vote against annexation. The House agreed to Mr. Ambler&#x27;s amendment, declaring that nothing in the resolution committed the government to annexation, and then passed the resolution, 123 to 63.</span><span class="l-es">El informe cubre el debate en ambas cámaras sobre la resolución conjunta para nombrar comisionados a Dominica. En el Senado, el senador Sumner protestó contra toda la medida por entrañar un pleito sangriento, presentó la proclama del general Cabral como prueba de la guerra civil en el país y propuso que se requiriera a los comisionados investigar esa guerra y las relaciones entre Dominica y Haití. En la Cámara de Representantes, el Sr. Cox, de Nueva York, denunció el plan como un negocio privado y corrupto, diciendo que la anexión sería de cáscaras, porque el grano ya había ido a parar a manos privadas. El Sr. Hoar, de Massachusetts, dijo que no compartía la idea de que el respeto al Presidente exigiera apoyar la medida, mientras que el Sr. Stevenson, de Ohio, favoreció adquirir Dominica por sus minerales, puertos y suelo fértil. Se leyó un despacho que anunciaba que el Senado de Indiana había instruido a sus senadores, y solicitado a sus representantes, votar contra la anexión. La Cámara aprobó la enmienda del Sr. Ambler, que declaraba que nada en la resolución comprometía al gobierno con la anexión, y luego aprobó la resolución, por 123 votos contra 63.</span></p>
 </section>
 <h2 class="plt-bodylabel"><span class="l-en">FULL TEXT:</span><span class="l-es">TRADUCCIÓN:</span></h2>
 <div class="plt-body">
@@ -162,21 +119,8 @@ footer a.btn:hover{background:#9A4E22}
 </div>
 <p class="plt-note"><span class="l-en">Throughout the debate, the speakers call the country &#x27;Dominica.&#x27; They mean the Dominican Republic, not the island of Dominica.</span><span class="l-es">Durante todo el debate, los oradores llaman al país «Dominica». Se refieren a la República Dominicana, no a la isla de Dominica.</span></p>
 <section class="plt-record">
-  <p class="plt-cite">The New York Herald. New York, January 11, 1871.</p>
-  <p><a href="https://www.loc.gov/resource/sn83030313/1871-01-11/ed-1/?sp=4" target="_blank" rel="noopener"><span class="l-en">See the original at the Library of Congress</span><span class="l-es">Ver el original en la Biblioteca del Congreso</span></a></p>
-  <div class="plt-ficha">
-    <p><span class="l-en">Also published as the New York Daily Herald</span><span class="l-es">También publicado como New York Daily Herald</span></p>
-    <p><span class="l-en">Published by: James Gordon Bennett</span><span class="l-es">Publicado por: James Gordon Bennett</span></p>
-    <p><span class="l-en">Edition: Morning Edition (Edition 1)</span><span class="l-es">Edición: edición de la mañana (edición 1)</span></p>
-    <p><span class="l-en">Page: 4, in a 12-page issue</span><span class="l-es">Página: 4, en un ejemplar de 12 páginas</span></p>
-    <p><span class="l-en">Frequency: daily (1840–1920)</span><span class="l-es">Frecuencia: diario (1840–1920)</span></p>
-    <p><span class="l-en">Collection: Chronicling America, Library of Congress</span><span class="l-es">Colección: Chronicling America, de la Biblioteca del Congreso</span></p>
-    <p><span class="l-en">LCCN: sn83030313</span><span class="l-es">LCCN: sn83030313</span></p>
-    <p><span class="l-en">ISSN: 2474-3224</span><span class="l-es">ISSN: 2474-3224</span></p>
-    <p><span class="l-en">OCLC: 9467138</span><span class="l-es">OCLC: 9467138</span></p>
-    <p><span class="l-en">Call Number: Newspaper E457.5 .N3</span><span class="l-es">Signatura (Call Number): Newspaper E457.5 .N3</span></p>
-    <p><span class="l-en">Rights: public domain, according to the Library of Congress</span><span class="l-es">Derechos: dominio público, según la Biblioteca del Congreso</span></p>
-  </div>
+  <p class="plt-cite">The New York Herald. New York, January 11, 1871. Page 4.</p>
+  <p><a href="https://www.loc.gov/resource/sn83030313/1871-01-11/ed-1/?sp=4" target="_blank" rel="noopener"><span class="l-en">View the original</span><span class="l-es">Ver el original</span></a></p>
 </section>
 </article>
 </main>

@@ -29,7 +29,7 @@
     es: {
       title: 'ChatRD',
       sub: 'Respuestas solo de los artículos de este archivo.',
-      greet: 'Hola, soy ChatRD. Respondo solo con los artículos de este archivo: periódicos estadounidenses sobre la República Dominicana, de 1820 a 1984, reunidos de la Biblioteca del Congreso. Estamos en apertura suave, así que tienes ocho preguntas al día: una pregunta completa, con el año, el tema o el periódico juntos, recibe una respuesta más completa. ¿Qué quieres saber?',
+      greet: 'Pregunta por un año, un tema o un periódico.',
       placeholder: 'Pregunta por un año, un tema, un periódico...',
       send: 'Enviar',
       thinking: 'Buscando en el archivo...',
@@ -45,7 +45,7 @@
     en: {
       title: 'ChatRD',
       sub: 'Answers only from this archive\'s articles.',
-      greet: 'Hi, I am ChatRD. I answer only from the articles in this archive: United States newspapers on the Dominican Republic, from 1820 to 1984, gathered from the Library of Congress. We are in soft opening, so you get eight questions a day: one thorough question, with the year, the topic, or the newspaper together, gets a fuller answer. What would you like to know?',
+      greet: 'Ask about a year, a topic, or a newspaper.',
       placeholder: 'Ask about a year, a topic, a newspaper...',
       send: 'Send',
       thinking: 'Searching the archive...',

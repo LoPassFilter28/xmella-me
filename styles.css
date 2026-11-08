@@ -19,3 +19,6 @@ a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}a:f
 /* Phones: lead directly with the links; retain the sculpture on larger screens. */
 @media(max-width:767px){.sculpture{display:none}}
 .sculpture picture{display:contents}
+
+/* Fix wave 2026-11-07 (F17): featured-card descriptor line */
+.card-text{min-width:0}.featured .card-line{margin:10px 0 0;font-size:15px;line-height:1.45;opacity:.85;max-width:46ch}
