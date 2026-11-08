@@ -38,16 +38,14 @@ document.getElementById('btn-theme').setAttribute('aria-pressed',document.body.d
   <div class="search-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="search" type="search" autocomplete="off" data-placeholder="search" placeholder="Buscar" aria-label="Buscar en todos los registros"><kbd aria-hidden="true">/</kbd></div>
  </div>
  <section class="timeline-shell" aria-label="Línea del tiempo · Timeline">
-  <div class="timeline-tools"><button id="view-mode" class="text-link" aria-pressed="false" data-i18n="quietView">Vista sin movimiento</button></div>
   <div class="scene-stage" id="scene-stage">
    <div class="scene-corner tl" aria-hidden="true"></div><div class="scene-corner br" aria-hidden="true"></div>
-   <canvas id="scene" aria-hidden="true"></canvas><div class="static-scene" id="static-scene" aria-hidden="true"></div>
-   <div class="scene-heading"><p class="eyebrow" id="chapter-position"></p><h3 id="year-heading">1871</h3><div class="year-count" id="year-count"></div></div>
-   <div class="scene-caption"><p id="chapter-range"></p><h4 id="chapter-title"></h4><p id="scene-description"></p><a class="scene-read" href="#evidence" data-i18n="readYear">Leer este año <span aria-hidden="true">↘</span></a></div>
+   <div class="static-scene" id="static-scene" aria-hidden="true"></div>
+   <div class="scene-heading"><p class="eyebrow" id="chapter-position"></p><h3 id="year-heading">1871</h3></div>
+   <div class="scene-caption"><p id="chapter-range"></p><h4 id="chapter-title"></h4><div class="year-count" id="year-count"></div><a class="scene-read" href="#evidence" data-i18n="readYear">Leer este año <span aria-hidden="true">↘</span></a></div>
    <div class="scene-navigation"><button id="previous-year" class="round" aria-label="Año anterior">←</button><button id="next-year" class="round" aria-label="Año siguiente">→</button></div>
   </div>
-  <div class="rail-shell"><div class="rail-pointer" aria-hidden="true"></div><div id="year-rail" class="year-rail" tabindex="0" role="group" aria-label="Desliza para recorrer los años"><div id="rail-inner"></div></div><div class="rail-caption"><span data-i18n="dragHint">DESLIZA PARA RECORRER LOS AÑOS</span><span id="rail-status" aria-live="polite"></span></div></div>
-  <div class="overview" id="overview"><div id="density-bars" class="density-bars" aria-hidden="true"></div><label class="sr-only" for="year-range" data-i18n="chooseYear">Elegir año</label><input type="range" id="year-range" min="1820" max="1984" step="1" value="1871"><div class="overview-dates" aria-hidden="true"><span>1820</span><span>1860</span><span>1900</span><span>1940</span><span>1984</span></div></div>
+  <div class="rail-shell"><div class="rail-pointer" aria-hidden="true"></div><div id="year-rail" class="year-rail" tabindex="0" role="group" aria-label="Desliza para recorrer los años"><div id="rail-inner"></div></div></div>
  <p class="rail-caption caveat-line"><span class="l-en">Height is records in this collection, not all coverage of the period.</span><span class="l-es">La altura representa los registros de esta colección, no toda la cobertura del período.</span></p>
  </section>
  <section class="chapters" aria-labelledby="chapter-list-title"><div class="section-top"><h2 id="chapter-list-title" data-i18n="chapters">Las trece eras</h2><span data-i18n="chapterHint">Elige una era</span></div><div id="chapter-list" class="chapter-list"></div></section>
