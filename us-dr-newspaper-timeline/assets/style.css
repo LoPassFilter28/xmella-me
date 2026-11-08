@@ -376,7 +376,7 @@ html{scroll-behavior:smooth}
 .body a:not(.btn),.card p a{background-image:linear-gradient(currentColor,currentColor);background-size:0% 1px;background-repeat:no-repeat;background-position:0 100%;text-decoration:none;transition:background-size var(--dur-ui) var(--ease-ui)}
 .body a:not(.btn):hover,.card p a:hover,.body a:not(.btn):focus-visible,.card p a:focus-visible{background-size:100% 1px}
 /* 7: one go-deeper arrow gesture */
-.era-card a::after,#era-link::after{content:"92";display:inline-block;margin-left:6px;transition:transform var(--dur-ui) var(--ease-ui)}
+.era-card a::after,#era-link::after{content:"\2192";display:inline-block;margin-left:6px;transition:transform var(--dur-ui) var(--ease-ui)}
 .era-card a:hover::after,#era-link:hover::after{transform:translateX(3px)}
 #era-link{display:inline-block;margin-top:14px;font-weight:700;color:var(--accent-ink)}
 /* 8: observation plate press physics */
