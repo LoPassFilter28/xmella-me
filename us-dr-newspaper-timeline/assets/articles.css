@@ -44,10 +44,11 @@ footer a.btn:hover{background:var(--accent-ink)}
 .plt-trail h4{font-size:.95rem;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin:0 0 .5rem;font-weight:700}
 .plt-trail p{margin:.25rem 0;font-size:.95rem}
 .plt-trail .plt-carriage{color:var(--accent-ink);font-weight:600;margin:0 0 .5rem}
-.plt-record{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:1.5rem;margin-top:0}
+.plt-factline{font-size:.92rem;color:var(--muted);margin:0 0 1.5rem}
+.plt-srcline{display:inline}
 .plt-record p{margin:.25rem 0}
-.plt-cite{font-size:.92rem;color:var(--muted);margin:0 0 .5rem;font-style:italic}
-@media (max-width:620px){.plt-h1{font-size:25px}.plt-capline{flex-direction:column;align-items:flex-start;gap:10px}.plt-deck ul{columns:1}.plt-record{padding:12px}.plt-plate{margin-left:calc(-1 * var(--pad));margin-right:calc(-1 * var(--pad));border-left:0;border-right:0;border-radius:0}}
+.plt-cite{font-size:.92rem;color:var(--muted);font-style:italic}
+@media (max-width:620px){.plt-h1{font-size:25px}.plt-capline{flex-direction:column;align-items:flex-start;gap:10px}.plt-deck ul{columns:1}.plt-plate{margin-left:calc(-1 * var(--pad));margin-right:calc(-1 * var(--pad));border-left:0;border-right:0;border-radius:0}}
 
 /* polish 2026-11-07: plate press physics + reduced motion */
 .plt-plate{transition:transform var(--dur-ui) var(--ease-ui)}
