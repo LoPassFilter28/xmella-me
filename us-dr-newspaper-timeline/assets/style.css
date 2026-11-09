@@ -72,15 +72,10 @@ padding:40px clamp(28px,6.4%,92px) 56px}
 .mast-lock{flex:1 1 auto;min-width:0;text-align:left}
 .mast-logo{font-family:"Source Sans 3",sans-serif;font-weight:700;font-size:21px;
 line-height:1.1;color:#F7F1E3;text-decoration:none;display:inline-block}
-.mast-eyebrow{font-family:"Source Sans 3",sans-serif;font-weight:600;font-size:13px;
 line-height:1.2;letter-spacing:3.9px;color:#C99B40;margin-top:55px;white-space:nowrap}
 header.masthead .mast-lock h1{font-family:"Source Sans 3",sans-serif;font-weight:900;
 font-size:clamp(44px,7.8vw,56px);line-height:1.02;letter-spacing:0;color:#F7F1E3;
 margin:12px 0 0;max-width:640px;text-wrap:balance}
-.mast-div{display:flex;align-items:center;gap:10px;width:min(525px,100%);margin-top:22px}
-.mast-div .dl{flex:1 1 auto;height:1.5px;background:#C99B40}
-.mast-div .dd{color:#C99B40;font-size:10px;line-height:1}
-header.masthead .mast-lock .sub{font-family:"Source Sans 3",sans-serif;font-weight:400;
 font-size:17px;line-height:1.45;color:#F7F1E3;max-width:560px;margin-top:14px}
 .mast-island{margin:0;flex:0 1 570px;min-width:0}
 .mast-island img{display:block;width:100%;height:auto;
@@ -98,21 +93,15 @@ header.masthead .compact-frame .sub{font-family:"Source Sans 3",sans-serif;font-
 line-height:1.4;color:rgba(247,241,227,.78);margin:0;flex:1 1 260px}
 @media (max-width:900px){
 .mast-cols{padding:28px 44px 44px}
-.mast-eyebrow{margin-top:33px}
 header.masthead .mast-lock h1{font-size:56px}
-.mast-div{width:min(355px,100%)}
-header.masthead .mast-lock .sub{font-size:16px;max-width:400px}
 .mast-island{flex-basis:299px}
 header.masthead .frame::before{inset:14px}}
 @media (max-width:640px){
 .mast-cols{flex-direction:column;text-align:center;padding:38px 22px 37px;gap:0}
-.mast-island{order:-1;flex:none;width:208px;margin:0 auto 14px}
+.mast-island{order:2;flex:none;width:140px;margin:14px auto 0}
 .mast-lock{text-align:center}
 .mast-logo.full{display:none}
-.mast-eyebrow{margin-top:0;white-space:normal}
 header.masthead .mast-lock h1{font-size:38px;margin-left:auto;margin-right:auto}
-.mast-div{width:min(311px,100%);margin-left:auto;margin-right:auto}
-header.masthead .mast-lock .sub{font-size:14px;max-width:346px;margin-left:auto;margin-right:auto}
 header.masthead .frame::before{inset:12px}}
 .ctxnote{border:1px solid var(--border-strong);border-left:4px solid var(--mustard);
 background:var(--soft);border-radius:8px;padding:12px 16px;margin:14px 0;font-size:14.5px}
@@ -362,9 +351,7 @@ html{scroll-behavior:smooth}
 /* Batch 7 micro-interactions */
 /* 1+2: caption crossfade + terracotta rule draw on era crossing */
 .timeline .scene-caption::before{content:"";position:absolute;top:0;left:0;height:2px;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:left}
-.timeline .scene-caption.swap{animation:capswap var(--dur-sheet) var(--ease-ui)}
 .timeline .scene-caption.swap::before{animation:ruledraw var(--dur-sheet) var(--ease-ui) forwards}
-@keyframes capswap{from{opacity:0}to{opacity:1}}
 @keyframes ruledraw{to{transform:scaleX(1)}}
 
 
@@ -385,15 +372,12 @@ html{scroll-behavior:smooth}
 /* 7: one go-deeper arrow gesture */
 .era-card a::after,#era-link::after{content:"\2192";display:inline-block;margin-left:6px;transition:transform var(--dur-ui) var(--ease-ui)}
 .era-card a:hover::after,#era-link:hover::after{transform:translateX(3px)}
-#era-link{display:inline-block;margin-top:14px;font-weight:700;color:var(--accent-ink)}
+.scene-caption #era-link{display:inline-block;margin-left:18px;font-weight:700;color:#F7F1E3;text-decoration:none;border-bottom:1px solid #B8602F;padding-bottom:4px}
 /* 8: observation plate press physics */
 .observe{transition:transform var(--dur-ui) var(--ease-ui)}
 .observe:active{transform:scale(.995)}
 /* 12: footer hairline draw-in (the footer joins .trail in the
    shipped IntersectionObserver script) */
-footer{position:relative}
-footer::before{content:"";position:absolute;top:0;left:0;height:2px;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform var(--dur-sheet) var(--ease-ui)}
-footer.in::before{transform:scaleX(1)}
 /* Batch 6: small screens first */
 @media (max-width:760px){
   nav.main{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}
