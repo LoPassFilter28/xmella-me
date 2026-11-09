@@ -1,6 +1,7 @@
 {
   "rewrites": [
     { "source": "/us-dr", "destination": "/us-dr-newspaper-timeline/index.html" },
+    { "source": "/us-dr/", "destination": "/us-dr-newspaper-timeline/index.html" },
     { "source": "/us-dr/:path*", "destination": "/us-dr-newspaper-timeline/:path*" }
   ]
 }
