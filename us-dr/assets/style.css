@@ -397,9 +397,10 @@ html{scroll-behavior:smooth}
 .utilbar .guide-corner{position:absolute;right:var(--pad);top:50%;transform:translateY(-50%);display:inline-flex;align-items:center;min-height:44px;padding:8px 14px;border-radius:8px;background:var(--soft);color:var(--ink);font-size:var(--fs-m);font-weight:700;text-decoration:none}
 .utilbar .guide-corner:hover{color:var(--accent-ink)}
 .timeline .scene-stage{min-height:330px}
-.timeline .scene-heading{margin:34px 40px 0}
+.timeline .scene-heading{margin:34px 40px 0;min-height:126px}
 .timeline .scene-heading h3{font-family:"Urbanist",sans-serif;font-size:clamp(34px,5vw,56px);line-height:1.12;font-weight:650;letter-spacing:-1px;margin:0;max-width:24ch;overflow-wrap:break-word;hyphens:auto}
 .timeline .scene-caption #era-link{margin-left:0}
+.timeline .scene-caption{min-height:194px}
 .timeline .rail-top{display:flex;align-items:center;justify-content:center;gap:7px;padding-top:8px}
 .timeline .rail-top .rail-pointer{position:static}
 .timeline .rail-year{font-family:"Urbanist",sans-serif;font-size:15px;font-weight:700;color:var(--accent-ink);letter-spacing:.5px;line-height:1}
@@ -413,7 +414,8 @@ html{scroll-behavior:smooth}
 .wrap .search-wrap input{font-size:14px;padding-block:8px}
 .utilbar .guide-corner{padding:8px 10px;right:10px}
 .timeline .scene-stage{min-height:280px}
-.timeline .scene-heading{margin:26px 24px 0}
+.timeline .scene-heading{margin:26px 24px 0;min-height:108px}
+.timeline .scene-caption{min-height:210px}
 .timeline .scene-heading h3{font-size:32px;letter-spacing:-.5px}
 .timeline .static-scene{height:36px}
 }
