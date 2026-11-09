@@ -417,3 +417,8 @@ html{scroll-behavior:smooth}
 .timeline .scene-heading h3{font-size:32px;letter-spacing:-.5px}
 .timeline .static-scene{height:36px}
 }
+/* === REFERENCE FOUR 2026-11-09: one tool row + one cross-link line,
+   shared by the Directory, Topics, Glossary and Profiles === */
+.dir-tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:14px 0 4px}
+.dir-tools input{min-height:44px;padding:8px 12px;border:1px solid var(--border-strong);border-radius:8px;background:var(--surface);color:var(--ink);font:inherit;min-width:min(320px,100%)}
+.xlink{color:var(--muted);font-size:var(--fs-s);margin:8px 0 0}
