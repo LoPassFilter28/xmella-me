@@ -1,15 +1,15 @@
-# DESIGN.MD - US/DR Newspaper Timeline (at xmella.me/us-dr-newspaper-timeline/)
+# DESIGN.MD - US/DR Newspaper Timeline (at xmella.me/us-dr/)
 
-xmella.me is PiK0's portfolio domain; this project is a branch on it.
-The pilot deploys under /us-dr-newspaper-timeline/ so the domain root
-stays free for the future portfolio home (not planned yet, per PiK0).
+xmella.me is the administrator's portfolio domain; this project is a branch on it.
+The pilot deploys under /us-dr/ so the domain root
+stays free for the future portfolio home (not planned yet, per the administrator).
 
 Status: PLANNING DRAFT, 2026-11-01. Written before any page exists, per the
-407 FYI procedure (DESIGN.MD first). PiK0's decisions govern; Antigravity's
+407 FYI procedure (DESIGN.MD first). The administrator's decisions govern; Antigravity's
 bundle design system is source material, reconciled below. Open items are
-listed at the end and need PiK0's ruling before build.
+listed at the end and need the administrator's ruling before build.
 
-## V4 GOVERNING AMENDMENT (PiK0, 2026-11-01 night) — supersedes the palette table and open items below
+## V4 GOVERNING AMENDMENT (the administrator, 2026-11-01 night) — supersedes the palette table and open items below
 - **Design philosophy:** design for human beings, tailored to the project's
   purpose. NO technical apparatus on public pages: no digests, hashes, OCR
   or pipeline jargon anywhere a reader can see. Sources are cited the way a
@@ -26,7 +26,7 @@ listed at the end and need PiK0's ruling before build.
   device setting.
 - **Language: Spanish is the default** on first load. The language
   buttons carry flag graphics: Spanish flag for ES, British Union Jack
-  for EN (PiK0's explicit choice). Choice persists.
+  for EN (the administrator's explicit choice). Choice persists.
 - **Design cues borrowed from 407 FYI** (procedures/workflows migrate,
   per PROJECT-RULES): Book Cover masthead (closed double-rule frame,
   rounded 20px/14px), beveled-plate cards, plate format for images
@@ -40,7 +40,7 @@ listed at the end and need PiK0's ruling before build.
   specific; labels say what a thing is for the reader, never how it was
   built.
 
-## Governing decisions (PiK0, 2026-11-01)
+## Governing decisions (the administrator, 2026-11-01)
 - Color scheme: **Parchment & Ink** (picked over the bundle's palette).
 - Format basis: the GEN1011 assignment submitted to Professor Schneider -
   per-article treatment: name + source URL, prose, images with source
@@ -76,7 +76,7 @@ inverted, not from their hex values.
 ## Design source of record (Figma)
 - File: "US/DR Newspaper Timeline — Design System",
   https://www.figma.com/design/djZyIPRxWH9dWUmb1UMKdE (created
-  2026-11-01 on PiK0's order, after the pilot shipped without any
+  2026-11-01 on the administrator's order, after the pilot shipped without any
   Figma work). Contents: Tokens & Type page (the Parchment & Ink
   variable collection + text styles), Components page (Masthead,
   Record Card, Pills, Evidence Labels, Pager, Well/Provenance,
@@ -91,22 +91,22 @@ inverted, not from their hex values.
   embedded as a webfont (Microsoft proprietary), so the embedded baseline
   is **Source Sans 3** (open humanist sans, same design family spirit),
   loaded as a webfont on every page; stack: "Segoe UI", "Source Sans 3",
-  -apple-system, sans-serif. AMENDED 2026-11-01 after PiK0 caught that
+  -apple-system, sans-serif. AMENDED 2026-11-01 after the administrator caught that
   the pilot rendered in fallback fonts on his phone: a named font that
   never renders is not a type system. Body 15-16px / 1.65 for article
   prose and summaries; UI controls 13-14px, weight 600 for pills/tabs.
 - Monospace for provenance: "JetBrains Mono", Consolas, monospace -
   record ids, SHA-256 digests, verbatim transcript wells.
-- DECIDED (PiK0, 2026-11-01): Segoe UI throughout. The bundle's Playfair
+- DECIDED (the administrator, 2026-11-01): Segoe UI throughout. The bundle's Playfair
   Display display serif is NOT adopted; weight, size, and the double-rule
   masthead carry the broadsheet character.
 
-## Browsing rule (PiK0 order, 2026-11-01)
+## Browsing rule (the administrator's order, 2026-11-01)
 No page ever renders the whole collection. The timeline index is a
 directory + search (results capped at 50 rendered at a time, data loaded
 lazily as a compact JSON index); browsing runs through era pages of at
 most 100 records with pagers. The first pilot shipped all 1,418 cards in
-one 3.4 MB page; PiK0's verdict ("mentally insane") is the standing
+one 3.4 MB page; the administrator's verdict ("mentally insane") is the standing
 precedent: a data dump is not a finding aid.
 
 ## Information architecture (provisional until the full-bundle audit)
@@ -156,7 +156,7 @@ behaviour verification (toggle, filters, expansion actually working) +
 BrowserStack real-device pass before the launch ship is called verified.
 Text layout verified by stress measurement, not screenshots alone.
 
-## Decided scope (PiK0, 2026-11-01)
+## Decided scope (the administrator, 2026-11-01)
 - Microfilm Vault: DEFERRED to a post-launch phase, once the light
   design is proven. Tokens stay theme-ready from day one; deferral
   costs no rework.
@@ -166,8 +166,8 @@ Text layout verified by stress measurement, not screenshots alone.
   Article pages carry full text where extraction exists (104+ and
   growing as the lanes run); every other record carries its summary,
   excerpt, and LOC source link.
-- SEQUENCE (PiK0's order): deploy the pilot FIRST; then a review and
-  confirmation session with PiK0; only AFTER that confirmation do we
+- SEQUENCE (the administrator's order): deploy the pilot FIRST; then a review and
+  confirmation session with the administrator; only AFTER that confirmation do we
   dig through the full Antigravity corpus (the 95 MB Drive folder,
   "the mess antigravity and the other agents left behind") under
   FULL-BUNDLE-AUDIT-PLAN.md. The remaining views (Documents,

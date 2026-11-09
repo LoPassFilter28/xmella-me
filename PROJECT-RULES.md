@@ -2,21 +2,21 @@
 
 This project has its OWN rules. It is not 407 FYI. From 407 FYI we import
 only website-building procedures and workflows, never its content rules
-(PiK0 order, 2026-11-01). Where a 407 rule and this file disagree, this
+(the administrator's order, 2026-11-01). Where a 407 rule and this file disagree, this
 file governs inside this project.
 
 ## Identity
-- Project name: **US/DR Newspaper Timeline** (PiK0, 2026-11-01). The
+- Project name: **US/DR Newspaper Timeline** (the administrator, 2026-11-01). The
   work's descriptive title remains "The Dominican Republic in the
   American Press, 1797-1963."
-- Domain: xmella.me is PiK0's PORTFOLIO / main-identity domain
+- Domain: xmella.me is the administrator's PORTFOLIO / main-identity domain
   (Namecheap, GitHub Student .me, registered 2026-11-01). This
-  project is a branch on it, served at /us-dr-newspaper-timeline/.
+  project is a branch on it, served at /us-dr/.
   Bio, blogs, and a 407.fyi presence are future xmella.me additions -
-  PiK0: do not plan for those yet.
+  the administrator: do not plan for those yet.
 - Color scheme: Parchment & Ink (parchment #F7F2E7, ink #1C1A17,
   oxblood #7A2E2E, slate #33526B). Tokens live in DESIGN.MD.
-- Format basis: the assignment PiK0 submitted to Professor Schneider -
+- Format basis: the assignment the administrator submitted to Professor Schneider -
   per-article treatment: name + source URL, prose, images with source
   URLs, citations/references. Segoe UI.
 
@@ -35,7 +35,7 @@ file governs inside this project.
   example) as long as the basis is explicit. Named for the Grandpa Tito
   Mella material, applied to everything on the site.
 
-## Extraction fidelity (from PiK0's 2026-10-31 rulings)
+## Extraction fidelity (from the administrator's 2026-10-31 rulings)
 - Article only, very specific; the 500-char LOC OCR window is a locator
   hint, never authority. Faithful substance, not mechanical exactness.
   No invented titles, no neighbouring articles, unreadable = [illegible].
@@ -45,9 +45,9 @@ file governs inside this project.
 - Stack: GitHub repo -> Vercel -> Cloudflare DNS.
 - DESIGN.MD before pages. Integrity sweep + browser behaviour
   verification before a ship is called verified. One lane, batched
-  GitHub pushes; PiK0's verbal confirmation is push authorization.
+  GitHub pushes; the administrator's verbal confirmation is push authorization.
 - Paid-tier tripwire: warn before any usage approaches a paid tier.
-- Zero payment authorization: purchases and billing changes are PiK0's
+- Zero payment authorization: purchases and billing changes are the administrator's
   alone. Credentials only through the Secure Vault, never chat.
 
 ## Pre-implementation activations

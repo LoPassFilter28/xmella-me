@@ -1,8 +1,8 @@
 # xmella.me
 
-PiK0's portfolio domain. This repository currently hosts one branch:
+The administrator's portfolio domain. This repository currently hosts one branch:
 
-- **US/DR Newspaper Timeline** (`/us-dr-newspaper-timeline/`) - a
+- **US/DR Newspaper Timeline** (`/us-dr/`) - a
   bilingual research edition of U.S. newspaper coverage of the
   Dominican Republic from the Library of Congress Chronicling America
   archive. Pilot: curated timeline of 1,418 records (1820-1963),
