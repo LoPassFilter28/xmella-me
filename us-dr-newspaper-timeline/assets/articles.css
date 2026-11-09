@@ -52,5 +52,3 @@ footer a.btn:hover{background:var(--accent-ink)}
 .plt-plate:active{transform:scale(.995)}
 @media (prefers-reduced-motion: reduce){.plt-plate{transition:none}}
 
-/* Fix wave 2026-11-07 (F5): original-title label on article pages */
-.plt-origlabel{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 .5rem}
