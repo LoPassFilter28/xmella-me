@@ -26,7 +26,7 @@ function setLang(l){document.body.dataset.lang=l;document.documentElement.lang=l
 function toggleTheme(){var d=document.body.dataset.theme=='dark'?'light':'dark';document.body.dataset.theme=d;document.getElementById('btn-theme').setAttribute('aria-pressed',d=='dark');localStorage.setItem('xm-theme',d);}
 (function(){document.addEventListener('DOMContentLoaded',function(){setLang(document.body.dataset.lang);
 document.getElementById('btn-theme').setAttribute('aria-pressed',document.body.dataset.theme=='dark');});})();</script>
-<nav class="main">
+<nav class="main interior">
 <a href="../papers.html"><span class="l-en">Newspapers</span><span class="l-es">Periódicos</span></a>
 <a href="../topics.html"><span class="l-en">Topics</span><span class="l-es">Temas</span></a>
 <a href="../profiles.html"><span class="l-en">Profiles</span><span class="l-es">Perfiles</span></a>
@@ -46,11 +46,6 @@ document.getElementById('btn-theme').setAttribute('aria-pressed',document.body.d
 <section class="plt-summary">
   <p><span class="l-en">The newspaper reported that the United States Government was not inclined to recognize the Dominican Republic as a belligerent power. Additionally, the excerpt briefly noted various domestic and military developments, including troop movements, arrests in Richmond, and political appointments.</span><span class="l-es">El periódico informó que el gobierno de los Estados Unidos no se inclinaba a reconocer a la República Dominicana como potencia beligerante. Además, el extracto reseñó sucintamente diversas novedades políticas y militares internas, incluidos movimientos de tropas, detenciones en Richmond y nombramientos políticos.</span></p>
 </section>
-<h2 class="plt-bodylabel"><span class="l-en">FULL TEXT:</span><span class="l-es">TEXTO COMPLETO:</span></h2>
-<div class="plt-body">
-<p><span class="l-en">General Sickles is to be sent to Arkansas, by the President, to fix up the election in that State.</span><span class="l-es">El General Sickles ha de ser enviado a Arkansas, por el Presidente, para arreglar la elección en ese Estado.</span></p>
-<p><span class="l-en">General Butler has introduced the Massachusetts Common-school system at Fortress Monroe and Norfolk. Whether Butler is one of the teachers or not is not sta-</span><span class="l-es">El General Butler ha introducido el sistema de escuelas comunes de Massachusetts en Fortress Monroe y Norfolk. Si Butler es uno de los maestros o no, no se afir-</span></p>
-</div>
 </article>
 </main>
 <footer><div class="frame"><a class="plt-footlink" href="../"><span class="l-en">DR in the American Press</span><span class="l-es">RD en la Prensa Norteamericana</span></a> &middot; <a class="plt-footlink" href="https://xmella.me">xmella.me</a><br>

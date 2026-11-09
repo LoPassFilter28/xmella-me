@@ -26,7 +26,7 @@ function setLang(l){document.body.dataset.lang=l;document.documentElement.lang=l
 function toggleTheme(){var d=document.body.dataset.theme=='dark'?'light':'dark';document.body.dataset.theme=d;document.getElementById('btn-theme').setAttribute('aria-pressed',d=='dark');localStorage.setItem('xm-theme',d);}
 (function(){document.addEventListener('DOMContentLoaded',function(){setLang(document.body.dataset.lang);
 document.getElementById('btn-theme').setAttribute('aria-pressed',document.body.dataset.theme=='dark');});})();</script>
-<nav class="main">
+<nav class="main interior">
 <a href="../papers.html"><span class="l-en">Newspapers</span><span class="l-es">Periódicos</span></a>
 <a href="../topics.html"><span class="l-en">Topics</span><span class="l-es">Temas</span></a>
 <a href="../profiles.html"><span class="l-en">Profiles</span><span class="l-es">Perfiles</span></a>
@@ -46,10 +46,6 @@ document.getElementById('btn-theme').setAttribute('aria-pressed',document.body.d
 <section class="plt-summary">
   <p><span class="l-en">The newspaper reported that a rumor regarding Spain signing a treaty to assume a protectorate over Santo Domingo at the end of the month caused great excitement in San Domingo and Hayti, and increased the unpopularity of President Baez. This rumor was reportedly strengthened by the appointment of new Spanish consuls at several Dominican republic ports.</span><span class="l-es">El diario refirió que los rumores concernientes a la firma de un convenio por el cual España instauraría un protectorado sobre Santo Domingo a fines de mes provocaron profunda inquietud en Santo Domingo y Haití, al paso que agravaron el descrédito del presidente Báez. Aseguróse que el rumor cobró fuerza por el nombramiento de flamantes cónsules peninsulares en varias radas dominicanas.</span></p>
 </section>
-<h2 class="plt-bodylabel"><span class="l-en">FULL TEXT:</span><span class="l-es">TEXTO COMPLETO:</span></h2>
-<div class="plt-body">
-<p><span class="l-en">A rumor that Spain will sign a treaty with Santo Domingo at the end of this month, assuming a protectorate over that island, causes great excitement in San Domingo and Hayti, and serves to further increase the unpopularity of President Baez. The rumor is somewhat strengthened by the appointment of new Spanish Consuls at several ports of the Dominican republic.</span><span class="l-es">Un rumor de que España firmará un tratado con Santo Domingo a finales de este mes, asumiendo un protectorado sobre esa isla, causa gran excitación en Santo Domingo y Haití, y sirve para aumentar aún más la impopularidad del presidente Báez. El rumor se ve algo fortalecido por el nombramiento de nuevos Cónsules españoles en varios puertos de la república dominicana.</span></p>
-</div>
 </article>
 </main>
 <footer><div class="frame"><a class="plt-footlink" href="../"><span class="l-en">DR in the American Press</span><span class="l-es">RD en la Prensa Norteamericana</span></a> &middot; <a class="plt-footlink" href="https://xmella.me">xmella.me</a><br>

@@ -26,7 +26,7 @@ function setLang(l){document.body.dataset.lang=l;document.documentElement.lang=l
 function toggleTheme(){var d=document.body.dataset.theme=='dark'?'light':'dark';document.body.dataset.theme=d;document.getElementById('btn-theme').setAttribute('aria-pressed',d=='dark');localStorage.setItem('xm-theme',d);}
 (function(){document.addEventListener('DOMContentLoaded',function(){setLang(document.body.dataset.lang);
 document.getElementById('btn-theme').setAttribute('aria-pressed',document.body.dataset.theme=='dark');});})();</script>
-<nav class="main">
+<nav class="main interior">
 <a href="../papers.html"><span class="l-en">Newspapers</span><span class="l-es">Periódicos</span></a>
 <a href="../topics.html"><span class="l-en">Topics</span><span class="l-es">Temas</span></a>
 <a href="../profiles.html"><span class="l-en">Profiles</span><span class="l-es">Perfiles</span></a>
@@ -46,10 +46,6 @@ document.getElementById('btn-theme').setAttribute('aria-pressed',document.body.d
 <section class="plt-summary">
   <p><span class="l-en">According to the newspaper report, government troops in the Dominican Republic actively pursued and dispersed the Orgando faction while elections progressed quietly throughout the country, and a revival of trade at Puerto Plata helped restore public confidence. Meanwhile, foreign residents in Havana joined active-service volunteers for the seat of war, prominent individuals denied Mexican involvement in the rebellion, and military battalions prepared to sail for Gibara and take the field in Cuba.</span><span class="l-es">De acuerdo con el parte de prensa, las tropas gubernamentales en la República Dominicana persiguieron activamente y dispersaron a la facción de los Ogando [Orgando], mientras los comicios se desarrollaban pacíficamente en todo el país y el restablecimiento del comercio en Puerto Plata contribuía a devolver la confianza pública. En La Habana, por su parte, los residentes extranjeros se alistaron en los batallones de voluntarios de campaña para el teatro de operaciones, figuras prominentes desmintieron toda injerencia mexicana en la rebelión y varios contingentes militares se aprestaron a zarpar rumbo a Gibara para entrar en combate en Cuba.</span></p>
 </section>
-<h2 class="plt-bodylabel"><span class="l-en">FULL TEXT:</span><span class="l-es">TEXTO COMPLETO:</span></h2>
-<div class="plt-body">
-<p><span class="l-en">HAVANA, Nov. 30.—Late advices from St. Domingo report all quiet on the Haytien frontier. The rebel General Orgando was severely wounded in the recent skirmish. Colonel Hevin, another rebel, was a prisoner, and had been sentenced to be shot, at Azua.</span><span class="l-es">LA HABANA, 30 de noviembre.—Las últimas noticias de Santo Domingo informan que todo está tranquilo en la frontera haitiana. El general rebelde Orgando fue gravemente herido en la reciente escaramuza. El coronel Hevin, otro rebelde, estaba prisionero, y había sido condenado a ser fusilado, en Azua.</span></p>
-</div>
 </article>
 </main>
 <footer><div class="frame"><a class="plt-footlink" href="../"><span class="l-en">DR in the American Press</span><span class="l-es">RD en la Prensa Norteamericana</span></a> &middot; <a class="plt-footlink" href="https://xmella.me">xmella.me</a><br>

@@ -356,6 +356,7 @@ html{scroll-behavior:smooth}
   nav.main{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}
   nav.main::-webkit-scrollbar{display:none}
   nav.main a{padding:11px 2px;white-space:nowrap}
+  nav.main.interior{flex-wrap:wrap;justify-content:center;overflow-x:visible}
   .timeline .eyebrow,.timeline .record-meta,.timeline .original-label,
   .timeline .record-badge,
   .timeline .scene-caption>p:first-child{font-size:var(--fs-xs)}

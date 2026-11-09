@@ -26,7 +26,7 @@ function setLang(l){document.body.dataset.lang=l;document.documentElement.lang=l
 function toggleTheme(){var d=document.body.dataset.theme=='dark'?'light':'dark';document.body.dataset.theme=d;document.getElementById('btn-theme').setAttribute('aria-pressed',d=='dark');localStorage.setItem('xm-theme',d);}
 (function(){document.addEventListener('DOMContentLoaded',function(){setLang(document.body.dataset.lang);
 document.getElementById('btn-theme').setAttribute('aria-pressed',document.body.dataset.theme=='dark');});})();</script>
-<nav class="main">
+<nav class="main interior">
 <a href="../papers.html"><span class="l-en">Newspapers</span><span class="l-es">Periódicos</span></a>
 <a href="../topics.html"><span class="l-en">Topics</span><span class="l-es">Temas</span></a>
 <a href="../profiles.html"><span class="l-en">Profiles</span><span class="l-es">Perfiles</span></a>
@@ -46,10 +46,6 @@ document.getElementById('btn-theme').setAttribute('aria-pressed',document.body.d
 <section class="plt-summary">
   <p><span class="l-en">The newspaper reported that a movement has been determined to erect a monument over the supposed remains of Christopher Columbus in San Domingo. It noted that the Dominican Republic started this initiative by contributing a subscription of $10,000.</span><span class="l-es">El periódico refirió que se adoptó el acuerdo de erigir un monumento conmemorativo sobre las cenizas que se reputan de Cristóbal Colón en Santo Domingo. Puntualizó la crónica que la República Dominicana inauguró la suscripción encabezando el fondo con un donativo de 10.000 dólares.</span></p>
 </section>
-<h2 class="plt-bodylabel"><span class="l-en">FULL TEXT:</span><span class="l-es">TEXTO COMPLETO:</span></h2>
-<div class="plt-body">
-<p><span class="l-en">It has been determined to erect a monument over the supposed remains of Christopher Columbus in San Domingo. The Dominican Republic starts the movement with a subscription of $10,000.</span><span class="l-es">Se ha determinado erigir un monumento sobre los supuestos restos de Cristóbal Colón en Santo Domingo. La República Dominicana inicia el movimiento con una suscripción de $10,000.</span></p>
-</div>
 </article>
 </main>
 <footer><div class="frame"><a class="plt-footlink" href="../"><span class="l-en">DR in the American Press</span><span class="l-es">RD en la Prensa Norteamericana</span></a> &middot; <a class="plt-footlink" href="https://xmella.me">xmella.me</a><br>
