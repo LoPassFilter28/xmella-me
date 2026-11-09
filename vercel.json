@@ -1,6 +1,7 @@
 {
   "redirects": [
     { "source": "/us-dr-newspaper-timeline", "destination": "/us-dr/", "permanent": true },
+    { "source": "/us-dr-newspaper-timeline/", "destination": "/us-dr/", "permanent": true },
     { "source": "/us-dr-newspaper-timeline/:path*", "destination": "/us-dr/:path*", "permanent": true }
   ]
 }
