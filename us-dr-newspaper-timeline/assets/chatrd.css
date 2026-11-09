@@ -47,5 +47,5 @@
 /* SITE POLISH BUILD (2026-11-07): reduced-motion guard (the chat
    styles carried transitions with no guard). */
 @media (prefers-reduced-motion: reduce){
-  .chatrd-panel,.chatrd-panel *{transition:none !important;animation:none !important}
+  
 }

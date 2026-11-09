@@ -1,8 +1,6 @@
 /* Article template CSS - shared by every rebuilt article page.
    Rules are the two approved pilots' page-local styles, unified
    (cr00396-5 upgrade state wins where the pilots diverged). */
-.plt-ficha{font-size:.82rem;line-height:1.5;margin-top:.75rem;color:var(--muted)}
-.plt-ficha p{margin:.25rem 0}
 .plt-footlink{color:inherit;text-underline-offset:2px}
 .masthead .compact-frame{justify-content:center}
 .masthead .sitename{text-align:center}
@@ -46,7 +44,6 @@ footer a.btn:hover{background:var(--accent-ink)}
 .plt-trail .plt-carriage{color:var(--accent-ink);font-weight:600;margin:0 0 .5rem}
 .plt-factline{font-size:.92rem;color:var(--muted);margin:0 0 1.5rem}
 .plt-srcline{display:inline}
-.plt-record p{margin:.25rem 0}
 .plt-cite{font-size:.92rem;color:var(--muted);font-style:italic}
 @media (max-width:620px){.plt-h1{font-size:25px}.plt-capline{flex-direction:column;align-items:flex-start;gap:10px}.plt-deck ul{columns:1}.plt-plate{margin-left:calc(-1 * var(--pad));margin-right:calc(-1 * var(--pad));border-left:0;border-right:0;border-radius:0}}
 
