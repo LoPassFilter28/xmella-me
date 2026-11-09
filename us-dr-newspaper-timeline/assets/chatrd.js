@@ -9,7 +9,9 @@
    default), and its chips link to archive article pages, resolved
    against the branch root derived from this script's own URL.
    Talks to the ChatRD Supabase edge function; answers come only from
-   the archive's records. */
+   the archive's records. Result chips open in a new tab, and the
+   transcript + panel state persist in sessionStorage, so the
+   conversation survives moving around the site within a tab. */
 (() => {
   if (window.__chatrdLoaded) return;
   window.__chatrdLoaded = true;
@@ -123,7 +125,7 @@
 
   // ---------------------------------------------------------- state
   let opened = false, busy = false, noticeShown = false;
-  const history = [];
+  let history = [];
   let visitor = '';
   try {
     visitor = localStorage.getItem('chatrd-visitor') || '';
@@ -160,19 +162,109 @@
       const link = document.createElement('a');
       link.className = 'crd-chat-chip';
       link.href = ROOT + a.path;
+      // A result opens in a new tab: following it never takes the
+      // reader away from the conversation.
+      link.target = '_blank';
+      link.rel = 'noopener';
       link.innerHTML = esc(a.newspaper) + ' <small>' + esc(fmtDate(a.date)) + '</small>';
       row.appendChild(link);
     }
     msgs.appendChild(row);
     msgs.scrollTop = msgs.scrollHeight;
   }
+  // --------------------------------------------- session persistence
+  // The transcript and the panel's open state live in sessionStorage
+  // (per-tab, gone when the tab closes), so following a link — or
+  // landing on another page of the site — never costs the reader the
+  // conversation. Entries are plain render data: {k:'user'|'bot',
+  // text, articles?} for conversation turns, {k:'note', text} for
+  // system notes; the greeting renders as a bot entry but stays out
+  // of the history sent to the function, exactly as it does live.
+  const TKEY = 'chatrd-transcript-v1';
+  const OKEY = 'chatrd-open-v1';
+  const MAX_KEEP = 50;
+  let transcript = [];
+  const store = {
+    get(k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } },
+    set(k, v) { try { sessionStorage.setItem(k, v); } catch (e) {} },
+  };
+  function saveTranscript() {
+    store.set(TKEY, JSON.stringify(transcript.slice(-MAX_KEEP)));
+  }
+  function record(entry) {
+    transcript.push(entry);
+    if (transcript.length > MAX_KEEP) transcript = transcript.slice(-MAX_KEEP);
+    saveTranscript();
+  }
+  function saveOpen(open) { store.set(OKEY, open ? '1' : '0'); }
+  // The feedback flow's state is recovered by the function from the
+  // history it is sent, keyed on its own two prompt markers (the same
+  // substrings feedback.js matches, on the same normalization:
+  // lowercase, accents stripped). If the last assistant turn in the
+  // saved transcript is one of those prompts, the flow was mid-state
+  // when the reader left: restore the words as a plain transcript but
+  // start the sent history empty, so no half-finished ticket flow can
+  // resume from a restored page.
+  const FLOW_MARKERS = ['escribe tu observacion', 'write your observation',
+    'quieres dejar un nombre', 'would you like to leave a name'];
+  const foldText = (s) => String(s || '').toLowerCase().normalize('NFD')
+    .replace(/[̀-ͯ]/g, '');
+  function midFeedbackFlow(entries) {
+    for (let i = entries.length - 1; i >= 0; i--) {
+      if (entries[i].k !== 'bot' || entries[i].greet) continue;
+      const flat = foldText(entries[i].text);
+      return FLOW_MARKERS.some((m) => flat.includes(m));
+    }
+    return false;
+  }
+  function restore() {
+    let entries = [];
+    try { entries = JSON.parse(store.get(TKEY) || '[]'); } catch (e) { entries = []; }
+    if (!Array.isArray(entries)) entries = [];
+    entries = entries.filter((e) => e && typeof e.text === 'string' &&
+      (e.k === 'user' || e.k === 'bot' || e.k === 'note'));
+    transcript = entries.slice(-MAX_KEEP);
+    if (transcript.length) {
+      opened = true;
+      for (const e of transcript) {
+        if (e.k === 'note') {
+          const n = document.createElement('div');
+          n.className = 'crd-chat-note';
+          n.textContent = e.text;
+          msgs.appendChild(n);
+          noticeShown = true;
+        } else {
+          addMsg(e.k === 'user' ? 'user' : 'bot', e.text);
+          if (e.k === 'bot' && e.articles) addChips(e.articles);
+        }
+      }
+      msgs.scrollTop = msgs.scrollHeight;
+      if (!midFeedbackFlow(transcript)) {
+        history = transcript
+          .filter((e) => (e.k === 'user' || e.k === 'bot') && !e.greet)
+          .map((e) => ({ role: e.k === 'user' ? 'user' : 'assistant', text: e.text }));
+      }
+    }
+    if (store.get(OKEY) === '1') {
+      panel.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+      if (!opened) {
+        opened = true;
+        addMsg('bot', S().greet);
+        record({ k: 'bot', text: S().greet, greet: true });
+      }
+    }
+  }
+
   function toggle(open) {
     panel.classList.toggle('open', open);
     btn.setAttribute('aria-expanded', String(open));
+    saveOpen(open);
     if (open) {
       if (!opened) {
         opened = true;
         addMsg('bot', S().greet);
+        record({ k: 'bot', text: S().greet, greet: true });
         track('chatrd_open');
       }
       setTimeout(() => input.focus(), 60);
@@ -187,6 +279,7 @@
     if (!q || busy) return;
     busy = true; send.disabled = true; input.value = '';
     addMsg('user', q);
+    record({ k: 'user', text: q });
     history.push({ role: 'user', text: q });
     const thinking = addMsg('bot thinking', S().thinking);
     // One POST attempt, with its own 30 s timeout. Any failure to
@@ -265,6 +358,7 @@
         n.className = 'crd-chat-note';
         n.textContent = noteText;
         msgs.appendChild(n);
+        record({ k: 'note', text: noteText });
         msgs.scrollTop = msgs.scrollHeight;
         track('chatrd_rate_limited');
       } else {
@@ -274,9 +368,11 @@
           n.className = 'crd-chat-note';
           n.textContent = data.notice;
           msgs.appendChild(n);
+          record({ k: 'note', text: data.notice });
         }
         addMsg('bot', data.answer);
         addChips(data.articles);
+        record({ k: 'bot', text: data.answer, articles: data.articles || [] });
         history.push({ role: 'assistant', text: data.answer });
         track('chatrd_question');
       }
@@ -286,4 +382,8 @@
     }
     busy = false; send.disabled = false; input.focus();
   });
+
+  // Bring back any conversation from earlier in this tab session
+  // (runs last: every renderer it uses is defined above).
+  restore();
 })();
