@@ -72,10 +72,13 @@ padding:40px clamp(28px,6.4%,92px) 56px}
 .mast-lock{flex:1 1 auto;min-width:0;text-align:left}
 .mast-logo{font-family:"Source Sans 3",sans-serif;font-weight:700;font-size:21px;
 line-height:1.1;color:#F7F1E3;text-decoration:none;display:inline-block}
-line-height:1.2;letter-spacing:3.9px;color:#C99B40;margin-top:55px;white-space:nowrap}
 header.masthead .mast-lock h1{font-family:"Source Sans 3",sans-serif;font-weight:900;
 font-size:clamp(44px,7.8vw,56px);line-height:1.02;letter-spacing:0;color:#F7F1E3;
 margin:12px 0 0;max-width:640px;text-wrap:balance}
+.mast-div{display:flex;align-items:center;gap:10px;width:min(525px,100%);margin-top:22px}
+.mast-div .dl{flex:1 1 auto;height:1.5px;background:#C99B40}
+.mast-div .dd{color:#C99B40;font-size:10px;line-height:1}
+header.masthead .mast-lock .sub{font-family:"Source Sans 3",sans-serif;font-weight:400;
 font-size:17px;line-height:1.45;color:#F7F1E3;max-width:560px;margin-top:14px}
 .mast-island{margin:0;flex:0 1 570px;min-width:0}
 .mast-island img{display:block;width:100%;height:auto;
@@ -94,6 +97,8 @@ line-height:1.4;color:rgba(247,241,227,.78);margin:0;flex:1 1 260px}
 @media (max-width:900px){
 .mast-cols{padding:28px 44px 44px}
 header.masthead .mast-lock h1{font-size:56px}
+.mast-div{width:min(355px,100%)}
+header.masthead .mast-lock .sub{font-size:16px;max-width:400px}
 .mast-island{flex-basis:299px}
 header.masthead .frame::before{inset:14px}}
 @media (max-width:640px){
@@ -102,6 +107,8 @@ header.masthead .frame::before{inset:14px}}
 .mast-lock{text-align:center}
 .mast-logo.full{display:none}
 header.masthead .mast-lock h1{font-size:38px;margin-left:auto;margin-right:auto}
+.mast-div{width:min(311px,100%);margin-left:auto;margin-right:auto}
+header.masthead .mast-lock .sub{font-size:14px;max-width:346px;margin-left:auto;margin-right:auto}
 header.masthead .frame::before{inset:12px}}
 .pill.ctxpill{background:var(--walnut);color:var(--bg);border-color:var(--walnut)}
 .lede{font-size:17px;line-height:1.65;color:var(--ink-secondary);max-width:68ch;
