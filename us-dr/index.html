@@ -25,7 +25,7 @@ function setLang(l){document.body.dataset.lang=l;document.documentElement.lang=l
 function toggleTheme(){var d=document.body.dataset.theme=='dark'?'light':'dark';document.body.dataset.theme=d;document.getElementById('btn-theme').setAttribute('aria-pressed',d=='dark');localStorage.setItem('xm-theme',d);}
 (function(){document.addEventListener('DOMContentLoaded',function(){setLang(document.body.dataset.lang);
 document.getElementById('btn-theme').setAttribute('aria-pressed',document.body.dataset.theme=='dark');});})();</script>
-<nav class="main"><a href="eras.html"><span class="l-en">Eras</span><span class="l-es">Eras</span></a>
+<nav class="main"><a href="#timeline"><span class="l-en">Eras</span><span class="l-es">Eras</span></a>
 <a href="papers.html"><span class="l-en">Newspapers</span><span class="l-es">Periódicos</span></a>
 <a href="topics.html"><span class="l-en">Topics</span><span class="l-es">Temas</span></a>
 <a href="glossary.html"><span class="l-en">Glossary</span><span class="l-es">Glosario</span></a>
@@ -40,7 +40,7 @@ document.getElementById('btn-theme').setAttribute('aria-pressed',document.body.d
   </div>
   <div class="rail-shell"><div class="rail-top"><span class="rail-pointer" aria-hidden="true"></span><span class="rail-year" id="year-readout">1844</span></div><div class="static-scene" id="static-scene" aria-hidden="true"></div><div id="year-rail" class="year-rail" tabindex="0" role="group" aria-label="Desliza para recorrer los años" data-en-aria-label="Swipe to explore the years" data-es-aria-label="Desliza para recorrer los años"><div id="rail-inner"></div></div></div>
  </section>
- <section class="evidence" id="evidence" aria-labelledby="evidence-title"><div class="section-top"><div><h2 id="evidence-title"></h2></div></div><div id="record-list" class="record-list"></div><button id="load-more" class="outline-button" data-i18n="loadMore">Ver más registros</button><p class="data-error" id="data-error" hidden></p></section>
+ <section class="evidence" id="evidence" aria-label="La evidencia" data-en-aria-label="The evidence" data-es-aria-label="La evidencia"><div id="record-list" class="record-list"></div><button id="load-more" class="outline-button" data-i18n="loadMore">Ver más registros</button><p class="data-error" id="data-error" hidden></p></section>
  <section class="search-panel" id="search-panel" aria-labelledby="search-title" hidden><div class="section-top"><h2 id="search-title" data-i18n="searchResults">Resultados de búsqueda</h2><button id="close-search" class="icon-button" aria-label="Cerrar búsqueda" data-en-aria-label="Close search" data-es-aria-label="Cerrar búsqueda">×</button></div><p id="search-count" aria-live="polite"></p><div id="search-results"></div><button id="search-more" class="outline-button" data-i18n="loadMore">Ver más registros</button></section>
  
 </div>
