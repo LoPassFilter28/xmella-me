@@ -473,3 +473,66 @@ body.dz-motion .dz-rise{opacity:0;transform:translateY(18px)}
 .dz-chapter.dz-alt .dz-plate{order:0}
 .dz-chapter{padding:54px 0 62px}}
 @media (prefers-reduced-motion:reduce){.dz-rise{transition:none}}
+
+/* === SEARCH RESULTS 2026-11-10 (owner spec): article results are a
+   quiet editorial list — headline, full date, and one sentence from
+   the record's own summary. Nothing in a result is underlined in any
+   state; emphasis comes from type, spacing, a hairline, and the soft
+   wash on hover/focus. Scoped to the results container so the shared
+   row class used by people doors only loses its underline. === */
+.timeline #search-results .search-result,
+.timeline #search-results .search-result *,
+.timeline #search-results .search-result:hover,
+.timeline #search-results .search-result:hover *,
+.timeline #search-results .search-result:focus,
+.timeline #search-results .search-result:focus *,
+.timeline #search-results .search-result:focus-visible,
+.timeline #search-results .search-result:focus-visible *{
+text-decoration:none;
+text-decoration-line:none}
+.timeline #search-results .article-result{
+display:block;
+padding:20px 14px 21px;
+margin-inline:-14px;
+border-bottom:1px solid var(--line);
+color:var(--ink);
+transition:background-color var(--dur-ui) var(--ease-ui),box-shadow var(--dur-ui) var(--ease-ui)}
+.timeline #search-results .article-result:hover,
+.timeline #search-results .article-result:focus-visible{
+background:var(--soft);
+box-shadow:inset 3px 0 0 var(--accent)}
+.timeline #search-results .search-result-title{
+font-family:var(--font-d);
+font-size:20px;
+font-weight:700;
+line-height:1.16;
+letter-spacing:-.018em;
+color:var(--headline);
+margin:0;
+overflow-wrap:break-word}
+.timeline #search-results .article-result:hover .search-result-title,
+.timeline #search-results .article-result:focus-visible .search-result-title{
+color:var(--accent-ink)}
+.timeline #search-results .search-result-date{
+display:block;
+margin-top:7px;
+font-family:"Manrope",sans-serif;
+font-size:var(--fs-s);
+font-weight:650;
+line-height:1.3;
+letter-spacing:.02em;
+color:var(--muted)}
+.timeline #search-results .search-result-sentence{
+font-family:"Source Sans 3",sans-serif;
+font-size:16px;
+line-height:1.52;
+color:var(--muted);
+margin:9px 0 0;
+max-width:64ch;
+overflow-wrap:break-word}
+@media (max-width:640px){
+.timeline #search-results .article-result{
+padding:18px 10px 19px;
+margin-inline:-10px}
+.timeline #search-results .search-result-title{font-size:19px}
+.timeline #search-results .search-result-sentence{font-size:15.5px}}
