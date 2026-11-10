@@ -436,7 +436,7 @@ html{scroll-behavior:smooth}
 .dir-tools input{min-height:44px;padding:8px 12px;border:1px solid var(--border-strong);border-radius:8px;background:var(--surface);color:var(--ink);font:inherit;min-width:min(320px,100%)}
 .xlink{color:var(--muted);font-size:var(--fs-s);margin:8px 0 0}
 
-/* === ERAS DESCENT 2026-11-10 (PiK0 ruling: Direction A belongs on
+/* === ERAS DESCENT 2026-11-10 (owner ruling: Direction A belongs on
    the Eras hub, under the timeline scene): the Descent chapters.
    Named move: chapter-settle (kicker rises, name settles, plate
    rises, text settles), one-shot via IntersectionObserver,
