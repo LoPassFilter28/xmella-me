@@ -115,7 +115,7 @@ header.masthead .frame::before{inset:12px}}
 .pill.ctxpill{background:var(--walnut);color:var(--bg);border-color:var(--walnut)}
 .lede{font-size:17px;line-height:1.65;color:var(--ink-secondary);max-width:68ch;
 margin:22px auto 2px;text-align:center}
-.utilbar{display:flex;gap:10px;justify-content:center;align-items:center;padding:12px 10px 4px;flex-wrap:wrap}
+.utilbar{display:flex;gap:10px;justify-content:center;align-items:center;padding:8px 10px;flex-wrap:wrap}
 .utilbar button{font:inherit;font-size:13px;font-weight:700;padding:8px 14px;min-height:44px;
 border:1px solid var(--control-border);background:var(--surface);color:var(--ink);
 border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;
@@ -123,8 +123,8 @@ transition:background var(--dur-ui) var(--ease-ui),border-color var(--dur-ui) va
 .utilbar button:hover{border-color:var(--accent)}
 .utilbar button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
 .utilbar button svg{width:22px;height:15px;border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,.25);flex:none}
-nav.main{display:flex;gap:18px;justify-content:center;padding:12px 10px;font-size:14px;font-weight:700;flex-wrap:wrap}
-nav.main a{color:var(--ink);text-decoration:none;padding:6px 2px}
+nav.main{display:flex;gap:18px;justify-content:center;padding:8px 10px 12px;font-size:14px;font-weight:700;flex-wrap:wrap;max-width:var(--max);margin-inline:auto}
+nav.main a{color:var(--ink);text-decoration:none;padding:11px 2px}
 nav.main a:hover{color:var(--accent-ink);text-decoration:underline;text-underline-offset:4px}
 .controls{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
 .controls input[type="search"],.controls select{font:inherit;font-size:16px;padding:8px 10px;min-height:44px;
@@ -297,9 +297,9 @@ html{scroll-behavior:smooth}
 .utilbar .lang::after{content:"";position:absolute;inset:0;background:var(--soft);border-radius:8px;transform:scaleX(0);transform-origin:left;transition:transform var(--dur-ui) var(--ease-ui);z-index:-1}
 .utilbar .lang[aria-pressed="true"]{opacity:1;font-weight:800;background:transparent}
 .utilbar .lang[aria-pressed="true"]::after{transform:scaleX(1)}
-.utilbar .icon-button{width:44px;height:44px;display:grid;place-content:center;background:transparent;border:0;border-left:1px solid var(--line);border-radius:0;margin-left:8px;padding:0;color:var(--ink);cursor:pointer;position:relative;isolation:isolate}
+.utilbar .icon-button{width:44px;height:44px;display:grid;place-content:center;background:transparent;border:0;border-radius:8px;margin-left:0;padding:0;color:var(--ink);cursor:pointer;position:relative;isolation:isolate}
 .utilbar .icon-button svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.5}
-.utilbar .icon-button::after{content:"";position:absolute;inset:0;background:var(--soft);transform:scaleX(0);transform-origin:left;transition:transform var(--dur-ui) var(--ease-ui);z-index:-1}
+.utilbar .icon-button::after{content:"";position:absolute;inset:0;background:var(--soft);border-radius:8px;transform:scaleX(0);transform-origin:left;transition:transform var(--dur-ui) var(--ease-ui);z-index:-1}
 .utilbar .icon-button[aria-pressed="true"]::after{transform:scaleX(1)}
 /* type floor: nothing under 12px in chrome or timeline (Batch 8) */
 .pill,.label,.sumlabel{font-size:var(--fs-xs)}
@@ -397,14 +397,14 @@ html{scroll-behavior:smooth}
    goes era-led: the era name is the stage heading, the year is a small
    readout at the rail pointer, and the density becomes one fixed
    full-span silhouette above the rail with the current era lit. */
-.wrap .search-wrap{position:relative;max-width:560px;margin:26px auto 4px;display:flex;align-items:center;font-family:"Source Sans 3",sans-serif}
+.wrap .search-wrap{position:relative;max-width:560px;margin:12px auto 4px;display:flex;align-items:center;font-family:"Source Sans 3",sans-serif}
 .wrap .search-wrap svg{width:20px;height:20px;stroke:var(--muted);fill:none;stroke-width:1.5;position:absolute;left:14px}
-.wrap .search-wrap input{background:var(--soft);border:1px solid var(--line);border-radius:4px;padding:10px 40px;width:100%;color:var(--ink);font-family:inherit;font-size:16px}
+.wrap .search-wrap input{background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:10px 40px;width:100%;color:var(--ink);font-family:inherit;font-size:16px}
 .wrap .search-wrap input::placeholder{color:var(--muted)}
 .wrap .search-wrap input:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
 .utilbar.preferences{position:relative;max-width:var(--max);margin-inline:auto}
 .utilbar.preferences:has(.guide-corner){padding-top:8px;padding-bottom:8px}
-.utilbar .guide-corner{position:absolute;right:var(--pad);top:50%;transform:translateY(-50%);display:inline-flex;align-items:center;min-height:44px;padding:8px 14px;border-radius:8px;background:var(--soft);color:var(--ink);font-size:var(--fs-m);font-weight:700;text-decoration:none}
+.utilbar .guide-corner{position:absolute;right:0;top:50%;transform:translateY(-50%);display:inline-flex;align-items:center;min-height:44px;padding:8px 14px;border-radius:8px;background:var(--soft);color:var(--ink);font-size:var(--fs-m);font-weight:700;text-decoration:none}
 .utilbar .guide-corner:hover{color:var(--accent-ink)}
 .timeline .scene-stage{min-height:330px}
 .timeline .scene-heading{margin:34px 40px 0;min-height:126px}
@@ -420,9 +420,10 @@ html{scroll-behavior:smooth}
 .timeline .static-scene>div.lit{background:var(--terracotta);opacity:1}
 .timeline .static-scene>div.current{background:var(--accent-ink);opacity:1}
 @media (max-width:640px){
-.wrap .search-wrap{max-width:none;width:100%;margin:20px 0 2px}
+.wrap .search-wrap{max-width:none;width:100%;margin:12px 0 2px}
 .wrap .search-wrap input{font-size:16px;padding-block:7px}
-.utilbar .guide-corner{padding:8px 10px;right:10px}
+.utilbar.preferences{margin-inline:10px}
+.utilbar .guide-corner{padding:8px 10px}
 .timeline .scene-stage{min-height:280px}
 .timeline .scene-heading{margin:26px 24px 0;min-height:108px}
 .timeline .scene-caption{min-height:210px}
