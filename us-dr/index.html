@@ -25,7 +25,7 @@ function setLang(l){document.body.dataset.lang=l;document.documentElement.lang=l
 function toggleTheme(){var d=document.body.dataset.theme=='dark'?'light':'dark';document.body.dataset.theme=d;document.getElementById('btn-theme').setAttribute('aria-pressed',d=='dark');localStorage.setItem('xm-theme',d);}
 (function(){document.addEventListener('DOMContentLoaded',function(){setLang(document.body.dataset.lang);
 document.getElementById('btn-theme').setAttribute('aria-pressed',document.body.dataset.theme=='dark');});})();</script>
-<nav class="main"><a href="#timeline"><span class="l-en">Eras</span><span class="l-es">Eras</span></a>
+<nav class="main"><a href="eras.html"><span class="l-en">Eras</span><span class="l-es">Eras</span></a>
 <a href="papers.html"><span class="l-en">Newspapers</span><span class="l-es">Periódicos</span></a>
 <a href="topics.html"><span class="l-en">Topics</span><span class="l-es">Temas</span></a>
 <a href="glossary.html"><span class="l-en">Glossary</span><span class="l-es">Glosario</span></a>
