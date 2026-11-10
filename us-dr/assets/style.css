@@ -146,6 +146,10 @@ transition:transform var(--dur-ui) var(--ease-ui),box-shadow var(--dur-ui) var(-
 a.pill{transition:border-color var(--dur-ui) var(--ease-ui),color var(--dur-ui) var(--ease-ui)}
 a.pill:hover{color:var(--accent-ink);border-color:var(--accent)}
 .pill.full{border-color:var(--accent);color:var(--accent-ink)}
+span.pill{border:0;background:none;padding:0;border-radius:0}
+span.pill:hover{color:var(--muted);border-color:transparent}
+span.pill.full{color:var(--accent-ink)}
+span.pill.ctxpill{color:var(--muted)}
 .chips{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 4px}
 .chip{font:inherit;font-size:12px;font-weight:700;padding:6px 14px;min-height:44px;border:1px solid var(--control-border);
 border-radius:999px;background:var(--surface);color:var(--muted);cursor:pointer;
@@ -281,8 +285,8 @@ header.masthead h1,header.masthead .sitename{overflow-wrap:break-word}
 [data-theme="dark"]{--terracotta:var(--accent);--terracotta-bright:var(--accent-ink);--focus:var(--accent)}
 html{scroll-behavior:smooth}
 /* skip link + screen-reader-only (Batch 8 invisible layer) */
-.skip-link{position:absolute;left:12px;top:-64px;z-index:80;background:var(--walnut);color:var(--bg);padding:10px 16px;border-radius:0 0 8px 8px;font-size:var(--fs-m);font-weight:700;text-decoration:none;transition:top var(--dur-ui) var(--ease-ui)}
-.skip-link:focus{top:0;color:var(--bg)}
+.skip-link{position:absolute;left:12px;top:-64px;z-index:80;background:var(--walnut);color:#F7F1E3;padding:10px 16px;border-radius:0 0 8px 8px;font-size:var(--fs-m);font-weight:700;text-decoration:none;transition:top var(--dur-ui) var(--ease-ui)}
+.skip-link:focus{top:0;color:#F7F1E3}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 /* Astra toggles: flag chip + code, opacity active state, moon icon
    button; ~15% larger than the graft, 44px targets (Batch 2). The

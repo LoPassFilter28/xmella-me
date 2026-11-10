@@ -21,7 +21,7 @@ function splitFirst(s){const re=/[.!?]+(?=\s|$)/g;let m;while((m=re.exec(s))){if
 function dedupeSummary(headline,summary){const s=String(summary??'').trim();const h=normTxt(headline).replace(/\s*…\s*$/,'');if(!s||!h||!normTxt(s).startsWith(h))return s;const [f,rest]=splitFirst(s);return (rest.length>=40&&normTxt(f).startsWith(h))?rest:s;}
 const recURL=r=>r.m?`misc/${encodeURIComponent(r.i)}.html`:`articles/${encodeURIComponent(r.i)}.html`; /* GRAFT P1: relative article links (was absolute xmella.me URL) */
 function applyLanguage(){
- document.documentElement.lang=lang;document.body.dataset.lang=lang;/* GRAFT P2: document.title left to the host page */
+ document.documentElement.lang=lang;document.body.dataset.lang=lang;document.title=(lang==='en'?document.documentElement.dataset.titleEn:document.documentElement.dataset.titleEs)||document.title;
  $$('[data-i18n]').forEach(el=>el.innerHTML=t(el.dataset.i18n));$$('[data-placeholder]').forEach(el=>el.placeholder=t(el.dataset.placeholder));
  
  [['#search','searchInAll'],['#previous-year','eraPrevious'],['#next-year','eraNext'],['#close-search','closeSearch'],['#year-rail','rail'],['.timeline-shell','scene']].forEach(([sel,key])=>$(sel).setAttribute('aria-label',t(key)));
