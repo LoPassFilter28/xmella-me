@@ -186,6 +186,28 @@ border:1px solid var(--walnut);border-radius:12px;padding:6px;box-shadow:var(--s
 background:var(--accent);color:var(--on-accent);border-radius:999px;text-decoration:none;
 transition:background var(--dur-ui) var(--ease-ui)}
 .observe a.btn:hover{background:var(--accent-ink);color:var(--on-accent)}
+/* Newsletter (2026-11-10, Phase 2): the Guide's signup plate is the
+   observe plate's sibling (same plate, same pill button) with one
+   email field; the boletin action page states its outcomes plainly. */
+.newsletter{margin:26px 0 4px;background:linear-gradient(180deg,var(--plate-hi),var(--surface) 60%);
+border:1px solid var(--walnut);border-radius:12px;padding:6px;box-shadow:var(--shadow)}
+.newsletter .inner{border:1px solid var(--border-strong);border-radius:8px;padding:18px;text-align:center}
+.newsletter h2{margin:0 0 6px;font-family:var(--font-d);font-size:19px;font-weight:700;color:var(--headline)}
+.newsletter p{margin:0 auto 12px;font-size:14px;line-height:1.55;color:var(--muted);max-width:56ch}
+.newsletter form{display:flex;gap:10px;justify-content:center;align-items:stretch;flex-wrap:wrap}
+.newsletter input[type="email"]{font:inherit;font-size:16px;color:var(--ink);background:var(--surface);
+border:1px solid var(--border-strong);border-radius:8px;padding:8px 12px;min-height:44px;flex:1 1 240px;max-width:360px}
+.newsletter input[type="email"]:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.newsletter button{font:inherit;font-weight:700;font-size:14px;padding:10px 22px;min-height:44px;
+background:var(--accent);color:var(--on-accent);border:0;border-radius:999px;cursor:pointer;
+transition:background var(--dur-ui) var(--ease-ui)}
+.newsletter button:hover{background:var(--accent-ink);color:var(--on-accent)}
+.newsletter button:disabled{opacity:.55;cursor:default}
+.newsletter .nl-status{margin:12px auto 0;color:var(--ink)}
+.newsletter .nl-status:empty{margin-top:0}
+.newsletter .hp{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.boletin-status [hidden]{display:none!important}
+.boletin-status .door{display:inline-block;margin-top:6px;font-weight:700}
 footer{margin:40px auto 18px;max-width:var(--max);background:var(--surface);
 border:2px solid var(--walnut);border-radius:20px;padding:8px;box-shadow:var(--shadow)}
 footer .frame{border:1px solid var(--border-strong);border-radius:13px;padding:14px 20px;

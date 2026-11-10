@@ -16,6 +16,33 @@
   if (window.__chatrdLoaded) return;
   window.__chatrdLoaded = true;
 
+  // PostHog (2026-11-10, the "DR in the American Press" project):
+  // this script is the one file every content page of the branch
+  // loads, so the project's analytics live here rather than as a
+  // snippet pasted into each page. Pageviews only — autocapture
+  // OFF, session recording OFF — plus the chat's own events through
+  // the track() hook further down, which has waited on
+  // window.posthog since it was written; this is what wakes it. The
+  // library loads async from the project's US cloud host and inits
+  // on arrival; if it never arrives, window.posthog stays undefined
+  // and nothing on the page changes.
+  try {
+    const phScript = document.createElement('script');
+    phScript.async = true;
+    phScript.src = 'https://us.i.posthog.com/static/array.js';
+    phScript.onload = () => {
+      try {
+        window.posthog.init('phc_scqUeU7g27yTDr5Jb3xLeZn2j3hVLa8CA7jqsy2xQArz', {
+          api_host: 'https://us.i.posthog.com',
+          autocapture: false,
+          capture_pageview: true,
+          disable_session_recording: true,
+        });
+      } catch (e) { /* analytics never breaks the page */ }
+    };
+    document.head.appendChild(phScript);
+  } catch (e) { /* analytics never breaks the page */ }
+
   // Ship-day values, replaced at deploy time (same placeholder pattern
   // as ChatFYI's __CHAT_KEY__).
   const FN = 'https://xxdgxigwpnezsdvbiawi.supabase.co/functions/v1/chatrd';   // e.g. https://<project>.supabase.co/functions/v1/chatrd
