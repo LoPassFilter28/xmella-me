@@ -52,4 +52,7 @@ footer a.btn:hover{background:var(--accent-ink)}
 .plt-plate{transition:transform var(--dur-ui) var(--ease-ui)}
 .plt-plate:active{transform:scale(.995)}
 @media (prefers-reduced-motion: reduce){.plt-plate{transition:none}}
-
+.plt-close{border-top:1px solid var(--line);padding-top:1rem;margin:2rem 0 0;font-size:.92rem;color:var(--muted)}
+.plt-close p{margin:.25rem 0}
+.plt-close a{color:var(--accent-ink);font-weight:600;text-decoration:none}
+.plt-close a:hover{text-decoration:underline;text-underline-offset:4px}
