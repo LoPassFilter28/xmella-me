@@ -434,3 +434,41 @@ html{scroll-behavior:smooth}
 .dir-tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:14px 0 4px}
 .dir-tools input{min-height:44px;padding:8px 12px;border:1px solid var(--border-strong);border-radius:8px;background:var(--surface);color:var(--ink);font:inherit;min-width:min(320px,100%)}
 .xlink{color:var(--muted);font-size:var(--fs-s);margin:8px 0 0}
+
+/* === ERAS DESCENT 2026-11-10 (PiK0 ruling: Direction A belongs on
+   the Eras hub, under the timeline scene): the Descent chapters.
+   Named move: chapter-settle (kicker rises, name settles, plate
+   rises, text settles), one-shot via IntersectionObserver,
+   density-gated to the entering chapter only; reduced motion
+   shows the settled frame. Classes are .dz- scoped: only
+   eras.html carries the chapter markup. === */
+.dz{margin-top:10px}
+.dz-chapter{position:relative;overflow:hidden;padding:74px 0 82px;border-top:1px solid var(--line)}
+.dz-chapter:first-child{border-top:0;padding-top:34px}
+.dz-ghost{position:absolute;top:2px;right:-10px;font-family:var(--font-d);font-weight:800;font-size:clamp(118px,23vw,288px);line-height:1;color:var(--headline);opacity:.055;pointer-events:none;user-select:none}
+.dz-frame{position:relative;display:grid;grid-template-columns:minmax(0,1fr);gap:30px}
+.dz-chapter:has(.dz-plate) .dz-frame{grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:46px;align-items:start}
+.dz-chapter.dz-alt .dz-plate{order:-1}
+.dz-kicker{display:flex;align-items:center;gap:12px;font-family:"Manrope",sans-serif;font-size:12px;font-weight:700;letter-spacing:2.4px;color:var(--accent-ink);margin:0 0 12px}
+.dz-kicker::before{content:"";width:24px;height:1px;background:var(--terracotta);flex:none}
+.dz-name{font-size:clamp(32px,5.2vw,52px);font-weight:800;letter-spacing:-.02em;line-height:1.05;color:var(--headline);margin:0 0 16px}
+.dz-orient p{font-size:17px;line-height:1.65;color:var(--ink);max-width:62ch;margin:0}
+.dz-plate figure.plate{margin:0}
+.dz-pick{margin-top:28px;border-top:2px solid var(--ink);padding-top:16px;max-width:560px}
+.dz-pick h3{font-size:21px;font-weight:700;letter-spacing:-.015em;line-height:1.25;margin:4px 0 6px}
+.dz-pick h3 a{color:var(--headline);text-decoration:none}
+.dz-pick h3 a:hover{color:var(--accent-ink)}
+.dz-pick .meta{font-size:13px;color:var(--muted)}
+.dz-doorwrap{margin:24px 0 0}
+.dz-door{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-size:15px;font-weight:650;color:var(--accent-ink);text-decoration:none;padding:8px 2px;border-bottom:1px solid var(--accent)}
+.dz-rise{transition:opacity .85s var(--ease-ui),transform .85s var(--ease-ui)}
+body.dz-motion .dz-rise{opacity:0;transform:translateY(18px)}
+.dz-chapter.in .dz-rise{opacity:1;transform:none}
+.dz-chapter.in .dz-rise.d2{transition-delay:.09s}
+.dz-chapter.in .dz-rise.d3{transition-delay:.18s}
+.dz-chapter.in .dz-rise.d4{transition-delay:.27s}
+@media (max-width:900px){
+.dz-chapter:has(.dz-plate) .dz-frame{grid-template-columns:minmax(0,1fr)}
+.dz-chapter.dz-alt .dz-plate{order:0}
+.dz-chapter{padding:54px 0 62px}}
+@media (prefers-reduced-motion:reduce){.dz-rise{transition:none}}
