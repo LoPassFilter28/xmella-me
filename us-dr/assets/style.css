@@ -317,6 +317,8 @@ html{scroll-behavior:smooth}
 .count-line{color:var(--muted);font-size:var(--fs-m)}
 /* jump strips (Batches 3/6): one shared component */
 .jumpstrip{display:flex;flex-wrap:wrap;gap:2px 10px;padding:10px 0;font-size:var(--fs-s);font-weight:700}
+.sec-head{font-family:var(--font-d);font-size:var(--fs-l);margin:26px 0 8px}
+.era-sec{scroll-margin-top:12px}
 .jumpstrip a{color:var(--accent-ink);text-decoration:none;padding:6px 4px}
 .jumpstrip.sticky{position:sticky;top:0;background:var(--bg);z-index:5}
 .state-h:target,.entry-h:target,.tgt:target{animation:tgtflash 600ms var(--ease-ui)}
@@ -397,10 +399,11 @@ html{scroll-behavior:smooth}
    full-span silhouette above the rail with the current era lit. */
 .wrap .search-wrap{position:relative;max-width:560px;margin:26px auto 4px;display:flex;align-items:center;font-family:"Source Sans 3",sans-serif}
 .wrap .search-wrap svg{width:20px;height:20px;stroke:var(--muted);fill:none;stroke-width:1.5;position:absolute;left:14px}
-.wrap .search-wrap input{background:var(--soft);border:1px solid var(--line);border-radius:4px;padding:11px 40px;width:100%;color:var(--ink);font-family:inherit;font-size:15px}
+.wrap .search-wrap input{background:var(--soft);border:1px solid var(--line);border-radius:4px;padding:10px 40px;width:100%;color:var(--ink);font-family:inherit;font-size:16px}
 .wrap .search-wrap input::placeholder{color:var(--muted)}
 .wrap .search-wrap input:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
 .utilbar.preferences{position:relative;max-width:var(--max);margin-inline:auto}
+.utilbar.preferences:has(.guide-corner){padding-top:8px;padding-bottom:8px}
 .utilbar .guide-corner{position:absolute;right:var(--pad);top:50%;transform:translateY(-50%);display:inline-flex;align-items:center;min-height:44px;padding:8px 14px;border-radius:8px;background:var(--soft);color:var(--ink);font-size:var(--fs-m);font-weight:700;text-decoration:none}
 .utilbar .guide-corner:hover{color:var(--accent-ink)}
 .timeline .scene-stage{min-height:330px}
@@ -418,7 +421,7 @@ html{scroll-behavior:smooth}
 .timeline .static-scene>div.current{background:var(--accent-ink);opacity:1}
 @media (max-width:640px){
 .wrap .search-wrap{max-width:none;width:100%;margin:20px 0 2px}
-.wrap .search-wrap input{font-size:14px;padding-block:8px}
+.wrap .search-wrap input{font-size:16px;padding-block:7px}
 .utilbar .guide-corner{padding:8px 10px;right:10px}
 .timeline .scene-stage{min-height:280px}
 .timeline .scene-heading{margin:26px 24px 0;min-height:108px}
