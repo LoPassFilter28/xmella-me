@@ -23,11 +23,13 @@ if(t)document.body.dataset.theme=t;})();</script>
 <header class="masthead"><div class="frame compact-frame"><a class="mast-home" href="index.html"><p class="sitename"><span class="l-en">DR in the American Press</span><span class="l-es">RD en la Prensa Norteamericana</span></p></a></div></header>
 <script>function swapAttrs(l){['text','placeholder','aria-label','alt','title'].forEach(function(a){document.querySelectorAll('[data-'+l+'-'+a+']').forEach(function(el){var v=el.getAttribute('data-'+l+'-'+a);if(v===null)return;if(a==='text'){el.textContent=v;}else{el.setAttribute(a,v);}});});}
 function applyLang(l){document.body.dataset.lang=l;document.documentElement.lang=l;document.getElementById('btn-en').setAttribute('aria-pressed',l=='en');document.getElementById('btn-es').setAttribute('aria-pressed',l=='es');swapAttrs(l);var _te=document.documentElement.getAttribute('data-title-en'),_ts=document.documentElement.getAttribute('data-title-es');if(_te&&_ts)document.title=(l=='en'?_te:_ts);localStorage.setItem('xm-lang',l);if(window.__onLang)window.__onLang(l);}
+(function(){function hush(e){var vt=e&&e.viewTransition;if(!vt)return;vt.ready.catch(function(){});vt.updateCallbackDone.catch(function(){});vt.finished.catch(function(){});}window.addEventListener('pageswap',hush);window.addEventListener('pagereveal',hush);})();
 var _langWant=document.body.dataset.lang;
 function setLang(l){_langWant=l;
 if(l===document.body.dataset.lang||!document.startViewTransition||(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){applyLang(l);return;}
 document.documentElement.classList.add('vt-lang');
 var vt=document.startViewTransition(function(){applyLang(_langWant);});
+vt.ready.catch(function(){});vt.updateCallbackDone.catch(function(){});vt.finished.catch(function(){});
 Promise.allSettled([vt.ready,vt.updateCallbackDone,vt.finished]).then(function(){document.documentElement.classList.remove('vt-lang');});}
 function toggleTheme(){var d=document.body.dataset.theme=='dark'?'light':'dark';document.body.dataset.theme=d;document.getElementById('btn-theme').setAttribute('aria-pressed',d=='dark');localStorage.setItem('xm-theme',d);}
 (function(){document.addEventListener('DOMContentLoaded',function(){setLang(document.body.dataset.lang);
