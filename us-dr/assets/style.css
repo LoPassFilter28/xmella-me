@@ -575,3 +575,13 @@ padding:18px 10px 19px;
 margin-inline:-10px}
 .timeline #search-results .search-result-title{font-size:19px}
 .timeline #search-results .search-result-sentence{font-size:15.5px}}
+/* === SECTION PAGES 2026-11-10: the four section indexes (Directory,
+   Topics, Profiles, Glossary) share one furniture set. The scrollbar
+   gutter is reserved so short and long pages center on the same axis;
+   the Directory's show-all button joins the 44px family; jump-strip
+   links on the four indexes carry 44px targets; the Directory's
+   three-column list becomes the shared directory rule. === */
+html{scrollbar-gutter:stable}
+#dir-toggle{min-height:44px}
+.jumpstrip.roomy a{display:inline-flex;align-items:center;min-height:44px;padding:6px 8px}
+@media (min-width:1100px){.dirlist{columns:3}}
