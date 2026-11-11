@@ -1033,3 +1033,71 @@ figure.plate{background-image:var(--grain);background-size:240px 240px;box-shado
 .timeline .static-scene .lit .rf-a{fill:var(--terracotta);opacity:1}
 .timeline .static-scene .lit .rf-b{fill:var(--terracotta);opacity:.7}
 .timeline .static-scene .current .rf-a,.timeline .static-scene .current .rf-b{fill:var(--accent-ink);opacity:1}
+/* === TOP-SHELF SHIP 9 — THE ANCHORED BAR'S COMPACT SECOND STATE
+   2026-11-11 (program idea 9, the program's last ship): deep in
+   the Descent, the hub's anchored bar gives most of its height
+   back to the reading. Two zero-height sentinels planted by the
+   hub's own script (build_v7.py head(), topbar=True only) watch
+   the threshold: one at the end of the timeline zone, one just
+   before the Descent wrapper at the first chapter's doorstep
+   (inside the wrapper a sentinel would break a margin collapse
+   and move the page — the ship's first battery run caught
+   exactly that, 41px of it). The bar rests compact once the
+   doorstep is a clear 60px past the top of the screen, and it
+   restores only when the timeline's end is back a clear 110px
+   inside the screen: two lines 180px apart with a latch
+   between them, so the state is a function of where the reader
+   has been, never of a single scroll position, and cannot
+   flutter at either boundary. The latch is evaluated from the
+   sentinels' live positions, never from observer history — an
+   IntersectionObserver alone cannot see a discontinuous jump
+   (an instant scroll from below a sentinel to above it changes
+   nothing it reports; the first battery run proved that too) —
+   so observers, a passive scroll listener and a resize
+   listener all schedule the same evaluation, at most a frame
+   apart, and the evaluation itself is two rect reads.
+   The compaction is padding alone: the bar's vertical air
+   (10px -> 2px) and, on the phone's two-row bar, the search
+   row's top margin and the input's block padding. No control
+   shrinks — Inicio, the switch, theme and Guia hold the
+   family's 44px in both states, and the desktop search input
+   holds its 44px too — so the compact height is the family's
+   own floor: 49px against the full 65px on the one-row widths
+   (75%), 83px against 109px on the phone (76%), where the
+   search input rests at 30px of its full-state 38px
+   (padding-trimmed like everything else; it was never a 44px
+   control on the phone bar). A slimmer bar than the floor
+   would mean smaller targets, and the family minimum outranks
+   the ratio. The height the padding gives up is handed back
+   through the nameplate's top margin (18px -> 34px on the
+   one-row widths; 10px -> 36px on the phone), eased in lockstep
+   on the family's curve. The bar's own bottom margin cannot
+   carry the hand-back: it collapses into the nameplate's
+   margin and is absorbed (measured, first battery run) — the
+   nameplate's margin is the one place in the junction where
+   the pixels survive. With the hand-back there, the bar's
+   footprint in the document is constant at every frame of the
+   ease: nothing below the bar moves when the state flips, and
+   the Ship 4 settles, which read document positions, never
+   feel it. Chapter anchors take the compact clearance in the
+   compact state — the same air over the shorter bar (13px
+   desktop, 9px phone) that the full state's 78/118px margins
+   keep over the full bar. #timeline keeps the full margin in
+   both states: every journey to it ends in the top zone with
+   the full bar restored, so its landing stays the exact
+   78.1px it has always been. Under reduced motion the state
+   still changes; the ease does not run. The landing's stack
+   bar is another state of the component and is untouched; no
+   other page carries the anchored bar, the sentinels or this
+   class. === */
+@media (prefers-reduced-motion: no-preference){
+.utilbar.topbar.topbar-anchored{transition:padding-top .24s cubic-bezier(.22,1,.36,1),padding-bottom .24s cubic-bezier(.22,1,.36,1)}
+.topbar-anchored ~ header.masthead{transition:margin-top .24s cubic-bezier(.22,1,.36,1)}}
+html.bar-compact .utilbar.topbar.topbar-anchored{padding-top:2px;padding-bottom:2px}
+html.bar-compact .topbar-anchored ~ header.masthead{margin-top:34px}
+html.bar-compact .dz-chapter{scroll-margin-top:62px}
+@media (max-width:640px){
+html.bar-compact .topbar-anchored ~ header.masthead{margin-top:36px}
+html.bar-compact .utilbar.topbar.topbar-anchored .search-wrap{margin-top:0}
+html.bar-compact .utilbar.topbar.topbar-anchored .search-wrap input{padding-top:3px;padding-bottom:3px}
+html.bar-compact .dz-chapter{scroll-margin-top:92px}}
