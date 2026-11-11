@@ -502,6 +502,16 @@ body.dz-motion .dz-rise{opacity:0;transform:translateY(18px)}
 .dz-chapter.dz-alt .dz-plate{order:0}
 .dz-chapter{padding:54px 0 62px}}
 @media (prefers-reduced-motion:reduce){.dz-rise{transition:none}}
+/* Ghost G1 (owner pick, 2026-11-10): on wide screens the ghost year
+   steps out of the chapter — 20% of its own width past the column's
+   right edge. The base rule already sits +10px out (right:-10px),
+   so the added shift is that 20% less the 10px. overflow-x:clip
+   keeps the step from widening the page; under 1081px the column
+   has no gutter, so the contained ghost stands. */
+@media (min-width:1081px){
+html,body{overflow-x:clip}
+.dz-chapter{overflow:visible}
+.dz-ghost{transform:translateX(calc(20% - 10px))}}
 
 /* === SEARCH RESULTS 2026-11-10 (owner spec): article results are a
    quiet editorial list — headline, full date, and one sentence from
