@@ -898,3 +898,24 @@ html.vt-lang::view-transition-old(root){animation:vt-lang-out .24s ease-out both
 html.vt-lang::view-transition-new(root){animation:vt-lang-in .24s ease-out both}
 @keyframes vt-lang-out{to{opacity:0}}
 @keyframes vt-lang-in{from{opacity:0;transform:translateY(3px)}}
+
+/* === GHOST FIT + PLATE FLIP 2026-11-11 (owner flag, with
+   screenshot): on plate chapters at desktop widths the 288px
+   ghost year spanned wider than the text column -- the plate
+   sliced it mid-digits and, in the 1081-1330px band, the G1
+   protrusion ran it off the viewport's right edge. On plate
+   chapters the ghost now lives inside the text column: stepped
+   down to fit the column (clamp 118px, 19vw, 210px), anchored
+   to the column's own edge (left for text-left chapters, right
+   for text-right), the G1 protrusion cancelled. Chapters
+   without a plate keep the G1 geometry exactly. The
+   annexation-fight chapter is flipped (owner ruling: its
+   plate stands left): dz-flip mirrors its frame -- plate
+   first at its own .96fr, text second at its own 1.04fr --
+   desktop only; mobile keeps the DOM reading order. */
+@media (min-width:901px){
+.dz-chapter:has(.dz-plate) .dz-ghost{font-size:clamp(118px,19vw,210px);transform:none}
+.dz-chapter:has(.dz-plate):not(.dz-alt):not(.dz-flip) .dz-ghost{left:0;right:auto}
+.dz-chapter:has(.dz-plate).dz-alt .dz-ghost,.dz-chapter.dz-flip .dz-ghost{right:0}
+.dz-chapter.dz-flip .dz-frame{grid-template-columns:minmax(0,.96fr) minmax(0,1.04fr)}
+.dz-chapter.dz-flip .dz-plate{order:-1}}
