@@ -90,3 +90,28 @@ body::before{content:"";position:fixed;top:0;left:0;width:100%;height:3px;backgr
    content geometry moves. The Ship 4 reading rail
    (body::before) is untouched. === */
 .plt-plate{background-image:var(--grain);background-size:240px 240px;box-shadow:inset 0 1px 0 var(--plate-hi),inset 0 0 0 1px var(--plate-lo),inset 0 -12px 16px -14px var(--plate-lo)}
+
+/* === TOP-SHELF SHIP 8 — PRINT FURNITURE 2026-11-11
+   (program idea 8): the uniform article format gains the two
+   pieces of furniture print always had, both emitted by
+   build_rollout on every article page. The RUNNING HEAD —
+   newspaper name + full date in the label register (small,
+   letterspaced, bronze; the paper name in the ink of the
+   chamber labels) — stands immediately before the article's
+   text block: before the summary section in summary mode,
+   before the transcription under its FULL TEXT label in full
+   mode. The END-MARK closes the text: the site's own ◆, set
+   centered on a hairline after the last paragraph, before
+   any note, trail or closing door. A label and a mark only —
+   no prose is added anywhere, and no existing box moves: the
+   furniture adds its own height at its two stations and
+   nothing else. The Ship 4 reading rail (body::before) is
+   untouched; its scroll fractions are height-relative and
+   still span [0..1] over the grown document. The one
+   bespoke-shell page (cr11803-2) links no sheet and keeps
+   its hand-maintained form. === */
+.plt-runhead{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.13em;line-height:1.5;color:var(--accent);margin:0 0 .9rem}
+.plt-runhead-paper{color:var(--accent-ink)}
+.plt-runhead-sep{color:var(--muted)}
+.plt-endmark{display:flex;align-items:center;justify-content:center;gap:.9rem;font-size:.8rem;line-height:1;color:var(--accent);margin:0 0 2rem}
+.plt-endmark::before,.plt-endmark::after{content:"";width:72px;height:1px;background:var(--line)}
