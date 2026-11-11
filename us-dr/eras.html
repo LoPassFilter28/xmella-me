@@ -6,7 +6,7 @@
 <link rel="preload" href="assets/fonts/urbanist-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/source-sans-3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/style.css?v=6">
+<link rel="stylesheet" href="assets/style.css?v=7">
 <link rel="stylesheet" href="assets/chatrd.css">
 <script src="assets/chatrd.js" defer></script>
 <script defer src="https://js.sentry-cdn.com/a8eb490d1fc60d4eee8cfcbf28237461.min.js" crossorigin="anonymous"></script><style>@media (prefers-reduced-motion: no-preference){@view-transition{navigation:auto}.topbar{view-transition-name:site-bar}}</style></head>
@@ -22,7 +22,13 @@ if(t)document.body.dataset.theme=t;})();</script>
 <button id="btn-theme" class="icon-button" aria-pressed="false" onclick="toggleTheme()" data-en-aria-label="Dark mode" data-es-aria-label="Modo oscuro" data-en-title="Dark mode" data-es-title="Modo oscuro" aria-label="Modo oscuro" title="Modo oscuro"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.2A8.5 8.5 0 0 1 9.8 4 8.5 8.5 0 1 0 20 14.2Z"/></svg><span class="sr-only"><span class="l-en">Dark mode</span><span class="l-es">Modo oscuro</span></span></button><a class="guide-corner" href="howto.html"><span class="l-en">Guide</span><span class="l-es">Guía</span></a></div></div>
 <header class="masthead"><div class="frame compact-frame"><a class="mast-home" href="index.html"><p class="sitename"><span class="l-en">DR in the American Press</span><span class="l-es">RD en la Prensa Norteamericana</span></p></a></div></header>
 <script>function swapAttrs(l){['text','placeholder','aria-label','alt','title'].forEach(function(a){document.querySelectorAll('[data-'+l+'-'+a+']').forEach(function(el){var v=el.getAttribute('data-'+l+'-'+a);if(v===null)return;if(a==='text'){el.textContent=v;}else{el.setAttribute(a,v);}});});}
-function setLang(l){document.body.dataset.lang=l;document.documentElement.lang=l;document.getElementById('btn-en').setAttribute('aria-pressed',l=='en');document.getElementById('btn-es').setAttribute('aria-pressed',l=='es');swapAttrs(l);var _te=document.documentElement.getAttribute('data-title-en'),_ts=document.documentElement.getAttribute('data-title-es');if(_te&&_ts)document.title=(l=='en'?_te:_ts);localStorage.setItem('xm-lang',l);if(window.__onLang)window.__onLang(l);}
+function applyLang(l){document.body.dataset.lang=l;document.documentElement.lang=l;document.getElementById('btn-en').setAttribute('aria-pressed',l=='en');document.getElementById('btn-es').setAttribute('aria-pressed',l=='es');swapAttrs(l);var _te=document.documentElement.getAttribute('data-title-en'),_ts=document.documentElement.getAttribute('data-title-es');if(_te&&_ts)document.title=(l=='en'?_te:_ts);localStorage.setItem('xm-lang',l);if(window.__onLang)window.__onLang(l);}
+var _langWant=document.body.dataset.lang;
+function setLang(l){_langWant=l;
+if(l===document.body.dataset.lang||!document.startViewTransition||(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){applyLang(l);return;}
+document.documentElement.classList.add('vt-lang');
+var vt=document.startViewTransition(function(){applyLang(_langWant);});
+Promise.allSettled([vt.ready,vt.updateCallbackDone,vt.finished]).then(function(){document.documentElement.classList.remove('vt-lang');});}
 function toggleTheme(){var d=document.body.dataset.theme=='dark'?'light':'dark';document.body.dataset.theme=d;document.getElementById('btn-theme').setAttribute('aria-pressed',d=='dark');localStorage.setItem('xm-theme',d);}
 (function(){document.addEventListener('DOMContentLoaded',function(){setLang(document.body.dataset.lang);
 document.getElementById('btn-theme').setAttribute('aria-pressed',document.body.dataset.theme=='dark');});})();</script>

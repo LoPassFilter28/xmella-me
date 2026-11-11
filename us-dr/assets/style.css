@@ -879,3 +879,22 @@ article.page h1{font-variation-settings:"wght" 800;text-wrap:balance}
 .dz-ghost{font-variation-settings:"wght" 560}}
 @media (max-width:700px){
 .dz-ghost{font-variation-settings:"wght" 620}}
+
+/* === TOP-SHELF SHIP 3 — THE LANGUAGE-SWAP MORPH 2026-11-11
+   (program idea 3): setLang wraps its mutation in a
+   same-document view transition when the platform offers one
+   and the reader has not asked for reduced motion; these
+   rules style that swap — and only that swap. The vt-lang
+   class rides <html> for exactly the transition's lifetime,
+   so the cross-document glide of Ship 1 keeps the platform's
+   default root fade untouched. The old language breathes out
+   while the new one fades in and settles 3px into place:
+   a crossfade with a whisper of rise, 240ms, opacity-led.
+   The bar rides its own named group (Ship 1) and is not
+   styled here; the switch knob's slide is its own move and
+   its end state is geometry-identical in both languages
+   (the Round 4 invariant). */
+html.vt-lang::view-transition-old(root){animation:vt-lang-out .24s ease-out both}
+html.vt-lang::view-transition-new(root){animation:vt-lang-in .24s ease-out both}
+@keyframes vt-lang-out{to{opacity:0}}
+@keyframes vt-lang-in{from{opacity:0;transform:translateY(3px)}}
