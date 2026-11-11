@@ -919,3 +919,39 @@ html.vt-lang::view-transition-new(root){animation:vt-lang-in .24s ease-out both}
 .dz-chapter:has(.dz-plate).dz-alt .dz-ghost,.dz-chapter.dz-flip .dz-ghost{right:0}
 .dz-chapter.dz-flip .dz-frame{grid-template-columns:minmax(0,.96fr) minmax(0,1.04fr)}
 .dz-chapter.dz-flip .dz-plate{order:-1}}
+
+/* === TOP-SHELF SHIP 4 — SCROLL-DRIVEN CHOREOGRAPHY 2026-11-11
+   (program idea 4, hub half): the Descent's chapters settle as
+   they cross into view, driven by the compositor — CSS
+   scroll-driven animations only, no JavaScript, no scroll
+   listeners, transform and opacity only. The chapter carries
+   the view timeline; its name, plate and ghost year all read
+   that one timeline, so the composition settles once, together,
+   at the entry edge (entry 0% -> 55%), and is at rest for the
+   whole of its reading life — the resting state is the static
+   page, byte for byte the geometry of the hand-rolled rise's
+   settled frame. Amplitudes are a settle, not a show: the name
+   rises the last 7px, the plate eases from 1.03 and 10px low
+   with its top edge pinned by the origin, the ghost drifts 7px
+   down into its station. The ghost's drift rides the individual
+   translate property, which composes with — and never
+   replaces — the transform the G1 and ghost-fit rules own, so
+   the ghost's station geometry is theirs at rest and the drift
+   can add nothing but its 7px of travel mid-settle. The name
+   and plate are taken over from the .dz-rise transition inside
+   this gate only (their transitions are stilled so the two
+   engines never share a property); the kicker, orientation,
+   pick and door keep the hand-rolled rise untouched. A reader
+   who prefers reduced motion, and any browser without
+   scroll-driven animations, gets today's page exactly. */
+@media (prefers-reduced-motion: no-preference){
+@supports (animation-timeline: view()) and (view-timeline-name: --dz-ch){
+.dz-chapter{view-timeline-name:--dz-ch;view-timeline-axis:block}
+.dz-chapter .dz-name.dz-rise,.dz-chapter .dz-plate.dz-rise{transition:none}
+.dz-name{animation:dz-settle-name linear both;animation-timeline:--dz-ch;animation-range:entry 0% entry 55%}
+.dz-plate{transform-origin:50% 0;animation:dz-settle-plate linear both;animation-timeline:--dz-ch;animation-range:entry 0% entry 55%}
+.dz-ghost{animation:dz-drift-ghost linear both;animation-timeline:--dz-ch;animation-range:entry 0% entry 55%}
+@keyframes dz-settle-name{from{opacity:.9;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@keyframes dz-settle-plate{from{opacity:.85;transform:translateY(10px) scale(1.03)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes dz-drift-ghost{from{translate:0 7px}to{translate:0 0}}
+}}

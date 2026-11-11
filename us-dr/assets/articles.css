@@ -56,3 +56,24 @@ footer a.btn:hover{background:var(--accent-ink)}
 .plt-close p{margin:.25rem 0}
 .plt-close a{color:var(--accent-ink);font-weight:600;text-decoration:none}
 .plt-close a:hover{text-decoration:underline;text-underline-offset:4px}
+
+/* === TOP-SHELF SHIP 4 — THE READING RAIL 2026-11-11 (program
+   idea 4, article half): a bronze hairline at the very top of
+   the viewport whose width tracks the read, end to end. CSS
+   scroll-driven animation only — no JavaScript, no scroll
+   listeners, and no element added to any page: the rule rides
+   body::before, which no sheet on these pages uses, and this
+   shared sheet is the one file every article page already
+   carries. Fixed and pointer-events-none at 3px, it never
+   touches layout: every content box measures identical with
+   and without it, and it passes over the reading surface the
+   way a printed rule passes over a page edge. Gated on
+   reduced motion and on platform support — a browser without
+   scroll-driven animations, or a reader who prefers reduced
+   motion, gets today's page exactly, the pseudo-element not
+   existing there at all. */
+@media (prefers-reduced-motion: no-preference){
+@supports (animation-timeline: scroll()){
+body::before{content:"";position:fixed;top:0;left:0;width:100%;height:3px;background:var(--accent);transform-origin:0 50%;z-index:60;pointer-events:none;animation:plt-readrail linear both;animation-timeline:scroll(root block)}
+@keyframes plt-readrail{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+}}
