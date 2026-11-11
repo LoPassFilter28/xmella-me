@@ -1108,3 +1108,34 @@ html.bar-compact .topbar-anchored ~ header.masthead{margin-top:36px}
 html.bar-compact .utilbar.topbar.topbar-anchored .search-wrap{margin-top:0}
 html.bar-compact .utilbar.topbar.topbar-anchored .search-wrap input{padding-top:3px;padding-bottom:3px}
 html.bar-compact .dz-chapter{scroll-margin-top:92px}}
+
+/* === SITEWIDE BAR 2026-11-11 (owner ruling: the upper bar is kept
+   and goes branch-wide; the interior nav loses Guide because the
+   bar carries Guia on every page). Three sheet-level consequences
+   of a stuck bar on every content page:
+   (1) Anchor clearance: every [id] target takes the hub's proven
+   clearance (78px desktop / 118px phone) via --bar-clear, so
+   anchored landings clear the stuck bar branch-wide. .dz-chapter
+   is excluded: it keeps its own rules (78/118 at rest, 62/92 in
+   the hub's compact state). --bar-h keeps its tuned 61/105
+   values: the landing's stack geometry and the home search
+   panel are keyed to it, and it sits a uniform 4px under the
+   bar's rendered height (65/109, Ship 9 measurements) at both
+   widths, so bar-height offsets read calc(var(--bar-h) + 4px).
+   (2) The sticky jump strips (Profiles / Glossary) re-key from
+   top:0 to the bar's rendered height, so they stick directly
+   beneath the bar instead of sliding under it (bar z-30,
+   strips z-5) - the easiest defect this program could ship.
+   (3) The landing upward gradient (assessment Part A, ruled to
+   ship as prototyped): body:has(>.centerstack) can only ever
+   match the landing, the branch's one direct holder of a
+   .centerstack. The ground holds var(--bg) through the stack's
+   zone and warms toward var(--soft) at the top, the region the
+   bar travels to and anchors in. Pure paint: no layout. === */
+:root{--bar-clear:78px}
+[id]:not(.dz-chapter){scroll-margin-top:var(--bar-clear)}
+.jumpstrip.sticky{top:calc(var(--bar-h) + 4px)}
+@media (max-width:640px){
+:root{--bar-clear:118px}}
+body:has(>.centerstack){background-image:linear-gradient(to top,var(--bg) 52%,var(--soft) 165%);background-repeat:no-repeat}
+@supports (background:color-mix(in srgb,red,blue)){body:has(>.centerstack){background-image:linear-gradient(to top,var(--bg) 52%,color-mix(in srgb,var(--soft) 72%,var(--bg)) 88%,color-mix(in srgb,var(--soft) 88%,var(--bg)) 100%)}}
