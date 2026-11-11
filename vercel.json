@@ -3,6 +3,9 @@
     { "source": "/us-dr-newspaper-timeline", "destination": "/us-dr/", "permanent": true },
     { "source": "/us-dr-newspaper-timeline/", "destination": "/us-dr/", "permanent": true },
     { "source": "/us-dr-newspaper-timeline/:path*", "destination": "/us-dr/:path*", "permanent": true },
-    { "source": "/us-dr", "destination": "/us-dr/", "permanent": true }
+    { "source": "/us-dr", "destination": "/us-dr/", "permanent": true },
+    { "source": "/barskett", "destination": "/barskett/", "permanent": true },
+    { "source": "/tito-mella", "destination": "/tito-mella/", "permanent": true },
+    { "source": "/santo-domingo-commission", "destination": "/santo-domingo-commission/", "permanent": true }
   ]
 }
