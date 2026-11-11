@@ -585,3 +585,57 @@ html{scrollbar-gutter:stable}
 #dir-toggle{min-height:44px}
 .jumpstrip.roomy a{display:inline-flex;align-items:center;min-height:44px;padding:6px 8px}
 @media (min-width:1100px){.dirlist{columns:3}}
+
+/* === HOME TOP BAR 2026-11-10 (owner direction 2026-11-10 22:44,
+   refined by the adversarial review, section D): the home page's
+   utilbar becomes a slim sticky bar. Inicio is a plain text link
+   at the left (paired Home/Inicio spans, no thumbnail); the
+   page's own search moves into the bar's centre; the toggle row
+   (language, theme, Guia) is grouped at the right, the buttons
+   themselves moved verbatim, so every .utilbar rule below keeps
+   styling them. The hero card is untouched and the nav stays
+   plain text in flow. On desktop the hero + nav group is
+   vertically centred under the bar (the landing-polish pilot's
+   proven treatment: min-height, never height, so a short
+   viewport falls back to the top-anchored page with nothing
+   clipped; the stack is centred on the full viewport axis, the
+   bar's own height handed back as bottom padding). Every rule
+   here is scoped to classes that exist only on the home page
+   (.topbar / .centerstack / .tb-*), plus the home-only search
+   panel's clearance; the shared .utilbar styles keep serving
+   every other page unchanged. === */
+:root{--bar-h:61px}
+.utilbar.topbar{position:sticky;top:0;z-index:30;max-width:none;margin:0;
+background:var(--bg);border-bottom:1px solid var(--line);
+padding:8px max(10px,calc((100% - var(--max))/2 + 10px));
+justify-content:space-between}
+.topbar .tb-home{display:inline-flex;align-items:center;min-height:44px;
+padding:8px 14px;border-radius:8px;color:var(--ink);
+font-size:var(--fs-m);font-weight:700;text-decoration:none}
+.topbar .tb-home:hover{color:var(--accent-ink)}
+.topbar .tb-right{display:flex;align-items:center;gap:4px}
+.topbar .guide-corner{position:static;transform:none}
+.topbar .search-wrap{position:relative;flex:1 1 auto;max-width:560px;
+margin:0 auto;display:flex;align-items:center;
+font-family:"Source Sans 3",sans-serif}
+.topbar .search-wrap svg{width:20px;height:20px;stroke:var(--muted);
+fill:none;stroke-width:1.5;position:absolute;left:14px}
+.topbar .search-wrap input{background:var(--soft);border:1px solid var(--line);
+border-radius:8px;padding:10px 40px;width:100%;color:var(--ink);
+font-family:inherit;font-size:16px}
+.topbar .search-wrap input::placeholder{color:var(--muted)}
+.topbar .search-wrap input:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
+/* the results panel clears the stuck bar; its title and close
+   button are never under it */
+.timeline .search-panel{top:calc(var(--bar-h) + 12px);
+max-height:calc(100dvh - var(--bar-h) - 24px)}
+@media (min-width:1100px){
+.centerstack{display:flex;flex-direction:column;justify-content:center;
+box-sizing:border-box;min-height:calc(100svh - var(--bar-h));
+padding-bottom:var(--bar-h)}
+.centerstack>header.masthead,.centerstack>nav.main,
+.centerstack>main.wrap{width:100%}}
+@media (max-width:640px){
+:root{--bar-h:105px}
+.topbar .search-wrap{order:3;flex:1 1 100%;max-width:none;margin:2px 0 0}
+.topbar .search-wrap input{padding-block:7px}}
