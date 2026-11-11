@@ -753,3 +753,48 @@ box-shadow:0 0 0 1px rgba(0,0,0,.22),0 1px 2px rgba(0,0,0,.18)}
 @media (max-width:640px){
 .utilbar.topbar{margin-inline:10px;width:auto}
 .timeline .search-panel{top:12px;max-height:calc(100dvh - 24px)}}
+
+/* === HOME BAR ROUND 4 2026-11-11 (owner orders 00:19 + 00:20):
+   language-invariant chrome, and the stack centres on mobile too.
+   Switching ES<->EN changed label widths (Guia/Guide 8px,
+   Inicio/Home 2px, Periodicos/Newspapers 11px, Glosario/Glossary
+   3px), so the pills resized, the whole right group slid, the
+   centred nav row re-centred under the reader and, in the bar's
+   flex zone, the search field moved with them -- measured max
+   travel 11px. On the home chrome only, each paired .l-en/.l-es
+   label now stacks in a single grid cell with the inactive span
+   visibility:hidden instead of display:none, so every box is
+   sized by its WIDER language in both languages: the text
+   changes, the boxes do not. The hero title/sub pairs stack the
+   same way, so the card takes the taller language's height in
+   both. The switch knob is untouched -- its slide is the switch
+   working, not travel. Below 1100px the stack also centres
+   vertically now (owner: "on mobile I would want this start
+   centered as well"): the same min-height treatment as desktop,
+   never a fixed height, so a stack taller than the viewport
+   grows the page and starts at the top -- nothing is clipped. === */
+.topbar .tb-home,.topbar .guide-corner,.centerstack nav.main a,
+.centerstack .mast-lock h1,.centerstack .mast-lock .sub{display:grid}
+.topbar .tb-home,.topbar .guide-corner,.centerstack nav.main a{
+justify-items:center;align-items:center}
+.topbar .tb-home>span,.topbar .guide-corner>span,
+.centerstack nav.main a>span,.centerstack .mast-lock h1>span,
+.centerstack .mast-lock .sub>span{grid-area:1/1}
+body[data-lang="es"] .topbar .tb-home>.l-en,
+body[data-lang="es"] .topbar .guide-corner>.l-en,
+body[data-lang="es"] .centerstack nav.main a>.l-en,
+body[data-lang="es"] .centerstack .mast-lock h1>.l-en,
+body[data-lang="es"] .centerstack .mast-lock .sub>.l-en,
+body[data-lang="en"] .topbar .tb-home>.l-es,
+body[data-lang="en"] .topbar .guide-corner>.l-es,
+body[data-lang="en"] .centerstack nav.main a>.l-es,
+body[data-lang="en"] .centerstack .mast-lock h1>.l-es,
+body[data-lang="en"] .centerstack .mast-lock .sub>.l-es{
+display:block;visibility:hidden}
+@media (max-width:1099.98px){
+.centerstack{display:flex;flex-direction:column;justify-content:center;
+min-height:100svh}
+.centerstack>header.masthead,.centerstack>nav.main,
+.centerstack>main.wrap{width:100%}}
+@media (max-width:640px){
+.centerstack>header.masthead{width:auto}}
