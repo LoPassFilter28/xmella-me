@@ -893,10 +893,17 @@ article.page h1{font-variation-settings:"wght" 800;text-wrap:balance}
    The bar rides its own named group (Ship 1) and is not
    styled here; the switch knob's slide is its own move and
    its end state is geometry-identical in both languages
-   (the Round 4 invariant). */
-html.vt-lang::view-transition-old(root){animation:vt-lang-out .24s ease-out both}
+   (the Round 4 invariant).
+   BLINK FIX 2026-11-11: the old snapshot no longer fades.
+   With both snapshots at partial opacity the incoming one
+   is weighted by the outgoing one's transparency and the
+   uncovered fraction shows the dark canvas — the whole
+   page dipped darker than either endpoint mid-swap (the
+   reported blink). The old language now holds fully
+   opaque underneath while the new one fades in over it:
+   an exact blend, no dip. */
+html.vt-lang::view-transition-old(root){animation:none}
 html.vt-lang::view-transition-new(root){animation:vt-lang-in .24s ease-out both}
-@keyframes vt-lang-out{to{opacity:0}}
 @keyframes vt-lang-in{from{opacity:0;transform:translateY(3px)}}
 
 /* === GHOST FIT + PLATE FLIP 2026-11-11 (owner flag, with
