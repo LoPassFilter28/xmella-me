@@ -1139,3 +1139,19 @@ html.bar-compact .dz-chapter{scroll-margin-top:92px}}
 :root{--bar-clear:118px}}
 body:has(>.centerstack){background-image:linear-gradient(to top,var(--bg) 52%,var(--soft) 165%);background-repeat:no-repeat}
 @supports (background:color-mix(in srgb,red,blue)){body:has(>.centerstack){background-image:linear-gradient(to top,var(--bg) 52%,color-mix(in srgb,var(--soft) 72%,var(--bg)) 88%,color-mix(in srgb,var(--soft) 88%,var(--bg)) 100%)}}
+
+/* === LANDING STACK GRADIENT 2026-11-11 (owner order 17:41): the
+   field gradient above warms the page ground; this rule makes
+   the stack itself one lit surface. The glued bar's panel
+   gradient now runs from the plate highlight at the very top
+   of the stack all the way down to the hero card's own walnut
+   base (#4A2E20 -- the masthead frame's background colour in
+   both themes), so the bar's last row and the card's first
+   row are the same colour: no tonal seam at the junction, one
+   surface easing from the bar through the search row into
+   the card. The card is not repainted at all. Scoped to
+   .centerstack, which exists only on the landing, so every
+   other page keeps the shared bar gradient untouched and the
+   hub gets no new treatment. Background only: no geometry,
+   no language travel, no glide change. === */
+.centerstack>.topbar{background:linear-gradient(180deg,var(--plate-hi),#4A2E20)}
