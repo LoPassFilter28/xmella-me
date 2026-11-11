@@ -205,6 +205,13 @@ transition:background var(--dur-ui) var(--ease-ui)}
 .newsletter button:disabled{opacity:.55;cursor:default}
 .newsletter .nl-status{margin:12px auto 0;color:var(--ink)}
 .newsletter .nl-status:empty{margin-top:0}
+/* Cascade fix (2026-11-10): the Guide body-paragraph rule
+   (article.page .body p) outranks the rules above and strips the auto
+   side margins, leaving the intro and status paragraphs anchored to
+   the left while the heading and form sit centered. Restore the
+   centering, and the status line's top gap, at a specificity that holds. */
+.newsletter .inner .nl-intro,.newsletter .inner .nl-status{margin-left:auto;margin-right:auto}
+.newsletter .inner .nl-status:not(:empty){margin-top:12px}
 .newsletter .hp{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
 .boletin-status [hidden]{display:none!important}
 .boletin-status .door{display:inline-block;margin-top:6px;font-weight:700}
