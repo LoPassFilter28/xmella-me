@@ -629,6 +629,42 @@ font-family:inherit;font-size:16px}
    button are never under it */
 .timeline .search-panel{top:calc(var(--bar-h) + 12px);
 max-height:calc(100dvh - var(--bar-h) - 24px)}
+/* === HOME BAR ROUND 2 2026-11-10 (owner orders 23:30): the
+   wordmark leaves the hero; the nav moves above the card and is
+   centred at EVERY width (the <=760px shared rule packs the row
+   left as a scroll strip -- the home override below wraps and
+   centres it, same treatment as nav.main.interior); the search
+   sits at the bar's TRUE centre on desktop (equal minmax(0,1fr)
+   side tracks -- plain 1fr tracks would inherit the side
+   groups' unequal min-content sizes and drift off-centre); the
+   language buttons become a sliding switch (DO/US flag emoji,
+   thumb keyed off body[data-lang], so a persisted language
+   renders in place on load with no slide). === */
+@media (min-width:1100px){
+.utilbar.topbar{display:grid;
+grid-template-columns:minmax(0,1fr) minmax(0,560px) minmax(0,1fr)}
+.topbar .tb-home{grid-column:1;justify-self:start}
+.topbar .search-wrap{grid-column:2;width:100%;margin:0}
+.topbar .tb-right{grid-column:3;justify-self:end}}
+@media (max-width:760px){
+.centerstack>nav.main{flex-wrap:wrap;justify-content:center;
+overflow-x:visible}}
+.topbar .lang-switch{position:relative;display:inline-flex;
+background:var(--soft);border:1px solid var(--line);
+border-radius:999px;padding:3px}
+.topbar .ls-thumb{position:absolute;top:3px;bottom:3px;left:3px;
+width:calc(50% - 3px);background:var(--surface);
+border:1px solid var(--line);border-radius:999px;
+transition:transform .2s ease;pointer-events:none}
+body[data-lang="en"] .topbar .ls-thumb{transform:translateX(100%)}
+.topbar .lang-switch .lang{position:relative;z-index:1;flex:1 1 0;
+min-width:0;min-height:36px;padding:4px 11px;border:0;
+border-radius:999px;background:transparent;font-size:18px;
+line-height:1;opacity:.5;gap:0}
+.topbar .lang-switch .lang::after{display:none}
+.topbar .lang-switch .lang[aria-pressed="true"]{opacity:1}
+@media (prefers-reduced-motion: reduce){
+.topbar .ls-thumb{transition:none}}
 @media (min-width:1100px){
 .centerstack{display:flex;flex-direction:column;justify-content:center;
 box-sizing:border-box;min-height:calc(100svh - var(--bar-h));
