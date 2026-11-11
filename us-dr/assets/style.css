@@ -920,6 +920,30 @@ html.vt-lang::view-transition-new(root){animation:vt-lang-in .24s ease-out both}
 .dz-chapter.dz-flip .dz-frame{grid-template-columns:minmax(0,.96fr) minmax(0,1.04fr)}
 .dz-chapter.dz-flip .dz-plate{order:-1}}
 
+/* === CHROME POLISH 2026-11-11 (owner notes 08:29, three in one
+   pass). (A) THE LANDING NAV, SLIGHTLY LARGER ON DESKTOP: the
+   home stack's nav row steps from 14px to 16px at 761px and
+   wider. Home only -- the interior navs and the hub's down-nav
+   keep 14px. The Round 4 grid-stacked labels re-reserve their
+   boxes at the new metrics on their own (each anchor is sized
+   by its wider language), so the ES<->EN travel stays 0.0; the
+   boxes grow, nothing moves. (B) THE MOON'S BOX: the old flag
+   chip rule (.utilbar button svg, written for the language
+   buttons' flag svgs) rings every svg inside a utilbar button
+   with a 1px spread shadow, and the theme button's moon -- the
+   only non-flag svg in a utilbar button -- has been wearing
+   that ring as a little rounded square around the glyph, in
+   both themes (plain as day on the pale light plate, easy to
+   miss against the dark disc). The ring is the flags' and
+   stays theirs; the icon buttons' svg is exempted, so the
+   moon sits clean. The button keeps its 44px box, its pill
+   border and its pressed fill; hover and focus keep their
+   affordances. (C) THE GLIDE'S TIMING lives in the paired
+   pages' head styles, not in this sheet. === */
+@media (min-width:761px){
+.centerstack>nav.main{font-size:16px}}
+.utilbar .icon-button svg{box-shadow:none}
+
 /* === TOP-SHELF SHIP 4 — SCROLL-DRIVEN CHOREOGRAPHY 2026-11-11
    (program idea 4, hub half): the Descent's chapters settle as
    they cross into view, driven by the compositor — CSS
