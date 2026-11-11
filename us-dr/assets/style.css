@@ -675,3 +675,81 @@ padding-bottom:var(--bar-h)}
 :root{--bar-h:105px}
 .topbar .search-wrap{order:3;flex:1 1 100%;max-width:none;margin:2px 0 0}
 .topbar .search-wrap input{padding-block:7px}}
+
+/* === HOME BAR ROUND 3 2026-11-10 (owner correction 23:50 + control
+   richness orders 23:55): the landing is ONE centred stack -- the
+   bar GLUED to the top of the stack (same width as the hero card,
+   radii meeting, no gap), the card, then the nav row at the BOTTOM,
+   centred as before. The bar leaves its sticky full-bleed strip
+   behind: it is the stack's first element and scrolls with it (the
+   gliding, top-anchored state belongs to the later motion build).
+   The search panel returns to its pre-bar sheet geometry -- nothing
+   is stuck at the viewport top for it to clear any more. The bar's
+   controls become ONE family (the owner called the round-2 switch
+   primitive, and Inicio/Guia were inconsistent -- chip vs bare
+   text): Inicio and Guia are identical raised pill buttons, the
+   theme button is the matching icon pill, the switch is the same
+   44px tall; hover language shared (bronze border, accent ink).
+   The switch is now a true switch: a recessed track with depth and
+   a raised knob that carries the active flag, sliding 240ms with a
+   slight spring. The flag emoji are gone -- Windows renders them
+   as the letters DO/US -- replaced by drawn inline SVG flags
+   (Dominican quarters, white cross and shield; US stripes and
+   canton), simplified honestly for ~25px, in the buttons. === */
+.utilbar.topbar{position:static;z-index:auto;width:100%;
+max-width:var(--max);margin:0 auto;padding:10px 14px;
+background:linear-gradient(180deg,var(--plate-hi),var(--surface) 55%);
+border:1px solid var(--line);border-bottom:0;
+border-radius:20px 20px 0 0;box-shadow:var(--shadow)}
+.centerstack>header.masthead{margin-top:0}
+.centerstack>header.masthead .frame{border-radius:0 0 20px 20px}
+.timeline .search-panel{top:24px;max-height:calc(100dvh - 48px)}
+@media (min-width:1100px){
+.centerstack{min-height:100svh;padding-bottom:0}
+.centerstack>.topbar{width:100%}}
+.topbar .tb-home,.topbar .guide-corner{display:inline-flex;
+align-items:center;justify-content:center;height:44px;min-height:44px;
+padding:0 16px;font-size:var(--fs-m);font-weight:700;color:var(--ink);
+text-decoration:none;border:1px solid var(--control-border);
+border-radius:999px;
+background:linear-gradient(180deg,var(--plate-hi),var(--surface) 60%);
+box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 1px 2px rgba(74,46,32,.16);
+transition:border-color var(--dur-ui) var(--ease-ui),
+color var(--dur-ui) var(--ease-ui)}
+.topbar .tb-home:hover,.topbar .guide-corner:hover{color:var(--accent-ink);
+border-color:var(--accent)}
+.topbar .tb-home:active,.topbar .guide-corner:active{
+transform:translateY(1px)}
+.topbar .icon-button{width:44px;height:44px;
+border:1px solid var(--control-border);border-radius:999px;
+background:linear-gradient(180deg,var(--plate-hi),var(--surface) 60%);
+box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 1px 2px rgba(74,46,32,.16);
+transition:border-color var(--dur-ui) var(--ease-ui)}
+.topbar .icon-button:hover{border-color:var(--accent)}
+.topbar .icon-button::after{inset:2px;border-radius:999px}
+.topbar .tb-right{gap:6px}
+.topbar .lang-switch{height:44px;padding:4px;align-items:center;
+background:linear-gradient(180deg,var(--soft),var(--badge));
+border:1px solid var(--control-border);
+box-shadow:inset 0 2px 6px rgba(74,46,32,.28),
+inset 0 -1px 0 rgba(255,255,255,.30)}
+body[data-theme="dark"] .topbar .lang-switch{
+box-shadow:inset 0 2px 6px rgba(0,0,0,.55),
+inset 0 -1px 0 rgba(255,255,255,.07)}
+.topbar .ls-thumb{top:4px;bottom:4px;left:4px;width:calc(50% - 4px);
+background:linear-gradient(180deg,var(--plate-hi),var(--surface) 60%);
+border:1px solid var(--border-strong);border-radius:999px;
+box-shadow:0 2px 6px rgba(74,46,32,.32),0 1px 1px rgba(74,46,32,.22),
+inset 0 1px 0 rgba(255,255,255,.5);
+transition:transform .24s cubic-bezier(.34,1.25,.4,1)}
+.topbar .lang-switch .lang{height:34px;min-height:0;padding:0 12px;
+opacity:.45;transition:opacity var(--dur-ui) var(--ease-ui)}
+.topbar .lang-switch .lang:hover{opacity:.85}
+.topbar .lang-switch .lang[aria-pressed="true"]{opacity:1}
+.topbar .lang-switch .lang svg{width:25px;height:19px;border-radius:3px;
+box-shadow:0 0 0 1px rgba(0,0,0,.22),0 1px 2px rgba(0,0,0,.18)}
+@media (prefers-reduced-motion: reduce){
+.topbar .ls-thumb{transition:none}}
+@media (max-width:640px){
+.utilbar.topbar{margin-inline:10px;width:auto}
+.timeline .search-panel{top:12px;max-height:calc(100dvh - 24px)}}
