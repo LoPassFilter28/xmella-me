@@ -819,3 +819,63 @@ box-shadow:0 2px 10px rgba(74,46,32,.12)}
 #timeline,.dz-chapter{scroll-margin-top:78px}
 @media (max-width:640px){
 #timeline,.dz-chapter{scroll-margin-top:118px}}
+
+/* === TOP-SHELF SHIP 2 — THE VARIABLE FONT AXIS 2026-11-11
+   (program idea 2): the three self-hosted fonts have been
+   variable files all along (Urbanist 500-800, Manrope 400-800,
+   Source Sans 400-900) and not one variation setting was spent.
+   This block spends the Urbanist axis on the display surfaces
+   only: weight tracks size (large settings at the top of the
+   range, small settings at or near today's rendering), and the
+   bilingual headline pairs get text-wrap:balance so Spanish
+   and English break lines with equal grace. Zero new bytes:
+   the files were already on every visitor's device. The bar
+   and nav labels and the kickers keep their current rendering
+   exactly — their boxes were reserved at those weights in
+   Round 4, and a weight change there would reintroduce the
+   travel killed there. === */
+
+/* the home title card: the big setting takes the top of the
+   axis with a touch of tightening; the small settings step
+   down the axis as the card shrinks */
+header.masthead .mast-lock h1{font-variation-settings:"wght" 800;letter-spacing:-.01em}
+@media (max-width:640px){
+header.masthead .mast-lock h1{font-variation-settings:"wght" 740;letter-spacing:0}}
+@media (max-width:360px){
+header.masthead .mast-lock h1{font-variation-settings:"wght" 700}}
+
+/* era names on the hub: the axis steps down with the clamp,
+   and the paired names wrap in balance */
+.dz-name{font-variation-settings:"wght" 800;text-wrap:balance}
+@media (max-width:900px){
+.dz-name{font-variation-settings:"wght" 760}}
+@media (max-width:640px){
+.dz-name{font-variation-settings:"wght" 720}}
+
+/* page titles: the bare h1 of the era, chapter, newspaper and
+   hub pages renders on the UA default today (32px, bold 700).
+   It takes a deliberate setting instead — a step heavier,
+   tightened, and balanced across its two languages */
+main.wrap>h1{font-variation-settings:"wght" 760;letter-spacing:-.015em;text-wrap:balance}
+
+/* section titles and article headlines share this one rule
+   (every article page wraps its headline in article.page, and
+   this rule is the one that governs it). At 27px the setting
+   stays at today's 800 — now pinned on the axis instead of
+   left to the declared weight — and gains balanced wrapping */
+article.page h1{font-variation-settings:"wght" 800;text-wrap:balance}
+
+/* card headlines: balanced wrapping only; their weights are
+   part of the listing rhythm and do not move */
+.card h3,.dz-pick h3{text-wrap:balance}
+
+/* ghost years: size does the presence work now. The numerals
+   drop toward the hairline end of the axis — 520 at full
+   size, stepping up as the clamp shrinks them — which also
+   narrows the numeral box, so the G1 clash geometry can
+   only improve */
+.dz-ghost{font-variation-settings:"wght" 520}
+@media (max-width:1250px){
+.dz-ghost{font-variation-settings:"wght" 560}}
+@media (max-width:700px){
+.dz-ghost{font-variation-settings:"wght" 620}}
