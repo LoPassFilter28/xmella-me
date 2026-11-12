@@ -115,3 +115,21 @@ body::before{content:"";position:fixed;top:0;left:0;width:100%;height:3px;backgr
 .plt-runhead-sep{color:var(--muted)}
 .plt-endmark{display:flex;align-items:center;justify-content:center;gap:.9rem;font-size:.8rem;line-height:1;color:var(--accent);margin:0 0 2rem}
 .plt-endmark::before,.plt-endmark::after{content:"";width:72px;height:1px;background:var(--line)}
+
+/* Under-construction pop-up (V1, 2026-11-11): summary-mode articles only.
+   A <details> element: no JS, open state survives language swaps,
+   reduced-motion safe. Removed automatically on FTU (runbook strip rule). */
+.ucpop{margin:0 0 1.5rem;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:6px;background:var(--surface)}
+.ucpop-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:44px;padding:.55rem 1rem;cursor:pointer;list-style:none;font-weight:700;color:var(--headline);border-radius:6px}
+.ucpop-head::-webkit-details-marker{display:none}
+.ucpop-plus{font-size:1.25rem;line-height:1;color:var(--accent);transition:transform .18s ease}
+.ucpop[open ] .ucpop-plus{transform:rotate(45deg)}
+@media (prefers-reduced-motion: reduce){.ucpop-plus{transition:none}}
+.ucpop-panel{padding:0 1rem 1rem}
+.ucpop-panel p{margin:0 0 .75rem}
+.ucpop-wrong{font-size:.97rem}
+.ucpop-note{font-size:.92rem;color:var(--muted)}
+.ucpop-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:.25rem}
+.ucpop-actions .btn{display:inline-flex;align-items:center;font-weight:700;font-size:14px;padding:10px 22px;min-height:44px;background:var(--accent);color:var(--on-accent);border-radius:999px;text-decoration:none}
+.ucpop-actions .btn:hover{background:var(--accent-ink)}
+.ucpop-head:focus-visible,.ucpop-actions .btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
