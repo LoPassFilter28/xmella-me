@@ -1216,18 +1216,27 @@ article.page.guide{padding:28px 18px 20px}
    layouts (directory columns, entry stacks, filters); only the
    presentation furniture changes. The .g-div/.g-end furniture is
    reused as-is from the Guide block above. Tokens only; both themes
-   ride the variables. === */
+   ride the variables. Amended the same day (SECTION CENTER): the
+   tools row is a 1fr/auto/1fr grid freed of the paragraph width cap,
+   so the filter input itself sits on the column axis at every width
+   and in both languages (stacked and centered on phone), and the
+   state eyebrows lose their diamond markers; the divider and
+   end-mark diamonds stay. === */
 article.page.index{padding:42px 30px 30px}
 article.page.index h1{font-size:var(--fs-2xl);text-align:center;margin:2px 0 0}
 article.page.index .body>p:first-of-type{line-height:1.62;max-width:68ch;margin:12px auto 18px}
 article.page.index .body>p:first-of-type>span{font-size:var(--fs-l)}
-article.page.index .dir-tools{justify-content:center;margin:20px 0 10px}
+article.page.index .dir-tools{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;max-width:none;margin:20px 0 10px}
+article.page.index .dir-tools label{justify-self:end}
+article.page.index .dir-tools button{justify-self:start}
+article.page.index .dir-tools input{width:320px}
 article.page.index .topic-group-h{font-size:var(--fs-xs);font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);margin:30px 0 13px;display:flex;align-items:center;gap:9px;text-wrap:balance}
 article.page.index .topic-group-h::before{content:"";width:7px;height:7px;flex:none;background:var(--mustard);transform:rotate(45deg)}
 article.page.index .state-h{font-size:var(--fs-xs);font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);border-bottom:none;padding-bottom:0;margin:34px 0 0}
-article.page.index .state-h::before{content:"";display:inline-block;width:7px;height:7px;background:var(--mustard);transform:rotate(45deg);margin-right:9px;vertical-align:2px}
 article.page.index .entry{margin-top:36px}
 article.page.index .entry-h{margin-top:0}
 article.page.index .entry p:not(.entry-role):not(.profile-articles):not(.profile-door):not(.xlink){line-height:1.75;max-width:68ch}
 @media (max-width:640px){
-article.page.index{padding:28px 18px 20px}}
+article.page.index{padding:28px 18px 20px}
+article.page.index .dir-tools{display:flex;flex-direction:column;align-items:center}
+article.page.index .dir-tools input{width:auto}}
