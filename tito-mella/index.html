@@ -383,7 +383,31 @@ gap:16px;margin:18px 0 8px}
 .galgrid .tphoto{margin:0}
 .galgrid .tphoto a{display:block}
 .backlink{margin:0 0 6px;font-size:14.5px}
-</style></head>
+</style>
+<script>
+// PostHog (2026-11-12, the "Tito Mella" project): pageviews only,
+// autocapture OFF, session recording OFF. The library loads async
+// from the project's US cloud host and inits on arrival; if it never
+// arrives, window.posthog stays undefined and nothing on the page
+// changes.
+try {
+  var phScript = document.createElement('script');
+  phScript.async = true;
+  phScript.src = 'https://us.i.posthog.com/static/array.js';
+  phScript.onload = function () {
+    try {
+      window.posthog.init('phc_umiRTLfdwV5izf7i2BJvFiEbNoqZaGa53kK2Madg9d5S', {
+        api_host: 'https://us.i.posthog.com',
+        autocapture: false,
+        capture_pageview: true,
+        disable_session_recording: true
+      });
+    } catch (e) { /* analytics never breaks the page */ }
+  };
+  document.head.appendChild(phScript);
+} catch (e) { /* analytics never breaks the page */ }
+</script>
+</head>
 <body data-lang="es" data-theme="light">
 <script>(function(){var l=localStorage.getItem('xm-lang');if(l){document.body.dataset.lang=l;document.documentElement.lang=l;}
 var t=localStorage.getItem('xm-theme');if(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';

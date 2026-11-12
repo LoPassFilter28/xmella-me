@@ -339,6 +339,29 @@ body.intro .cover .seal{animation:seal-in .75s ease-out .08s both}
   body{background:#fff;color:#111}.wrap{max-width:none}.plate{break-inside:avoid;box-shadow:none}
 }
 </style>
+<script>
+// PostHog (2026-11-12, the "Santo Domingo Commission" project):
+// pageviews only, autocapture OFF, session recording OFF. The
+// library loads async from the project's US cloud host and inits
+// on arrival; if it never arrives, window.posthog stays undefined
+// and nothing on the page changes.
+try {
+  var phScript = document.createElement('script');
+  phScript.async = true;
+  phScript.src = 'https://us.i.posthog.com/static/array.js';
+  phScript.onload = function () {
+    try {
+      window.posthog.init('phc_yhQ8GmZdwEWq2ygpzTLcNrDqRJp7BBG9ypJi9VW8erWv', {
+        api_host: 'https://us.i.posthog.com',
+        autocapture: false,
+        capture_pageview: true,
+        disable_session_recording: true
+      });
+    } catch (e) { /* analytics never breaks the page */ }
+  };
+  document.head.appendChild(phScript);
+} catch (e) { /* analytics never breaks the page */ }
+</script>
 </head>
 <body>
 <div class="progress" id="progress" aria-hidden="true"></div>
