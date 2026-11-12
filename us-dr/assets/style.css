@@ -343,11 +343,14 @@ html{scroll-behavior:smooth}
 .entry-h{font-family:var(--font-d);font-size:var(--fs-l);margin:26px 0 4px;text-wrap:balance}
 .entry-dates{color:var(--muted);font-weight:400;font-size:var(--fs-m)}
 .entry-role{color:var(--muted);margin:0 0 6px;max-width:70ch;text-wrap:pretty}
-/* profile pattern: discreet citation links, printed-as line, plate credit line */
+/* profile pattern: discreet citation links, printed-as line, plate credit line, section date eyebrows */
 a.cite{color:inherit;text-decoration:none}
 a.cite:hover{color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px}
 a.cite:focus-visible{outline:2px solid var(--accent-ink);outline-offset:2px}
 .entry-aka{color:var(--muted);font-size:var(--fs-s);margin:0 0 8px}
+article.page.profile .sec-eyebrow{font-size:var(--fs-xs);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:28px 0 0}
+article.page.profile .sec-eyebrow + h2{margin-top:3px}
+article.page.profile .entry-aka .aka-name{white-space:nowrap}
 figure.plate figcaption .credit{display:block;margin-top:2px;font-size:var(--fs-xs)}
 .count-line{color:var(--muted);font-size:var(--fs-m)}
 /* jump strips (Batches 3/6): one shared component */
