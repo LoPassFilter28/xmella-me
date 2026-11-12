@@ -9,7 +9,28 @@
 <link rel="stylesheet" href="../assets/style.css?v=18">
 <link rel="stylesheet" href="../assets/chatrd.css">
 <script src="../assets/chatrd.js" defer></script>
-<script src="https://js.sentry-cdn.com/a8eb490d1fc60d4eee8cfcbf28237461.min.js" crossorigin="anonymous"></script><style>@media (prefers-reduced-motion: no-preference){@view-transition{navigation:auto}.topbar{view-transition-name:site-bar}html:not(.vt-lang)::view-transition-group(site-bar){animation-duration:.46s;animation-timing-function:cubic-bezier(.22,1,.36,1)}html:not(.vt-lang)::view-transition-old(site-bar),html:not(.vt-lang)::view-transition-new(site-bar){animation-duration:.46s;animation-timing-function:cubic-bezier(.22,1,.36,1)}html:not(.vt-lang)::view-transition-old(root),html:not(.vt-lang)::view-transition-new(root){animation-duration:.3s}}</style></head>
+<script src="https://js.sentry-cdn.com/a8eb490d1fc60d4eee8cfcbf28237461.min.js" crossorigin="anonymous"></script><style>@media (prefers-reduced-motion: no-preference){@view-transition{navigation:auto}.topbar{view-transition-name:site-bar}html:not(.vt-lang)::view-transition-group(site-bar){animation-duration:.46s;animation-timing-function:cubic-bezier(.22,1,.36,1)}html:not(.vt-lang)::view-transition-old(site-bar),html:not(.vt-lang)::view-transition-new(site-bar){animation-duration:.46s;animation-timing-function:cubic-bezier(.22,1,.36,1)}html:not(.vt-lang)::view-transition-old(root),html:not(.vt-lang)::view-transition-new(root){animation-duration:.3s}}
+/* Under-construction pop-up rules (hand-maintained form of this bespoke-shell page: verbatim copy of the .ucpop section of assets/articles.css, added by the 2026-11-12 UI/UX sweep so the V2 block inserted in Phase 1.1 renders as designed). */
+/* Under-construction pop-up (V1, 2026-11-11): summary-mode articles only.
+   A <details> element: no JS, open state survives language swaps,
+   reduced-motion safe. Removed automatically on FTU (runbook strip rule). */
+.ucpop{margin:0 0 1.5rem;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:6px;background:var(--surface)}
+.ucpop-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:44px;padding:.55rem 1rem;cursor:pointer;list-style:none;font-weight:700;color:var(--headline);border-radius:6px}
+.ucpop-head::-webkit-details-marker{display:none}
+.ucpop-plus{font-size:1.25rem;line-height:1;color:var(--accent);transition:transform .18s ease}
+.ucpop[open ] .ucpop-plus{transform:rotate(45deg)}
+@media (prefers-reduced-motion: reduce){.ucpop-plus{transition:none}}
+.ucpop-panel{padding:0 1rem 1rem}
+.ucpop-panel p{margin:0 0 .75rem}
+.ucpop-wrong{font-size:.97rem}
+.ucpop-note{font-size:.92rem;color:var(--muted)}
+.ucpop-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:.25rem}
+.ucpop-actions .btn{display:inline-flex;align-items:center;font-weight:700;font-size:14px;padding:10px 22px;min-height:44px;background:var(--accent);color:var(--on-accent);border-radius:999px;text-decoration:none}
+.ucpop-actions .btn:hover{background:var(--accent-ink)}
+.ucpop-head:focus-visible,.ucpop-actions .btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.ucpop-head:hover{color:var(--accent-ink)}
+.ucpop-head:active{color:var(--accent-ink)}
+</style></head>
 <body data-lang="es" data-theme="light">
 <script>(function(){var l=localStorage.getItem('xm-lang');if(l){document.body.dataset.lang=l;document.documentElement.lang=l;var _bt=(l=='en'?document.documentElement.getAttribute('data-title-en'):document.documentElement.getAttribute('data-title-es'));if(_bt)document.title=_bt;}
 var t=localStorage.getItem('xm-theme');if(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';

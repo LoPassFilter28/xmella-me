@@ -7,7 +7,7 @@
    Adapted from the ChatFYI widget stylesheet (deployment-12 pattern):
    same geometry, same states, crd- prefix. */
 .crd-chat-btn{position:fixed;right:16px;bottom:16px;z-index:1200;display:flex;align-items:center;gap:8px;
-  padding:11px 16px;border-radius:999px;border:1px solid var(--accent,#B8602F);cursor:pointer;
+  padding:11px 16px;min-height:44px;border-radius:999px;border:1px solid var(--accent,#B8602F);cursor:pointer;
   background:var(--surface,#FDF9EF);color:var(--headline,#38220F);
   font-family:var(--font-b,"Manrope",ui-sans-serif,sans-serif);font-size:14px;font-weight:700;
   box-shadow:0 8px 24px rgba(0,0,0,.35)}
