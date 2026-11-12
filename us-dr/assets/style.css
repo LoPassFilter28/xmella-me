@@ -1167,3 +1167,37 @@ body:has(>.centerstack){background-image:linear-gradient(to top,var(--bg) 52%,va
    hub gets no new treatment. Background only: no geometry,
    no language travel, no glide change. === */
 .centerstack>.topbar{background:linear-gradient(180deg,var(--plate-hi),#4A2E20)}
+
+/* === GUIDE READING PAGE 2026-11-12 (the owner's own text, set
+   verbatim; formatting only): the Guide becomes a long-form reading
+   page inside the shared article card. Everything is scoped to
+   article.page.guide, which exists only on howto.html, so no other
+   page can take these rules. The prose column is centered at a 68ch
+   measure with real leading; sections carry small-caps Urbanist
+   eyebrows named from the text's own phrases, each opened by a
+   mustard diamond; the lede paragraph steps up one type token; the
+   two Dominica citations sit in soft wells as pull-quotes with their
+   attributions set apart at the foot; a diamond end-mark closes the
+   prose before the newsletter plate. Tokens only; both themes ride
+   the variables. === */
+article.page.guide{padding:42px 30px 30px}
+article.page.guide h1{font-size:var(--fs-2xl);text-align:center;margin:2px 0 0}
+.g-div{display:flex;align-items:center;gap:10px;width:min(300px,72%);margin:18px auto 4px}
+.g-div::before,.g-div::after{content:"";flex:1 1 auto;height:1px;background:var(--border-strong)}
+.g-div i,.g-end i{width:8px;height:8px;flex:none;background:var(--mustard);transform:rotate(45deg)}
+article.page.guide .g-sec{max-width:68ch;margin:36px auto 0}
+article.page.guide .g-sec:first-of-type{margin-top:30px}
+article.page.guide h2.g-eyebrow{font-size:var(--fs-xs);font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);margin:0 0 13px;display:flex;align-items:center;gap:9px;text-wrap:balance}
+article.page.guide h2.g-eyebrow::before{content:"";width:7px;height:7px;flex:none;background:var(--mustard);transform:rotate(45deg)}
+article.page.guide .g-sec p{font-size:var(--fs-b);line-height:1.75;margin:0 0 16px;max-width:none}
+article.page.guide .g-sec p.g-lede{font-size:var(--fs-l);line-height:1.62}
+article.page.guide .g-sec p:last-child{margin-bottom:0}
+.g-quote{margin:24px 0;background:var(--soft);border:1px solid var(--line);border-left:3px solid var(--mustard);border-radius:10px;padding:20px 22px 16px}
+.g-quote blockquote{margin:0;font-family:"Source Sans 3",var(--font-b);font-size:var(--fs-l);font-weight:500;line-height:1.55;color:var(--headline)}
+.g-quote figcaption{margin-top:12px;font-size:var(--fs-s);color:var(--muted);text-align:right}
+.g-end{display:flex;align-items:center;gap:10px;width:min(220px,60%);margin:40px auto 6px}
+.g-end::before,.g-end::after{content:"";flex:1 1 auto;height:1px;background:var(--border-strong)}
+@media (max-width:640px){
+article.page.guide{padding:28px 18px 20px}
+.g-quote{padding:17px 16px 13px}
+.g-quote blockquote{font-size:var(--fs-b);line-height:1.6}}
