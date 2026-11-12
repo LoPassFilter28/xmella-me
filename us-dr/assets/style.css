@@ -349,7 +349,6 @@ html{scroll-behavior:smooth}
 .sec-head{font-family:var(--font-d);font-size:var(--fs-l);margin:26px 0 8px}
 .era-sec{scroll-margin-top:12px}
 .jumpstrip a{color:var(--accent-ink);text-decoration:none;padding:6px 4px}
-.jumpstrip.sticky{position:sticky;top:0;background:var(--bg);z-index:5}
 .state-h:target,.entry-h:target,.tgt:target{animation:tgtflash 600ms var(--ease-ui)}
 @keyframes tgtflash{from{background-color:var(--soft)}to{background-color:transparent}}
 /* card dialect A1 (Batch 8): listing cards take the evidence-card
@@ -583,7 +582,6 @@ margin-inline:-10px}
    three-column list becomes the shared directory rule. === */
 html{scrollbar-gutter:stable}
 #dir-toggle{min-height:44px}
-.jumpstrip.roomy a{display:inline-flex;align-items:center;min-height:44px;padding:6px 8px}
 @media (min-width:1100px){.dirlist{columns:3}}
 
 /* === HOME TOP BAR 2026-11-10 (owner direction 2026-11-10 22:44,
@@ -1134,7 +1132,6 @@ html.bar-compact .dz-chapter{scroll-margin-top:92px}}
    bar travels to and anchors in. Pure paint: no layout. === */
 :root{--bar-clear:78px}
 [id]:not(.dz-chapter){scroll-margin-top:var(--bar-clear)}
-.jumpstrip.sticky{top:calc(var(--bar-h) + 4px)}
 @media (max-width:640px){
 :root{--bar-clear:118px}}
 body:has(>.centerstack){background-image:linear-gradient(to top,var(--bg) 52%,var(--soft) 165%);background-repeat:no-repeat}
