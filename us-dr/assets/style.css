@@ -85,17 +85,12 @@ font-size:17px;line-height:1.45;color:#F7F1E3;max-width:560px;margin-top:14px}
 .mast-island{margin:0;flex:0 1 570px;min-width:0}
 .mast-island img{display:block;width:100%;height:auto;
 filter:drop-shadow(0 10px 22px rgba(0,0,0,.35)) drop-shadow(0 0 14px rgba(247,241,227,.14))}
-/* Inner pages: the same plate language as a compact nameplate —
-   walnut bar, wordmark, name, one-line description. */
-header.masthead .compact-frame{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;
-justify-content:center;padding:18px 24px;text-align:center}
+/* Inner pages carried the same plate language as a compact
+   nameplate until MASTHEAD REMOVAL (owner order 2026-11-11): the
+   nameplate is gone branch-wide and its rules leave with it. The
+   tick suppression below stays: it is keyed to header.masthead
+   generally and still governs the landing's full plate. */
 header.masthead .tick{display:none}
-header.masthead .compact-frame::before{inset:10px}
-.mast-logo.sm{font-size:15px}
-header.masthead .compact-frame .sitename{font-family:var(--font-d);
-font-weight:900;font-size:21px;line-height:1.1;color:#F7F1E3;margin:0}
-header.masthead .compact-frame .sub{font-family:"Source Sans 3",sans-serif;font-size:13px;
-line-height:1.4;color:rgba(247,241,227,.78);margin:0;flex:1 1 260px}
 @media (max-width:900px){
 .mast-cols{padding:28px 44px 44px}
 header.masthead .mast-lock h1{font-size:56px}
@@ -1094,15 +1089,20 @@ figure.plate{background-image:var(--grain);background-size:240px 240px;box-shado
    still changes; the ease does not run. The landing's stack
    bar is another state of the component and is untouched; no
    other page carries the anchored bar, the sentinels or this
-   class. === */
+   class. MASTHEAD REMOVAL (2026-11-11): the nameplate the
+   hand-back lived on is gone, so the compensation retargets to
+   the interior nav — the first in-flow element under the bar —
+   at the bar's exact shrink (16px desktop, 26px phone) over
+   the nav's zero rest margin; the hub battery re-measured the
+   latch and the chapter positions across the flip. === */
 @media (prefers-reduced-motion: no-preference){
 .utilbar.topbar.topbar-anchored{transition:padding-top .24s cubic-bezier(.22,1,.36,1),padding-bottom .24s cubic-bezier(.22,1,.36,1)}
-.topbar-anchored ~ header.masthead{transition:margin-top .24s cubic-bezier(.22,1,.36,1)}}
+.topbar-anchored ~ nav.main{transition:margin-top .24s cubic-bezier(.22,1,.36,1)}}
 html.bar-compact .utilbar.topbar.topbar-anchored{padding-top:2px;padding-bottom:2px}
-html.bar-compact .topbar-anchored ~ header.masthead{margin-top:34px}
+html.bar-compact .topbar-anchored ~ nav.main{margin-top:16px}
 html.bar-compact .dz-chapter{scroll-margin-top:62px}
 @media (max-width:640px){
-html.bar-compact .topbar-anchored ~ header.masthead{margin-top:36px}
+html.bar-compact .topbar-anchored ~ nav.main{margin-top:26px}
 html.bar-compact .utilbar.topbar.topbar-anchored .search-wrap{margin-top:0}
 html.bar-compact .utilbar.topbar.topbar-anchored .search-wrap input{padding-top:3px;padding-bottom:3px}
 html.bar-compact .dz-chapter{scroll-margin-top:92px}}
