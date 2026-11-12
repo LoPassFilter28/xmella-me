@@ -1201,3 +1201,33 @@ article.page.guide .g-sec p:last-child{margin-bottom:0}
 article.page.guide{padding:28px 18px 20px}
 .g-quote{padding:17px 16px 13px}
 .g-quote blockquote{font-size:var(--fs-b);line-height:1.6}}
+
+/* === SECTION INDEX PAGES 2026-11-12: the Guide reading-page system
+   transferred onto the four list pages (papers, topics, glossary,
+   profiles): centered title at --fs-2xl over the masthead diamond
+   divider, the intro set as a lede in a centered 68ch measure, the
+   tools row centered to match, the pages' natural sections (the
+   directory's states, the topics group) labeled with the Guide's
+   small-caps eyebrows, entries spaced on the Guide's section rhythm,
+   prose passages at the Guide's leading and measure, and the diamond
+   end-mark closing the body. Everything is scoped to
+   article.page.index, a class only these four pages carry, so no
+   other page can take these rules. The listings keep their working
+   layouts (directory columns, entry stacks, filters); only the
+   presentation furniture changes. The .g-div/.g-end furniture is
+   reused as-is from the Guide block above. Tokens only; both themes
+   ride the variables. === */
+article.page.index{padding:42px 30px 30px}
+article.page.index h1{font-size:var(--fs-2xl);text-align:center;margin:2px 0 0}
+article.page.index .body>p:first-of-type{line-height:1.62;max-width:68ch;margin:12px auto 18px}
+article.page.index .body>p:first-of-type>span{font-size:var(--fs-l)}
+article.page.index .dir-tools{justify-content:center;margin:20px 0 10px}
+article.page.index .topic-group-h{font-size:var(--fs-xs);font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);margin:30px 0 13px;display:flex;align-items:center;gap:9px;text-wrap:balance}
+article.page.index .topic-group-h::before{content:"";width:7px;height:7px;flex:none;background:var(--mustard);transform:rotate(45deg)}
+article.page.index .state-h{font-size:var(--fs-xs);font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);border-bottom:none;padding-bottom:0;margin:34px 0 0}
+article.page.index .state-h::before{content:"";display:inline-block;width:7px;height:7px;background:var(--mustard);transform:rotate(45deg);margin-right:9px;vertical-align:2px}
+article.page.index .entry{margin-top:36px}
+article.page.index .entry-h{margin-top:0}
+article.page.index .entry p:not(.entry-role):not(.profile-articles):not(.profile-door):not(.xlink){line-height:1.75;max-width:68ch}
+@media (max-width:640px){
+article.page.index{padding:28px 18px 20px}}
