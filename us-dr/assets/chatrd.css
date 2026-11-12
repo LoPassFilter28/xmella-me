@@ -42,6 +42,10 @@
 .crd-chat-send{padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font:inherit;font-weight:800;
   background:var(--accent,#B8602F);color:var(--on-accent,#FFF7EA)}
 .crd-chat-send:disabled{opacity:.55;cursor:wait}
+.crd-chat-send:hover{background:var(--accent-ink,#9A4E22)}
+.crd-chat-send:active{background:var(--accent-ink,#9A4E22)}
+.crd-chat-close:hover{color:var(--ink,#2A1C11)}
+.crd-chat-close:active{color:var(--ink,#2A1C11)}
 @media (max-width:480px){.crd-chat-panel{right:8px;bottom:64px}.crd-chat-btn{right:12px;bottom:12px}}
 
 /* SITE POLISH BUILD (2026-11-07): reduced-motion guard (the chat

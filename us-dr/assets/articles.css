@@ -133,3 +133,5 @@ body::before{content:"";position:fixed;top:0;left:0;width:100%;height:3px;backgr
 .ucpop-actions .btn{display:inline-flex;align-items:center;font-weight:700;font-size:14px;padding:10px 22px;min-height:44px;background:var(--accent);color:var(--on-accent);border-radius:999px;text-decoration:none}
 .ucpop-actions .btn:hover{background:var(--accent-ink)}
 .ucpop-head:focus-visible,.ucpop-actions .btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.ucpop-head:hover{color:var(--accent-ink)}
+.ucpop-head:active{color:var(--accent-ink)}
