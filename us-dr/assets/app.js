@@ -97,3 +97,17 @@ applyLanguage();applyTheme();if(new URL(location.href).searchParams.get('buscar'
 /* F9 LAZY SEARCH INDEX (2026-11-07): the ~8 MB search index is not fetched at boot. ensureIndex() loads it once — on the first focus/input on #search, or immediately when the URL carries ?buscar=1 — and indexPromise is the single-flight guard: concurrent triggers share one fetch, and a failure clears the guard so the next interaction retries. F12 (2026-11-07) restricted the haystack to the visible headline + summaries; the 2026-11-08 ruling reverses it for two fields: the haystack is now headline + summaries + newspaper name + the record's year (h + s + x + n + year), and newspaper-name matches form their own labeled tier in renderSearch. Place and topic labels/keys still do not match. (Split note: the original also re-rendered the evidence list from here; the evidence list lives on the Eras hub now, in timeline.js.) */
 function ensureIndex(){if(!peopleRequested){peopleRequested=true;fetch('assets/people-index.json').then(async rr=>{if(rr.ok){people=await rr.json();if(indexLoaded)renderSearch();}}).catch(()=>{});}if(indexLoaded)return Promise.resolve();if(indexPromise)return indexPromise;indexLoading=true;indexFailed=false;renderSearch();indexPromise=fetch('assets/search-index.json').then(async rr=>{if(!rr.ok)throw Error('index unavailable');records=await rr.json();records.forEach(r=>{r.searchable=normalize([r.h,r.s,r.x,r.n,(r.d||'').slice(0,4),r.v||'',r.w||''].join(' '));r.headlineSearch=normalize(r.h||'');r.paperSearch=normalize(r.n||'')});indexLoaded=true;indexLoading=false;renderSearch();}).catch(()=>{indexFailed=true;indexLoading=false;indexPromise=null;renderSearch();});return indexPromise;}
 document.body.dataset.ready='true';
+
+/* SEARCH PANEL PLACEMENT (2026-11-13, reader report via the owner):
+   the results sheet was fixed to the top of the viewport, so on
+   mobile it opened over the bar and hid the search box itself —
+   the reader could not see what they had typed. The sheet now
+   opens directly below the upper section (the bar that carries
+   the search box): its top is set to the bar's bottom edge plus a
+   small gap, re-measured whenever the sheet opens and on scroll
+   or resize while it is open, and its height is capped to the
+   space remaining under the bar, so the box and the typed text
+   stay visible above the results at every width. */
+const _panel=$('#search-panel'),_bar=document.querySelector('.topbar');
+function placePanel(){if(!_panel||!_bar||_panel.hidden)return;const top=Math.max(0,Math.round(_bar.getBoundingClientRect().bottom)+8);_panel.style.top=top+'px';_panel.style.maxHeight='calc(100dvh - '+(top+8)+'px)';}
+if(_panel&&_bar){new MutationObserver(()=>placePanel()).observe(_panel,{attributes:true,attributeFilter:['hidden']});addEventListener('resize',placePanel);addEventListener('scroll',placePanel,{passive:true});if(window.visualViewport){visualViewport.addEventListener('resize',placePanel);visualViewport.addEventListener('scroll',placePanel);}placePanel();}
