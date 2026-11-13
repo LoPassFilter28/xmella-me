@@ -119,10 +119,18 @@ function placePanel(){if(!_panel||!_bar||_panel.hidden)return;const top=Math.max
    they travel (placePanel re-measures every frame of the glide).
    Closing the sheet glides everything back. A reader who prefers
    reduced motion gets no travel at all: the sheet simply opens
-   below the bar where it stands. */
+   below the bar where it stands. MOBILE ONLY (owner correction
+   2026-11-13): the lift was ordered for phone screens, where the
+   held height matters; on wider viewports the stack stays where
+   it rests and the sheet opens below the bar in place (the
+   placement fix above still applies at every width). The gate is
+   the same 640px breakpoint as the panel's phone layout, and it
+   is re-evaluated if the viewport crosses it while searching. */
 const _liftEls=_bar?[_bar,document.querySelector('.centerstack>header.masthead'),document.querySelector('.centerstack>nav.main')].filter(Boolean):[];
 const _reduceMotion=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+const _liftMq=window.matchMedia?matchMedia('(max-width: 640px)'):null;
 let _liftOn=false;
 function glideTrack(){const t0=performance.now();const step=()=>{placePanel();if(performance.now()-t0<550)requestAnimationFrame(step);};requestAnimationFrame(step);}
-function setLift(on){if(_reduceMotion||!_liftEls.length)return;if(on){if(_liftOn)return;const lift=Math.max(0,Math.round(_bar.getBoundingClientRect().top));if(lift>8){_liftEls.forEach(el=>{el.style.transition='transform .46s cubic-bezier(.22,1,.36,1)';el.style.transform='translateY('+(-lift)+'px)';});_liftOn=true;}}else if(_liftOn){_liftEls.forEach(el=>{el.style.transform='';});_liftOn=false;}glideTrack();}
+function setLift(on){if(_reduceMotion||!_liftEls.length)return;if(on&&_liftMq&&!_liftMq.matches)on=false;if(on){if(_liftOn)return;const lift=Math.max(0,Math.round(_bar.getBoundingClientRect().top));if(lift>8){_liftEls.forEach(el=>{el.style.transition='transform .46s cubic-bezier(.22,1,.36,1)';el.style.transform='translateY('+(-lift)+'px)';});_liftOn=true;}}else if(_liftOn){_liftEls.forEach(el=>{el.style.transform='';});_liftOn=false;}glideTrack();}
+if(_liftMq&&_liftMq.addEventListener)_liftMq.addEventListener('change',()=>{if(_panel)setLift(!_panel.hidden);});
 if(_panel&&_bar){new MutationObserver(()=>{if(_panel.hidden){setLift(false);}else{setLift(true);placePanel();}}).observe(_panel,{attributes:true,attributeFilter:['hidden']});addEventListener('resize',placePanel);addEventListener('scroll',placePanel,{passive:true});if(window.visualViewport){visualViewport.addEventListener('resize',placePanel);visualViewport.addEventListener('scroll',placePanel);}addEventListener('pageshow',()=>{if(_panel.hidden)setLift(false);});placePanel();}
