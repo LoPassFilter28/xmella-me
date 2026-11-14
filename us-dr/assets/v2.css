@@ -1,0 +1,101 @@
+/* ============================================================
+   V2 LAYER — selective contributions inside the production grammar.
+   Loads after assets/style.css on Profiles and era pages only.
+   Production tokens only: no new hues, no new type steps, no new
+   fonts. Every rule here is additive; the production stylesheet
+   underneath is untouched.
+   Rollout 2026-11-14 (DESIGN-ROLLOUT): staging form as approved in
+   review/ERA-DESIGN-V2-2026-11-14 (DESIGN-NOTES + REVIEW-LOOP),
+   minus the staging banner, plus the no-plate hero variant.
+   ============================================================ */
+
+/* --- rounded edges, Profiles surfaces only (owner ruling 2026-11-14) ---
+   --v2-radius is the site's existing card/plate radius: production gives
+   .card, figure.plate and .well all border-radius:10px. One radius,
+   used on every Profiles surface this layer builds. Rounding lives on
+   the frame/mat, never on the image: mats pad 10px (production plates
+   pad 14px), so no image pixel can reach a clipped corner and the whole
+   image stays visible, uncropped. Era surfaces are out of scope. */
+:root{--v2-radius:10px}
+
+/* --- page progress hairline (furniture, Tier A/B motion) --- */
+.v2-prog{position:fixed;top:0;left:0;right:0;height:3px;z-index:80;pointer-events:none}
+.v2-prog i{display:block;height:100%;background:var(--accent);
+  transform:scaleX(0);transform-origin:0 50%}
+
+/* --- one-shot group reveals (states exist only when JS adds .v2r) --- */
+.v2r{opacity:0;transform:translateY(12px)}
+.v2r.in{opacity:1;transform:none;
+  transition:opacity var(--dur-sheet) var(--ease-ui),transform var(--dur-sheet) var(--ease-ui)}
+@media (prefers-reduced-motion: reduce){
+  .v2r{opacity:1;transform:none;transition:none}
+}
+
+/* --- Moments story rivers: production .card runs in a snap rail --- */
+.v2-rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;
+  padding:4px 2px 10px;scrollbar-width:thin}
+.v2-rail>.card{flex:0 0 min(320px,84%);scroll-snap-align:start;margin:0}
+.v2-railprog{height:2px;background:var(--line);margin:2px 0 20px}
+.v2-railprog i{display:block;height:100%;background:var(--accent);
+  transform:scaleX(0);transform-origin:0 50%}
+
+/* --- profile hero skeleton: fixed plate column + text column --- */
+.v2-hero{display:grid;grid-template-columns:300px minmax(0,1fr);
+  gap:34px;align-items:start;margin:8px 0 6px}
+.v2-hero .plate{margin:0;max-width:300px;border-radius:var(--v2-radius)}
+.v2-hero-text .label{margin-top:0}
+.v2-hero-text h1{margin-left:0;margin-right:0}
+@media (min-width:900px){
+  .v2-hero .plate{position:sticky;top:86px}
+}
+@media (max-width:760px){
+  /* stacked in production order: name block and lede first, plate after
+     (review loop F2 — the plate and its caption no longer precede the
+     profile's name on a phone) */
+  .v2-hero{display:flex;flex-direction:column}
+  .v2-hero-text{order:1}
+  .v2-hero .plate{order:2;max-width:300px}
+}
+/* no-plate variant (rollout 2026-11-14): a profile with no verified
+   portrait holds the same skeleton as a single text column — the
+   header block and lede keep the hero rhythm, no empty plate column */
+.v2-hero--noplate{grid-template-columns:minmax(0,1fr)}
+
+/* --- profiles cast wall: one uniform grid, fixed cell geometry --- */
+.v2-cast{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin:16px 0 6px}
+@media (max-width:900px){.v2-cast{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:560px){.v2-cast{grid-template-columns:repeat(2,1fr)}}
+.v2-cast-cell{display:block;text-decoration:none;color:var(--ink);
+  background:var(--surface);border:1px solid var(--line);border-top:2px solid var(--ink);
+  border-radius:var(--v2-radius);overflow:hidden}
+.v2-cast-mat{display:flex;align-items:center;justify-content:center;
+  aspect-ratio:4/5;background:#f4efe1;padding:10px}
+.v2-cast-mat img{width:100%;height:100%;object-fit:contain;display:block}
+.v2-cast-cap{display:block;padding:9px 11px 10px;border-top:1px solid var(--line)}
+.v2-cast-name{display:block;font-family:var(--font-d);font-weight:700;
+  font-size:var(--fs-m);line-height:1.25}
+.v2-cast-dates{display:block;font-size:var(--fs-xs);color:var(--muted);margin-top:2px}
+
+/* --- profiles directory ledger: fixed rail column + content column ---
+   Round-2 form (review loop F1): the entry is a flex row; the builder
+   wraps name + articles link + door in .v2-railbox (a real 230px column
+   that never moves) and the rest in .v2-entrybody. The earlier grid form
+   let auto-placement sink the rail links to the foot of the prose. */
+.v2-dir .entry{display:flex;gap:30px;padding:22px 0;
+  border-top:1px solid var(--line)}
+.v2-railbox{flex:0 0 230px;min-width:0}
+.v2-entrybody{flex:1 1 auto;min-width:0}
+.v2-railbox .entry-h{margin:0}
+.v2-railbox .profile-articles{font-size:var(--fs-s);margin:10px 0 0}
+.v2-railbox .profile-door{font-size:var(--fs-s);margin:6px 0 0}
+.v2-entrybody>p{margin-top:0}
+@media (max-width:760px){
+  .v2-dir .entry{flex-direction:column;padding:18px 0}
+  .v2-railbox,.v2-entrybody{display:contents}
+  .v2-railbox .entry-h{order:1}
+  .v2-entrybody .entry-role{order:2}
+  .v2-entrybody>p{order:3}
+  .v2-railbox .profile-articles{order:4}
+  .v2-entrybody .xlink{order:5}
+  .v2-railbox .profile-door{order:6}
+}
