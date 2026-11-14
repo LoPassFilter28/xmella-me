@@ -682,7 +682,17 @@ padding-bottom:var(--bar-h)}
 @media (max-width:640px){
 :root{--bar-h:105px}
 .topbar .search-wrap{order:3;flex:1 1 100%;max-width:none;margin:2px 0 0}
-.topbar .search-wrap input{padding-block:7px}}
+.topbar .search-wrap input{padding-block:7px}
+/* === RULINGS 2026-11-14, item 6a (owner ruling): on the home
+   stack only, the phone search field joins the control family's
+   44px standard: padding-block 7px -> 10px lifts its full-state
+   height from 38px to 44px, and the home search panel's
+   clearance grows by the same 6px. The interior anchored bar
+   is untouched: its phone full state stays 38px and its
+   compact state stays 30px. === */
+.centerstack .topbar .search-wrap input{padding-block:10px}
+.timeline .search-panel{top:calc(var(--bar-h) + 18px);
+max-height:calc(100dvh - var(--bar-h) - 30px)}}
 
 /* === HOME BAR ROUND 3 2026-11-10 (owner correction 23:50 + control
    richness orders 23:55): the landing is ONE centred stack -- the
