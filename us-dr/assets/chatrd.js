@@ -316,10 +316,15 @@
       const ctrl = new AbortController();
       const timer = setTimeout(() => ctrl.abort(), 30000);
       try {
+        // lang (2026-11-13, Closing Arc A): the page's current language
+        // (siteLang(): body[data-lang], else the xm-lang store, Spanish
+        // by default) travels with every request; the function's one
+        // language decision (decideLanguage) falls back to it for
+        // questions whose own language cannot be read.
         const r = await fetch(FN, {
           method: 'POST',
           headers: { 'Authorization': 'Bearer ' + KEY, 'apikey': KEY, 'Content-Type': 'application/json' },
-          body: JSON.stringify({ question: q, history: history.slice(0, -1).slice(-6), visitor, page: location.pathname }),
+          body: JSON.stringify({ question: q, history: history.slice(0, -1).slice(-6), visitor, page: location.pathname, lang: siteLang() }),
           signal: ctrl.signal,
         });
         const data = await r.json();
