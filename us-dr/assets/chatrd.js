@@ -419,3 +419,23 @@
   // (runs last: every renderer it uses is defined above).
   restore();
 })();
+
+/* Sitewide search loader (2026-11-14): this script is the one file
+   every us-dr page already includes, so it also delivers
+   assets/search.js, which turns the shared bar's search form into
+   the home page's in-place results pop-up on interior pages (the
+   form used to navigate to the home page). The module itself stays
+   inert on the home page and on pages without the bar form; if this
+   loader fails, the form keeps its previous behaviour. */
+(function(){try{
+  if(!document.querySelector('.topbar form.search-wrap'))return;
+  if(document.querySelector('#search-panel')||document.querySelector('#search'))return;
+  var s=document.querySelector('script[src*="chatrd.js"]');
+  if(!s)return;
+  var base=s.src.replace(/chatrd\.js(?:\?.*)?$/,'');
+  if(!base)return;
+  var el=document.createElement('script');
+  el.src=base+'search.js?v=1';
+  el.defer=true;
+  document.head.appendChild(el);
+}catch(_){}})();
