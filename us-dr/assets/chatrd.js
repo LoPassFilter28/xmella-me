@@ -439,3 +439,22 @@
   el.defer=true;
   document.head.appendChild(el);
 }catch(_){}})();
+
+/* Article cross-printing links loader (2026-11-14): this script is the
+   one file every us-dr page already includes, so it also delivers
+   assets/links.js, which adds a quiet "also ran in" line under the
+   citation on article pages whose record has audited sibling printings
+   in another newspaper. The loader only fires on the article template
+   (pages carrying the citation factline); if it fails, the page keeps
+   its shipped form exactly. */
+(function(){try{
+  if(!document.querySelector('article.page .plt-factline'))return;
+  var s=document.querySelector('script[src*="chatrd.js"]');
+  if(!s)return;
+  var base=s.src.replace(/chatrd\.js(?:\?.*)?$/,'');
+  if(!base)return;
+  var el=document.createElement('script');
+  el.src=base+'links.js?v=1';
+  el.defer=true;
+  document.head.appendChild(el);
+}catch(_){}})();

@@ -135,3 +135,9 @@ body::before{content:"";position:fixed;top:0;left:0;width:100%;height:3px;backgr
 .ucpop-head:focus-visible,.ucpop-actions .btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
 .ucpop-head:hover{color:var(--accent-ink)}
 .ucpop-head:active{color:var(--accent-ink)}
+
+/* cross-printing links (2026-11-14): the "also ran in" line sits tight
+   under the citation factline, in the factline's own register. */
+.plt-alsoran{font-size:.92rem;color:var(--muted);margin:-1rem 0 1.5rem}
+.plt-alsoran a{color:var(--accent-ink);font-weight:600;text-decoration:none}
+.plt-alsoran a:hover{text-decoration:underline;text-underline-offset:4px}
