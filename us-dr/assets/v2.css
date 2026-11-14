@@ -1,6 +1,8 @@
 /* ============================================================
    V2 LAYER — selective contributions inside the production grammar.
-   Loads after assets/style.css on Profiles and era pages only.
+   Loads after assets/style.css on era pages, on Profiles, and
+   (sections convergence, 2026-11-14) on the Glossary, Newspapers,
+   Guide and Topics sections.
    Production tokens only: no new hues, no new type steps, no new
    fonts. Every rule here is additive; the production stylesheet
    underneath is untouched.
