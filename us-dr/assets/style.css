@@ -1250,3 +1250,18 @@ article.page.index .entry p:not(.entry-role):not(.profile-articles):not(.profile
 article.page.index{padding:28px 18px 20px}
 article.page.index .dir-tools{display:flex;flex-direction:column;align-items:center}
 article.page.index .dir-tools input{width:auto}}
+
+/* === DESKTOP BODY SIZE (the administrator, 2026-11-14): body text
+   ran at two sizes — page prose at 16px while ledes, the timeline and
+   article bodies read at 17px and up. On desktop the default is the
+   larger size, 17px: the inherited base rises (era prose, listing
+   cards, wells and every other inheriting body text), and the two
+   explicit 16px prose rules follow it. Phone sizes do not move:
+   nothing at or below the 760px band changes. Ledes and headings keep
+   their own larger steps (the guide's g-lede and the index intro stay
+   at --fs-l); every explicitly-sized UI element is untouched. === */
+@media (min-width:761px){
+body{font-size:17px}
+article.page .body p{font-size:17px}
+article.page.guide .g-sec p{font-size:17px}
+}
