@@ -41,10 +41,16 @@
 .v2-railprog i{display:block;height:100%;background:var(--accent);
   transform:scaleX(0);transform-origin:0 50%}
 
-/* --- profile hero skeleton: fixed plate column + text column --- */
-.v2-hero{display:grid;grid-template-columns:300px minmax(0,1fr);
+/* --- profile hero skeleton: text column + fixed plate column ---
+   Plate side (the administrator, 2026-11-14): the portrait plate
+   sits on the RIGHT of the hero. Placement is explicit (grid-column)
+   because the plate leads the DOM, which the stacked phone order
+   below depends on. */
+.v2-hero{display:grid;grid-template-columns:minmax(0,1fr) 300px;
   gap:34px;align-items:start;margin:8px 0 6px}
-.v2-hero .plate{margin:0;max-width:300px;border-radius:var(--v2-radius)}
+.v2-hero .plate{margin:0;max-width:300px;border-radius:var(--v2-radius);
+  grid-column:2;grid-row:1}
+.v2-hero-text{grid-column:1;grid-row:1}
 .v2-hero-text .label{margin-top:0}
 .v2-hero-text h1{margin-left:0;margin-right:0}
 @media (min-width:900px){
@@ -87,7 +93,11 @@
   border-top:1px solid var(--line)}
 .v2-railbox{flex:0 0 230px;min-width:0}
 .v2-entrybody{flex:1 1 auto;min-width:0}
-.v2-railbox .entry-h{margin:0}
+/* Name fit (the administrator, 2026-11-14 20:43): with the lifespan
+   dates off the name lines, the four longest names still wrapped in
+   the 230px rail at --fs-l; rail names ride at --fs-b with a hair of
+   tightening so every directory name stands on one line. */
+.v2-railbox .entry-h{margin:0;font-size:var(--fs-b);letter-spacing:-.02em}
 .v2-railbox .profile-articles{font-size:var(--fs-s);margin:10px 0 0}
 .v2-railbox .profile-door{font-size:var(--fs-s);margin:6px 0 0}
 .v2-entrybody>p{margin-top:0}
