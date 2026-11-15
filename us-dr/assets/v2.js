@@ -35,10 +35,12 @@
      Glossary, Newspapers, Guide and Topics sections — their own heads
      and groups (.g-sec, .g-quote, .state-h, .topic-group-h, .entry,
      .v2-pageh) and the profile pages' body heads. Every added selector
-     matches nothing on era pages, so era behavior is unchanged. */
+     matches nothing on era pages, so era behavior is unchanged.
+     Newspapers state wall (2026-11-14): the directory's state cards
+     (.scard) reveal the same way; the class exists only on papers.html. */
   var targets = document.querySelectorAll(
     ".sec-head, .era-subhead, figure.plate, .v2-hero, .v2-cast, " +
-    ".g-sec, .g-quote, .state-h, .topic-group-h, .entry, .v2-pageh, " +
+    ".g-sec, .g-quote, .state-h, .topic-group-h, .entry, .v2-pageh, .scard, " +
     ".page.profile .body h2");
   targets.forEach(function (el) { el.classList.add("v2r"); });
   if ("IntersectionObserver" in window) {
