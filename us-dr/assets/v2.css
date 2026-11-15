@@ -125,3 +125,9 @@ letter-spacing:-.02em;color:var(--headline);line-height:1.15;padding-right:22px}
 .scard .city-h:first-child{margin-top:12px}
 .scard .dirlist{columns:1}
 .scard .dirlist div{margin:0 0 8px}
+/* --- topics index (2026-11-14): the category names carry the display
+   face — one restrained step up from the directory's body text. The
+   same ruling removed the page's filter, intro, and group heading;
+   the list stands on its own under the page title. */
+.topic-list a b{font-family:var(--font-d);font-size:var(--fs-l);font-weight:700;
+letter-spacing:-.01em;line-height:1.3}
