@@ -36,6 +36,8 @@ body[data-theme="dark"]{
 --border:var(--line);--border-strong:#7A5B40;--control-border:#9A7A58;
 --plate-hi:#3D2716;--plate-lo:#1D1106;
 --shadow:0 1px 2px rgba(0,0,0,.5),0 4px 14px rgba(0,0,0,.4)}
+:root{color-scheme:light}
+:root:has(>body[data-theme="dark"]){color-scheme:dark}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);
 font-family:var(--font-b);line-height:1.6;
