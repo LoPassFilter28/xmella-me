@@ -1,0 +1,32 @@
+@font-face{font-family:DM;src:url('./assets/type-5.woff2') format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:Cormorant;src:url('./assets/type-2.woff2') format('woff2');font-weight:500;font-display:swap}
+:root{--stone:#c8c4bc;--ink:#3d3b36;--edge:#f6f3e97d;--ease:cubic-bezier(.2,.75,.25,1)}
+*{box-sizing:border-box}html{background:var(--stone);color:var(--ink)}body{margin:0;min-width:280px;overflow-x:clip;background:radial-gradient(ellipse at 31% 35%,#e3e0d8 0%,#d5d1c9 30%,transparent 66%),linear-gradient(120deg,#c9c5bd,#c1bdb5);font-family:DM,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;z-index:4;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' opacity='.25' filter='url(%23n)'/%3E%3C/svg%3E")}
+a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}a:focus-visible{outline:2px solid #514c41;outline-offset:6px}
+.gallery{width:min(1180px,100%);margin:0 auto;padding:56px 40px 64px}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;position:relative;z-index:1}
+.card{position:relative;min-height:188px;padding:30px 34px;display:flex;align-items:center;border:1px solid var(--edge);border-bottom-color:#a7a39970;border-radius:12px;background:linear-gradient(115deg,#f6f3e8a3,#eeebe36b 55%,#e3e0d766);box-shadow:inset 0 1px 0 #fff5,0 3px 0 #9b978e27,0 9px 24px #4a46350a;isolation:isolate;transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s,background .35s;--mx:50%;--my:20%}
+.card:before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(ellipse at var(--mx) var(--my),#fff9,transparent 70%);opacity:0;transition:opacity .4s;pointer-events:none;z-index:-1}
+h2{font-family:Cormorant,Georgia,serif;font-size:31px;font-weight:500;line-height:1.14;letter-spacing:-.45px;margin:0;position:relative;z-index:2}
+.arrow{position:absolute;top:16px;right:16px;width:17px;height:17px;display:grid;place-items:center;color:#777369;opacity:.65;transition:opacity .3s,transform .35s var(--ease)}
+.arrow svg{height:13px;width:13px;fill:none;stroke:currentColor;stroke-width:1.35}
+.featured{grid-column:1/-1;min-height:336px;padding:44px 48px;background:linear-gradient(120deg,#68665f,#7c7972);border-color:#ffffff45;border-bottom-color:#56534e;border-radius:14px;box-shadow:inset 0 1px 0 #fff2,0 3px 0 #66625b5c,0 14px 28px #3e3b2d0d;overflow:hidden;color:#f6f3e9}
+.featured h2{font-size:57px;line-height:1.04;letter-spacing:-.6px}
+.featured .arrow{top:24px;right:24px;color:#fff;opacity:.85}
+.featured .arrow svg{width:15px;height:15px}
+.featured:before{background:radial-gradient(ellipse at var(--mx) var(--my),#ffffff1c,transparent 75%)}
+.clipping{position:absolute;inset:0 0 0 52%;pointer-events:none;mask-image:linear-gradient(90deg,transparent,#000 23%);-webkit-mask-image:linear-gradient(90deg,transparent,#000 23%);opacity:.62;transition:transform .65s var(--ease),opacity .5s;z-index:0}
+.clipping img{position:absolute;width:250px;height:370px;object-fit:cover;object-position:top;top:32px;right:12px;transform:rotate(12deg);filter:grayscale(1) sepia(.12);box-shadow:-4px 2px 20px #0003}
+.paper-back{position:absolute;width:220px;height:355px;top:48px;right:30px;background:#d8d4c8;transform:rotate(-4deg)}
+.clipping:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#73706955,transparent 70%)}
+.card--fortaleza{overflow:hidden}
+.card--fortaleza:before{content:"";position:absolute;inset:0 0 0 38%;background:url("./assets/fortaleza-card.jpg") right top / cover no-repeat;-webkit-mask-image:linear-gradient(to right,transparent 0%,#000 55%);mask-image:linear-gradient(to right,transparent 0%,#000 55%);z-index:0;opacity:1;transition:transform .6s ease;border-radius:0}
+.card--fortaleza:hover:before{transform:scale(1.04)}
+@media(hover:hover) and (pointer:fine){.card:hover{transform:translateY(-3px);border-color:#fff9;box-shadow:inset 0 1px 0 #fff7,0 5px 0 #9b978e30,0 17px 25px #4a46350d}.card:hover:before{opacity:1}.card--fortaleza:hover:before{opacity:1;transform:scale(1.04)}.card:hover .arrow{opacity:1;transform:translate(2px,-2px)}.featured:hover{box-shadow:inset 0 1px 0 #fff3,0 5px 0 #66625b60,0 17px 28px #3e3b2d15}.featured:hover .clipping{transform:translate(3px,-3px) rotate(-1deg);opacity:.85}}
+.card:active{transform:translateY(1px);box-shadow:inset 0 1px 0 #fff4,0 1px 0 #9b978e30}
+.card:focus-visible .arrow{opacity:1}
+@media(max-width:900px){.gallery{padding:40px 28px 48px}.card{min-height:150px;padding:26px 28px}h2{font-size:27px}.featured{min-height:280px;padding:34px 36px}.featured h2{font-size:44px}.clipping img{width:200px;height:300px;right:-6px}.paper-back{width:180px;height:290px;right:12px}}
+@media(max-width:620px){.gallery{padding:28px 18px 36px}.cards{grid-template-columns:1fr;gap:12px}.card{min-height:104px;padding:22px 24px}h2{font-size:24px}.card h2 br{display:none}.featured{min-height:210px;padding:26px}.featured h2{font-size:34px;max-width:82%}.featured h2 br{display:block}.clipping{left:48%;opacity:.48}.clipping img{width:150px;height:230px;right:-24px;top:26px}.paper-back{width:125px;height:215px;right:-4px;top:40px}.card--fortaleza:before{inset:0 0 0 46%}.card--fortaleza h2 br{display:block}}
+@media(prefers-reduced-motion:no-preference){.card{animation:arrive .65s var(--ease) both;animation-delay:calc(var(--order,0)*55ms)}@keyframes arrive{from{opacity:0;translate:0 9px}to{opacity:1;translate:0 0}}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.card:hover,.card:active,.featured:hover .clipping,.card:hover .arrow{transform:none}}

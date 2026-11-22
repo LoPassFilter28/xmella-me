@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Fortaleza Ozama &amp; Torre del Homenaje — Interactive Historical 3D Reconstruction</title>
+    <script type="module" crossorigin src="./assets/index-Bva2kvak.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Vn22Cygs.css">
+  </head>
+  <body>
+    <!-- WebGL Viewport -->
+    <main id="viewport" aria-label="Interactive 3D reconstruction of Fortaleza Ozama"></main>
+
+    <!-- 3D-Projected Curatorial Hotspots Layer -->
+    <div id="hotspot-layer" aria-label="Historical architectural hotspots"></div>
+
+    <!-- Museum Editorial HUD -->
+    <div id="hud-root">
+      <!-- Top Left Monument Plate -->
+      <header class="title-plate">
+        <div class="title-kicker">CIUDAD COLONIAL · SANTO DOMINGO · EST. 1502–1508</div>
+        <h1 class="title-heading">Fortaleza Ozama</h1>
+        <p class="title-sub">Torre del Homenaje &amp; Colonial River Defenses · Hybrid Digital Heritage</p>
+      </header>
+
+      <!-- Top Right Interactive Controls -->
+      <nav class="top-controls" aria-label="Experience controls">
+        <div class="control-group segmented" role="group" aria-label="Navigation mode">
+          <button id="btn-mode-orbit" class="ctrl-btn active" title="Orbit Camera Mode (F to switch)">
+            <span>Orbit</span>
+          </button>
+          <button id="btn-mode-fps" class="ctrl-btn" title="First-Person Walk Mode (WASD + drag to look)">
+            <span>Walk</span>
+          </button>
+        </div>
+
+        <button id="btn-historical-mode" class="ctrl-btn pill" title="Toggle 16th-Century Historical Interpretation">
+          <span class="dot"></span>
+          <span class="era-label">Present Heritage</span>
+        </button>
+
+        <button id="btn-toggle-hotspots" class="ctrl-btn pill active" title="Toggle Historical Hotspots (H)">
+          <span>Hotspots</span>
+        </button>
+
+        <button id="btn-toggle-drawer" class="ctrl-btn pill" title="Layers, SPZ Comparison & Quality Settings">
+          <span>Layers</span>
+        </button>
+
+        <button id="btn-fullscreen" class="ctrl-btn icon-only" title="Toggle Fullscreen" aria-label="Fullscreen">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+          </svg>
+        </button>
+      </nav>
+
+      <!-- 16th-Century Historical Interpretation Disclosure Banner -->
+      <div id="era-disclosure-banner" class="era-banner" role="status">
+        <strong>16th-Century Historical Interpretation Mode:</strong>
+        <span>Warm colonial afternoon light, Spanish <em>Cruz de Borgoña</em> garrison banner &amp; period artillery ambiance. Surviving 1977 Oviedo statue remains in source splat for heritage continuity.</span>
+      </div>
+
+      <!-- Walk Mode Hint -->
+      <div id="fps-hint" class="fps-hint">
+        Drag to look · <strong>WASD / Arrows</strong> to walk · <strong>Q / E</strong> adjust height · <strong>Shift</strong> brisk pace
+      </div>
+
+      <!-- Secondary Lazy-Load Toast -->
+      <div id="secondary-toast" class="secondary-toast"></div>
+
+      <!-- Hotspot Curatorial Information Card -->
+      <aside id="hotspot-card" class="hotspot-card" aria-live="polite">
+        <div class="card-header">
+          <div>
+            <div id="card-era" class="card-era">1502–1508</div>
+            <h2 id="card-title" class="card-title">Torre del Homenaje</h2>
+          </div>
+          <button id="btn-close-card" class="close-btn" aria-label="Close panel">&times;</button>
+        </div>
+        <div class="card-badge-row">
+          <span id="card-status-badge" class="status-badge">Documented</span>
+        </div>
+        <div class="card-section documented">
+          <div class="section-label">Documented Historical &amp; Archival Fact</div>
+          <p id="card-documented"></p>
+        </div>
+        <div class="card-section reconstructed">
+          <div class="section-label">Hybrid 3D Reconstruction Notes</div>
+          <p id="card-reconstructed"></p>
+        </div>
+      </aside>
+
+      <!-- Slide-Out Layers, Comparison & Performance Drawer -->
+      <aside id="settings-drawer" class="settings-drawer" aria-label="Scene layers and quality">
+        <div class="drawer-header">
+          <h3>Reconstruction Inspector</h3>
+          <button id="btn-close-drawer" class="close-btn" aria-label="Close inspector">&times;</button>
+        </div>
+
+        <div class="drawer-block">
+          <div class="drawer-label">Hybrid View Comparison</div>
+          <p class="drawer-help">Original 2M-point World Labs SPZ is preserved unchanged on disk; compare directly against our Blender 5.3 architectural enhancement.</p>
+          <div class="drawer-seg">
+            <button class="seg-opt active" data-render-mode="hybrid">Hybrid Enhanced</button>
+            <button class="seg-opt" data-render-mode="splat-raw">Original SPZ</button>
+            <button class="seg-opt" data-render-mode="mesh-only">Blender 3D Only</button>
+          </div>
+        </div>
+
+        <div class="drawer-block">
+          <div class="drawer-label">Blender 3D Asset Layers (GLB)</div>
+          <label class="toggle-row"><input type="checkbox" checked data-layer-key="architecture" /><span>Keep Battlements, Turret &amp; Doors</span></label>
+          <label class="toggle-row"><input type="checkbox" checked data-layer-key="walls" /><span>Bastions, Garitas &amp; Perimeter Walls</span></label>
+          <label class="toggle-row"><input type="checkbox" checked data-layer-key="terrain" /><span>Coral Bluff, River &amp; Far Bank</span></label>
+          <label class="toggle-row"><input type="checkbox" checked data-layer-key="vegetation" /><span>Royal Palms &amp; Tropical Shade Trees</span></label>
+          <label class="toggle-row"><input type="checkbox" checked data-layer-key="props" /><span>Colonial Cannons, Lanterns &amp; Flags</span></label>
+        </div>
+
+        <div class="drawer-block">
+          <div class="drawer-label">Adaptive Rendering Quality</div>
+          <div class="drawer-seg">
+            <button class="seg-opt" data-quality="high">High</button>
+            <button class="seg-opt" data-quality="balanced">Balanced</button>
+            <button class="seg-opt" data-quality="mobile">Mobile Lite</button>
+          </div>
+        </div>
+
+        <div class="drawer-block drawer-shortcuts">
+          <div class="drawer-label">Keyboard Shortcuts</div>
+          <div class="shortcut-grid">
+            <span><kbd>1</kbd>–<kbd>6</kbd> Curated Views</span>
+            <span><kbd>F</kbd> Orbit / Walk</span>
+            <span><kbd>WASD</kbd> Move Camera</span>
+            <span><kbd>H</kbd> Toggle Pins</span>
+            <span><kbd>R</kbd> Reset View</span>
+            <span><kbd>Esc</kbd> Close Panels</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Bottom Camera Tour & Zoom Controls -->
+      <footer class="bottom-bar">
+        <div id="camera-bar" class="camera-bar" role="navigation" aria-label="Camera viewpoints"></div>
+        <div class="zoom-controls">
+          <button id="btn-zoom-out" class="ctrl-btn icon-only" title="Zoom Out" aria-label="Zoom out">&minus;</button>
+          <button id="btn-zoom-in" class="ctrl-btn icon-only" title="Zoom In" aria-label="Zoom in">&plus;</button>
+          <button id="btn-reset-cam" class="ctrl-btn icon-only" title="Reset Camera (R)" aria-label="Reset camera">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.9">
+              <path d="M3 12a9 9 0 1 0 3-6.7L3 8" />
+              <path d="M3 3v5h5" />
+            </svg>
+          </button>
+        </div>
+      </footer>
+
+      <!-- Mobile Touch Virtual Joystick (visible only in Walk mode on touchscreens) -->
+      <div id="mobile-joystick-wrap" class="joystick-wrap" aria-hidden="true">
+        <div id="joystick-base" class="joystick-base">
+          <div id="joystick-knob" class="joystick-knob"></div>
+        </div>
+        <div class="joystick-caption">WALK</div>
+      </div>
+    </div>
+
+    <!-- Museum Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+      <div class="loading-card">
+        <div class="loading-kicker">DIGITAL HERITAGE RECONSTRUCTION · SANTO DOMINGO</div>
+        <h2 class="loading-title">Fortaleza Ozama</h2>
+        <p class="loading-desc">Streaming locally hosted 2,000,000-point Gaussian splat &amp; Blender 5.3 architectural assets…</p>
+        <div class="loading-bar-track">
+          <div id="loading-bar-fill" class="loading-bar-fill"></div>
+        </div>
+        <div class="loading-meta">
+          <span id="loading-status">Initializing WebGL2 &amp; Spark renderer…</span>
+          <span id="loading-pct">0%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Graceful Error Fallback Overlay -->
+    <div id="error-overlay" class="error-overlay hidden" role="alert">
+      <div class="error-card">
+        <h2>Unable to Initialize 3D Heritage Experience</h2>
+        <p id="error-message">Your browser may not support WebGL2 or local assets could not be loaded.</p>
+        <button onclick="window.location.reload()" class="ctrl-btn pill active">Reload Experience</button>
+      </div>
+    </div>
+
+  </body>
+</html>
