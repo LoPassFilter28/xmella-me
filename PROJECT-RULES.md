@@ -45,10 +45,14 @@ file governs inside this project.
 - Stack: GitHub repo -> Vercel -> Cloudflare DNS.
 - DESIGN.MD before pages. Integrity sweep + browser behaviour
   verification before a ship is called verified. One lane, batched
-  GitHub pushes; the administrator's verbal confirmation is push authorization.
-- Paid-tier tripwire: warn before any usage approaches a paid tier.
-- Zero payment authorization: purchases and billing changes are the administrator's
-  alone. Credentials only through the Secure Vault, never chat.
+  GitHub pushes; when the objective clearly entails shipping/pushing,
+  go ahead and push directly without pausing for extra confirmation.
+- Caution gates (ONLY pause for explicit confirmation on these):
+  1. **Spending money / paid-tier tripwire:** purchases, billing changes,
+     or usage approaching a paid tier are the administrator's alone.
+  2. **Personally identifiable information (PII) & secrets:** never
+     disseminate PII or credentials; credentials only through the Secure
+     Vault, never chat.
 
 ## Pre-implementation activations
 - Sentry student plan attached + xmella project created.
