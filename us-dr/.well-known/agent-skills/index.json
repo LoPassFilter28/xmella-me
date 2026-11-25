@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "site": "https://xmella.me/us-dr/",
+  "name": "DR in the American Press",
+  "llms_txt": "https://xmella.me/us-dr/llms.txt",
+  "mcp": {
+    "endpoint": "https://xmella.me/us-dr/mcp",
+    "transport": "streamable-http",
+    "authentication": "none"
+  },
+  "markdown_negotiation": {
+    "accept": "text/markdown",
+    "vary": "Accept",
+    "single_language_param": "lang"
+  },
+  "skills": [
+    {
+      "id": "search-us-dr-archive",
+      "name": "Search DR in the American Press",
+      "description": "Search 7,955 historical U.S. newspaper articles about the Dominican Republic (1820-1984) and retrieve primary-source Library of Congress citations.",
+      "guide_url": "https://xmella.me/us-dr/llms.txt",
+      "mcp_endpoint": "https://xmella.me/us-dr/mcp"
+    }
+  ]
+}

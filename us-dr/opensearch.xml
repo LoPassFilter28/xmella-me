@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName>DR in the American Press</ShortName>
+  <Description>Search 7,955 bilingual U.S. newspaper articles on the Dominican Republic (1820-1984).</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Url type="text/html" template="https://xmella.me/us-dr/?q={searchTerms}"/>
+</OpenSearchDescription>

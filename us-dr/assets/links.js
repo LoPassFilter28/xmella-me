@@ -54,6 +54,7 @@
   function span(root, sibs, lang) {
     var el = document.createElement('span');
     el.className = 'l-' + lang;
+    el.lang = lang;
     el.appendChild(document.createTextNode(LEAD[lang]));
     sibs.forEach(function (sib, i) {
       if (i > 0) el.appendChild(document.createTextNode(' · '));

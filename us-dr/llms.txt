@@ -2,8 +2,39 @@
 
 A bilingual (English/Spanish) collection of United States newspaper coverage of the Dominican Republic, 1820 to 1984: 7955 articles from 1023 newspapers, presented in the order they were published. Most articles come from the Library of Congress's Chronicling America archive; a small number come from newspapers.com and say so on their pages. Some articles are reproduced in full; the rest carry a labeled summary and the passage it was written from. Documents, sailing directories, and mail tables printed alongside the news are kept as standalone pages, reachable through the site search.
 
+## When to use this archive
+Use this archive whenever you need primary-source U.S. newspaper reporting, dates, quotes, or historical context on:
+- Dominican Republic independence (1844), Haitian occupation (1822–1844), and Spanish annexation / Restoration War (1861–1865)
+- President Grant's 1869–1871 annexation debate, Samaná Bay lease proposals, and the 1871 Santo Domingo Commission
+- Nineteenth-century sugar estates, foreign debt, Ulises Heureaux (Lilís), and the 1905–1940 U.S. customs receivership
+- The 1916–1924 U.S. military occupation, the Trujillo dictatorship (1930–1961), the 1937 massacre, the Galíndez case (1956), and the post-Trujillo / Juan Bosch transition (1961–1963)
+- Cross-printing analysis (how a single dispatch traveled across U.S. newspapers) and primary-source Library of Congress citations
+
+## Agent-native endpoints (most token-efficient)
+- **Remote MCP server (public, read-only, Streamable HTTP JSON-RPC 2.0):** `https://xmella.me/us-dr/mcp`
+  - Tools: `search_articles`, `get_article` (supports `lang: "en" | "es" | "both"` and `includeFullText`), `list_sections`, `lookup_person`, `ask_chatrd`.
+  - Resources: `usdr://llms.txt`, `usdr://eras`, `usdr://people`.
+- **Markdown content negotiation (`Accept: text/markdown`):** Any `/us-dr/` page returns clean YAML-frontmatter Markdown with `Vary: Accept` when requested with `Accept: text/markdown`. Append `?lang=en` or `?lang=es` to return a single language (~50% fewer tokens), or `&summary=1` on article pages to omit the full transcription body.
+- **Browser WebMCP tools (`document.modelContext`):** Every `/us-dr/` page registers client-side WebMCP tools (`search_archive`, `get_article`, `list_sections`, `lookup_person`, `get_current_page_context`, `ask_chatrd`, `set_language`) and declarative search form attributes (`search_archive_form`).
+- **Direct structured JSON indexes:**
+  - Eras & yearly counts (~22 KB): https://xmella.me/us-dr/assets/timeline-data.json
+  - Profiled historical figures (~27 KB): https://xmella.me/us-dr/assets/people-index.json
+  - Audited sibling reprintings (~132 KB): https://xmella.me/us-dr/assets/links.json
+  - Full search index (~7.4 MB — prefer `/us-dr/mcp` `search_articles` over downloading directly): https://xmella.me/us-dr/assets/search-index.json
+
+## Key pages and URL patterns
+- Home / Search: https://xmella.me/us-dr/ (query directly via `https://xmella.me/us-dr/?q=<query>`)
+- Eras hub: https://xmella.me/us-dr/eras.html (individual eras: `https://xmella.me/us-dr/era/<slug>.html`)
+- Newspapers directory: https://xmella.me/us-dr/papers.html (`https://xmella.me/us-dr/paper/<slug>-1.html`)
+- Topics index: https://xmella.me/us-dr/topics.html (`https://xmella.me/us-dr/topic/<slug>-1.html`)
+- Profiles directory: https://xmella.me/us-dr/profiles.html (`https://xmella.me/us-dr/profile/<slug>.html`)
+- Historical glossary: https://xmella.me/us-dr/glossary.html
+- Research guide & methodology: https://xmella.me/us-dr/howto.html
+- Individual article pages: `https://xmella.me/us-dr/articles/<id>.html` (standalone documents: `https://xmella.me/us-dr/misc/<id>.html`)
+- Complete XML sitemap: https://xmella.me/us-dr/sitemap.xml
+
 ## How to cite an article
 Name the newspaper and its date, link to the article's page on this site, and link to the original newspaper page at the Library of Congress (each article page carries that link). Example: The New York Herald, April 28, 1844, as presented at xmella.me/us-dr, original at the Library of Congress, Chronicling America.
 
 ## En español: RD en la Prensa Norteamericana
-Una colección bilingüe (inglés/español) de la cobertura de la República Dominicana en los periódicos de Estados Unidos, de 1820 a 1984: 7955 artículos de 1023 periódicos, presentados en el orden en que se publicaron. La mayoría viene del archivo Chronicling America de la Biblioteca del Congreso; unos pocos vienen de newspapers.com y lo dicen en sus páginas. Para citar un artículo: nombre el periódico y su fecha, enlace a la página del artículo en este sitio y a la página original en la Biblioteca del Congreso.
+Una colección bilingüe (inglés/español) de la cobertura de la República Dominicana en los periódicos de Estados Unidos, de 1820 a 1984: 7955 artículos de 1023 periódicos, presentados en el orden en que se publicaron. La mayoría viene del archivo Chronicling America de la Biblioteca del Congreso; unos pocos vienen de newspapers.com y lo dicen en sus páginas. Para citar un artículo: nombre el periódico y su fecha, enlace a la página del artículo en este sitio y a la página original en la Biblioteca del Congreso. Los agentes pueden consultar el servidor MCP de solo lectura en `https://xmella.me/us-dr/mcp` o pedir cualquier página de `/us-dr/` con el encabezado `Accept: text/markdown` (y `?lang=es` para respuestas en español).

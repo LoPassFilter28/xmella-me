@@ -103,20 +103,24 @@
 
   // ------------------------------------------------------------- DOM
   const btn = document.createElement('button');
+  btn.type = 'button';
   btn.className = 'crd-chat-btn';
   btn.setAttribute('aria-haspopup', 'dialog');
   btn.setAttribute('aria-expanded', 'false');
+  btn.setAttribute('aria-controls', 'crd-chat-panel');
   btn.innerHTML = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg><span class="crd-chat-btn-label">ChatRD</span>';
 
   const panel = document.createElement('section');
+  panel.id = 'crd-chat-panel';
   panel.className = 'crd-chat-panel';
   panel.setAttribute('role', 'dialog');
-  panel.setAttribute('aria-label', 'ChatRD');
+  panel.setAttribute('aria-labelledby', 'crd-chat-title');
+  panel.inert = true;
   panel.innerHTML =
     '<div class="crd-chat-head"><div>' +
-    '<h2 class="crd-chat-title"></h2><p class="crd-chat-sub"></p></div>' +
+    '<h2 id="crd-chat-title" class="crd-chat-title"></h2><p class="crd-chat-sub"></p></div>' +
     '<button class="crd-chat-close" type="button">&times;</button></div>' +
-    '<div class="crd-chat-msgs"></div>' +
+    '<div class="crd-chat-msgs" role="log" aria-live="polite" aria-relevant="additions"></div>' +
     '<form class="crd-chat-form"><input class="crd-chat-input" type="text" autocomplete="off" maxlength="500">' +
     '<button class="crd-chat-send" type="submit"></button></form>';
 
@@ -274,6 +278,7 @@
     }
     if (store.get(OKEY) === '1') {
       panel.classList.add('open');
+      panel.inert = false;
       btn.setAttribute('aria-expanded', 'true');
       if (!opened) {
         opened = true;
@@ -285,6 +290,7 @@
 
   function toggle(open) {
     panel.classList.toggle('open', open);
+    panel.inert = !open;
     btn.setAttribute('aria-expanded', String(open));
     saveOpen(open);
     if (open) {
@@ -295,6 +301,8 @@
         track('chatrd_open');
       }
       setTimeout(() => input.focus(), 60);
+    } else if (panel.contains(document.activeElement)) {
+      btn.focus();
     }
   }
   btn.addEventListener('click', () => toggle(!panel.classList.contains('open')));
@@ -455,6 +463,20 @@
   if(!base)return;
   var el=document.createElement('script');
   el.src=base+'links.js?v=1';
+  el.defer=true;
+  document.head.appendChild(el);
+}catch(_){}})();
+
+/* Agent navigation & WebMCP tools loader (2026-11-25): delivers
+   assets/agent-tools.js across every us-dr page for accessibility-tree
+   semantics and WebMCP tool registration without visual changes. */
+(function(){try{
+  var s=document.querySelector('script[src*="chatrd.js"]');
+  if(!s)return;
+  var base=s.src.replace(/chatrd\.js(?:\?.*)?$/,'');
+  if(!base)return;
+  var el=document.createElement('script');
+  el.src=base+'agent-tools.js?v=1';
   el.defer=true;
   document.head.appendChild(el);
 }catch(_){}})();

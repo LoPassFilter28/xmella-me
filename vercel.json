@@ -1,21 +1,102 @@
 {
-  "headers": [
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "routes": [
     {
-      "source": "/ozama/(.*)",
-      "headers": [
-        { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" },
-        { "key": "Cross-Origin-Embedder-Policy", "value": "require-corp" }
-      ]
+      "src": "/ozama/(.*)",
+      "headers": {
+        "Cross-Origin-Opener-Policy": "same-origin",
+        "Cross-Origin-Embedder-Policy": "require-corp"
+      },
+      "continue": true
+    },
+    {
+      "src": "/ozama",
+      "status": 308,
+      "headers": { "Location": "/ozama/" }
+    },
+    {
+      "src": "/us-dr-newspaper-timeline",
+      "status": 308,
+      "headers": { "Location": "/us-dr/" }
+    },
+    {
+      "src": "/us-dr-newspaper-timeline/",
+      "status": 308,
+      "headers": { "Location": "/us-dr/" }
+    },
+    {
+      "src": "/us-dr-newspaper-timeline/(.*)",
+      "status": 308,
+      "headers": { "Location": "/us-dr/$1" }
+    },
+    {
+      "src": "/us-dr",
+      "status": 308,
+      "headers": { "Location": "/us-dr/" }
+    },
+    {
+      "src": "/barskett",
+      "status": 308,
+      "headers": { "Location": "/barskett/" }
+    },
+    {
+      "src": "/tito-mella",
+      "status": 308,
+      "headers": { "Location": "/tito-mella/" }
+    },
+    {
+      "src": "/santo-domingo-commission",
+      "status": 308,
+      "headers": { "Location": "/santo-domingo-commission/" }
+    },
+    {
+      "src": "/us-dr/(.*)",
+      "headers": {
+        "Vary": "Accept",
+        "Link": "</us-dr/llms.txt>; rel=\"describedby\"; type=\"text/markdown\", </us-dr/sitemap.xml>; rel=\"sitemap\"; type=\"application/xml\", </us-dr/mcp>; rel=\"service-desc\"; type=\"application/json\", </us-dr/opensearch.xml>; rel=\"search\"; type=\"application/opensearchdescription+xml\""
+      },
+      "continue": true
+    },
+    {
+      "src": "/us-dr/mcp",
+      "dest": "/api/mcp"
+    },
+    {
+      "src": "/us-dr/(?!assets/|assets-pages/|llms\\.txt$|robots\\.txt$|sitemap\\.xml$|opensearch\\.xml$|\\.well-known/|mcp$)(.*)",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": "(.*text/markdown.*)"
+        }
+      ],
+      "missing": [
+        {
+          "type": "header",
+          "key": "x-usdr-raw-html",
+          "value": "1"
+        }
+      ],
+      "dest": "/api/markdown?path=/us-dr/$1"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/us-dr/(.*)",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": "(.*text/markdown.*)"
+        }
+      ],
+      "dest": "/api/markdown?path=/us-dr/$1&notfound=1"
+    },
+    {
+      "src": "/us-dr/(.*)",
+      "status": 404,
+      "dest": "/us-dr/404.html"
     }
-  ],
-  "redirects": [
-    { "source": "/ozama", "destination": "/ozama/", "permanent": true },
-    { "source": "/us-dr-newspaper-timeline", "destination": "/us-dr/", "permanent": true },
-    { "source": "/us-dr-newspaper-timeline/", "destination": "/us-dr/", "permanent": true },
-    { "source": "/us-dr-newspaper-timeline/:path*", "destination": "/us-dr/:path*", "permanent": true },
-    { "source": "/us-dr", "destination": "/us-dr/", "permanent": true },
-    { "source": "/barskett", "destination": "/barskett/", "permanent": true },
-    { "source": "/tito-mella", "destination": "/tito-mella/", "permanent": true },
-    { "source": "/santo-domingo-commission", "destination": "/santo-domingo-commission/", "permanent": true }
   ]
 }

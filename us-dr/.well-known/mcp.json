@@ -1,0 +1,27 @@
+{
+  "name": "xmella-us-dr",
+  "description": "Public read-only MCP server for DR in the American Press (xmella.me/us-dr), a bilingual archive of 7,955 U.S. newspaper articles on the Dominican Republic (1820-1984).",
+  "transport": "streamable-http",
+  "endpoint": "https://xmella.me/us-dr/mcp",
+  "authentication": "none",
+  "readOnly": true,
+  "documentation": "https://xmella.me/us-dr/llms.txt",
+  "markdownNegotiation": {
+    "supported": true,
+    "header": "Accept: text/markdown",
+    "queryParams": ["lang=en|es|both", "summary=1"]
+  },
+  "webmcp": {
+    "supported": true,
+    "api": "document.modelContext",
+    "tools": [
+      "search_archive",
+      "get_article",
+      "list_sections",
+      "lookup_person",
+      "get_current_page_context",
+      "ask_chatrd",
+      "set_language"
+    ]
+  }
+}
